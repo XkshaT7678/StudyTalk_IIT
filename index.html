@@ -222,7 +222,7 @@ body {
     <div class="container">
         <div class="row">
             <div style="margin-bottom:-85px;margin-top:-50px;" class="col-lg-12 text-center wow animated fadeInUp" data-wow-delay="0.1s">
-                <h1 class="text-content text-white"><strong>EduVerse ✓⃝</strong></h1>
+                <h1 class="text-content text-white"><strong>EduVerse  ✓⃝</strong></h1>
                 <div class="text-content2 text-white">
 			<br>
                     ✦ Expert-Curated Courses ✦ <i class="fa fa-award" style="color: white; font-size: 16px;"></i> <br>
@@ -544,7 +544,18 @@ body {
     <script src="https://www.recaptcha.net/recaptcha/api.js?onload=onloadRecaptchaCallback&render=explicit"
             async defer>
 
+<script>
+document.addEventListener('contextmenu', event => event.preventDefault()); // Disable right-click
 
+document.addEventListener('keydown', event => {
+    if (event.ctrlKey && (event.key === 'c' || event.key === 'x' || event.key === 'u')) {
+        event.preventDefault();
+    }
+});
+
+document.addEventListener('copy', event => event.preventDefault()); // Disable copy
+document.addEventListener('cut', event => event.preventDefault()); // Disable cut
+</script>
 
 </body>
 
