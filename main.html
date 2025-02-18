@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduVerse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+}
+      
+      /* boards countdown.. */
+.countdown-section {
+  text-align: center;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-section h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.time-unit {
+  background: #ffffff;
+  padding: 15px 10px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #dddddd;
+}
+
+.time-unit span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000000;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.time-unit p {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 0;
+  color: #666666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .countdown {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .time-unit {
+    padding: 10px;
+  }
+
+  .time-unit span {
+    font-size: 24px;
+  }
+
+  .countdown-section h1 {
+    font-size: 20px;
+  }
+}
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        header {
+      background-color: #6495ED; /* Cornflower blue */
+      padding: 1rem 10px;
+      display: flex;
+      justify-content: space-between; /* Aligns title on the left, bell on the right */
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      height: 50px;
+      width: calc(100% - 20px); /* Leaves a little margin on the sides */
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+
+    .header-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #f9f9f9;
+    }
+
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: url('images/notification.jpg') no-repeat center center;
+      background-size: cover;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .notification-icon .notification-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+      display: none; /* Hidden by default */
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      justify-content: center;
+      padding-top: 80px; /* Adjusted to fit the fixed header */
+    }
+
+    .notifications-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px; /* Below the bell icon */
+      right: 0;
+      background-color: white;
+      color: black;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      width: 250px;
+      border-radius: 8px;
+      z-index: 1001;
+    }
+
+    .notifications-dropdown .notification {
+      padding: 10px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    .notifications-dropdown .notification:last-child {
+      border-bottom: none;
+    }
+
+    .notifications-dropdown p {
+      margin: 10px;
+      text-align: center;
+        }
+
+        .batch-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .batch-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .batch-info {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .batch-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #5OC878;
+            color: #333;
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .description {
+            font-size: 0.9em;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .discount {
+            background-color: #dff0d8;
+            color: #28a745;
+            font-size: 0.8em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .button {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            text-decoration: none;
+            color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .explore {
+            background-color: #6495ED;
+        }
+
+            .telegram-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #0088cc;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.telegram-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.telegram-button img {
+  width: 50%;
+  height: 50%;
+            }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+    
+<body>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+  <header>
+    <div class="header-title">EduVerse</div>
+    <div class="notification-icon" onclick="toggleNotifications()">
+      <span class="notification-count" id="notification-count">0</span>
+      <div class="notifications-dropdown" id="notifications-dropdown">
+        <p>No new notifications</p>
+      </div>
+    </div>
+  </header><br>
+    
+<!-----
+
+  
+<br><br><br><section class="countdown-section">
+  <h1>Countdown to CBSE Boards</h1>
+  <div class="countdown">
+    <div class="time-unit">
+      <span id="days">00</span>
+      <p>Days</p>
+    </div>
+    <div class="time-unit">
+      <span id="hours">00</span>
+      <p>Hours</p>
+    </div>
+    <div class="time-unit">
+      <span id="minutes">00</span>
+      <p>Minutes</p>
+    </div>
+    <div class="time-unit">
+      <span id="seconds">00</span>
+      <p>Seconds</p>
+    </div>
+  </div>
+</section>
+          
+            --->
+    
+    <div class="container">
+        <!-- Batch Card -->
+ <!--
+        <div class="batch-card">
+            <div class="badge"></div>
+            <img src="images/IMG_20250116_010508_507.jpg" alt="Abhay 2025 Class 10th">
+            <div class="batch-info">
+                <div class="batch-title">Last 29 Days - Series</div>
+                <div class="description">x Powered by ~ NextEdu Academy!</div>
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                    </div>
+                    <span class="discount"></span>
+                </div>
+                <div class="buttons">
+                    <a href="antim29.html" class="button explore">Today’s Target 🎯</a>
+                </div>
+            </div>
+    </div>
+        -->
+        
+        <div class="batch-card">
+            <div class="badge">Next Toppers</div>
+            <img src="images/1736667911145.jpg" alt="Abhay 2025 Class 10th">
+            <div class="batch-info">
+                <div class="batch-title">Next Toppers</div>
+                <div class="description">All Next-toppers batch here!</div>
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/next-toppers" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="batch-card">
+            <div class="badge">Padhle Akshay</div>
+            <img src="images/20250113_004439.png" alt="Abhay 2025 Class 10th">
+            <div class="batch-info">
+                <div class="batch-title">24 Hours - Padhle Akshay</div>
+                <div class="description">All stages of Gamified Course Here!</div>
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="/padhle-akshay" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="batch-card">
+            <div class="badge">PW</div>
+            <img src="images/20250112_135436.png" alt="Aarambh 2025 Class 10th">
+            <div class="batch-info">
+                <div class="batch-title">Physics Wallah</div>
+                <div class="description">All PW Batch here!</div>
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="maintained.html" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <div class="telegram-button" onclick="openTelegramChannel()">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Logo">
+    </div>
+
+    <!-- Particles.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 39 },
+                color: { value: "#6495ED" },
+                shape: {
+                    type: "circle",
+                },
+                opacity: {
+                    value: 0.5,
+                },
+                size: {
+                    value: 4,
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                }
+            }
+        });
+    </script>
+
+<script>
+  function updateCountdown() {
+    const boardDate = new Date('February 15, 2025 00:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = boardDate - now;
+
+    if (distance < 0) {
+      document.querySelector(".countdown").innerHTML = "<h2>Boards Started!</h2>";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
+    <script>function openTelegramChannel() {
+  window.open('https://t.me/Next_TopperZ', '_blank');
+} </script>
+
+  <script>
+    function toggleNotifications() {
+      const dropdown = document.getElementById("notifications-dropdown");
+      dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    function addNotification(message) {
+      const notificationCount = document.getElementById("notification-count");
+      const dropdown = document.getElementById("notifications-dropdown");
+
+      const currentCount = parseInt(notificationCount.textContent, 10);
+      notificationCount.textContent = currentCount + 1;
+      notificationCount.style.display = "inline-block";
+
+      const newNotification = document.createElement("div");
+      newNotification.className = "notification";
+      newNotification.textContent = message;
+
+      if (dropdown.querySelector("p")) {
+        dropdown.innerHTML = "";
+      }
+
+      dropdown.appendChild(newNotification);
+    }
+
+
+    // Example: Simulate adding notifications
+   // setTimeout(() => addNotification("Abhay 10th ENGLISH Lectures Launched!"), 2000);
+   // setTimeout(() => addNotification("Day 5 Targets Launched 🎯!"), 3000);
+   // setTimeout(() => addNotification("New App Interface Launched!"), 4000);
+   // setTimeout(() => addNotification("Fixed all Styling Issues!"), 5000);
+
+
+  </script>
+</body>
+</html>
