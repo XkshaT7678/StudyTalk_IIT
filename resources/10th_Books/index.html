@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Study Materials</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Basic styling for header and body */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background: #1e1e2d;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .logo {
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .materials-content {
+            padding: 20px;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-input {
+            width: 60%;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 25px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #0056b3;
+            box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.4);
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .book-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-item h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .book-item p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .btn-download {
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: #1e1e2d;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .download-guide-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn-download-guide {
+    display: inline-block;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-download-guide:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <a href="index.html"><img src="https://i.ibb.co/zRXP9Ks/IMG-20241227-092058-628.jpg" alt="Logo" class="logo"></a>
+        </div>
+        <div class="header-text">
+            <h1>Exclusive Study Materials</h1>
+            <p>Boost your preparation with our curated selection of study materials!</p>
+        </div>
+    </header>
+
+    <main class="materials-content">
+        <!-- Search Bar Section -->
+        <section class="search-bar">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="🔍 Search for Books..✍" 
+                onkeyup="filterBooks()"
+            >
+        </section>
+
+        <div class="download-guide-container">
+    <a href="https://t.me/TopperZ_Vault/4" target="_blank" class="btn-download-guide">
+        𝙃𝙤𝙬 𝙩𝙤 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 ❓
+    </a>
+        </div>
+            
+        <!-- Materials Section -->
+        <section class="materials-grid" id="materialsGrid">
+            <!-- Book Items -->
+            <div class="book-item">
+                <h3>99 Pages Ebook</h3>
+                <p>Author: Padhle Akshay</p>
+                <a href="https://modijiurl.com/PadhleAkshay99" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+                <h3>Oswaal Combined Hindi</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/Oswaal_Combined_Hindi" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+               <h3>Oswaal LMP</h3>
+               <p>Boost your confidence with practice questions and answers.</p>
+               <a href="https://modijiurl.com/Oswaal_LMP" target="_blank" class="btn btn-download">📥 Download Now</a>
+           </div>
+
+           <div class="book-item">
+              <h3>Final Hustle (Science)</h3>
+              <p>Boost your confidence with practice questions and answers.</p>
+              <a href="https://modijiurl.com/FinalHustle_Science" target="_blank" class="btn btn-download">📥 Download Now</a>
+           </div>
+
+           <div class="book-item">
+              <h3>Final Hustle (SST)</h3>
+              <p>Boost your confidence with practice questions and answers.</p>
+              <a href="https://modijiurl.com/FinalHustle_SST" target="_blank" class="btn btn-download">📥 Download Now</a>
+           </div>
+ 
+            <div class="book-item">
+               <h3>Educart Most Likely Sets</h3>
+               <p>Boost your confidence with practice questions and answers.</p>
+               <a href="https://modijiurl.com/Educart_12Sets" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+                <h3>33 Days Challenge (Science)</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/PadhleAkshay_33SCIENCE" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+                <h3>33 Days Challenge (Maths)</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/PadhleAkshay_33MATHS" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+            <div class="book-item">
+                <h3>33 Days Challenge (SST)</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/PadhleAkshay_33SST" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+            
+            <div class="book-item">
+                <h3>Educart Final Revision</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/Educart_FinalRevision" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+                <h3>Educart Hybrid Books & Board Paper</h3>
+                <p>Author: Educart</p>
+                <a href="https://modijiurl.com/Educart_Hybrid" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+                <h3>Oswaal Combined - SST</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/Oswaal_Combined_Sst" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+                <h3>Oswaal Combined - Science</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/Oswaal_Combined_Science" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+                <h3>Oswaal Combined - Maths</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/Oswaal_Combined_Maths" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            <div class="book-item">
+                <h3>Oswaal Combined - English</h3>
+                <p>Boost your confidence with practice questions and answers.</p>
+                <a href="https://modijiurl.com/Oswaal_Combined_English" target="_blank" class="btn btn-download">📥 Download Now</a>
+            </div>
+
+            
+            <div class="book-item">
+                <h3>More books coming soon!!</h3>
+                <p>Stay tuned for more resources!</p>
+                <a href="#" target="_blank" class="btn btn-download">📥 Soon</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><a href="index.html">← Back to Main Page</a></p>
+        <p><strong>Note:</strong> All materials are for educational purposes only.</p>
+        <p>©️ Copyright - NextEdu 2024 - 25</p>
+    </footer>
+
+    <script>
+        function filterBooks() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const bookItems = document.querySelectorAll('.book-item');
+
+            bookItems.forEach(item => {
+                const bookTitle = item.querySelector('h3').textContent.toLowerCase();
+                const bookAuthor = item.querySelector('p').textContent.toLowerCase();
+                if (bookTitle.includes(searchInput) || bookAuthor.includes(searchInput)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+      </html>
