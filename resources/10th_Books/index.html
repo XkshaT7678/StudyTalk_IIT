@@ -3,205 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Study Materials</title>
+    <title>NextEdu Academy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-
         body {
-            background: #f4f4f9;
-            color: #333;
+            background: #1e1e2f;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
         }
-
+        /* Particles Background */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        /* Main Container */
+        .container {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
         /* Header */
         header {
-            background: linear-gradient(135deg, #1e1e2d, #3b3b58);
-            color: white;
-            text-align: center;
-            padding: 30px 10px;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
-
-        .logo {
-            height: 90px;
-            margin-bottom: 10px;
-        }
-
-        .header-text h1 {
-            font-size: 28px;
+        h1 {
+            font-size: 24px;
             font-weight: 600;
         }
-
-        .header-text p {
-            font-size: 16px;
+        #theme-toggle {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #fff;
+        }
+        /* Content */
+        .content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 14px;
             opacity: 0.8;
+            margin-bottom: 20px;
         }
-
-        /* Search Bar */
-        .search-bar {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .search-input {
-            width: 70%;
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 2px solid #007bff;
-            border-radius: 30px;
-            outline: none;
-            transition: all 0.3s ease;
-            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
-        }
-
-        .search-input:focus {
-            border-color: #0056b3;
-            box-shadow: 0px 6px 15px rgba(0, 123, 255, 0.3);
-        }
-
-        /* Books Grid */
-        .materials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .book-item {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .book-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.2);
-        }
-
-        .book-item h3 {
-            font-size: 18px;
-            color: #222;
-            margin-bottom: 10px;
-        }
-
-        .book-item p {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 15px;
-        }
-
-        /* Download Button */
-        .btn-download {
+        /* Button */
+        .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
-            font-size: 14px;
-            padding: 12px 18px;
-            border-radius: 30px;
             text-decoration: none;
-            box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .btn-download:hover {
-            background: linear-gradient(135deg, #0056b3, #00408a);
-            transform: translateY(-3px);
-            box-shadow: 0px 8px 20px rgba(0, 123, 255, 0.5);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background: #1e1e2d;
             color: white;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-        }
-
-        .footer a {
-            color: #007bff;
-            text-decoration: none;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            padding: 10px 20px;
+            border-radius: 10px;
             font-weight: 600;
+            transition: 0.3s ease-in-out;
         }
-
-        .footer a:hover {
-            text-decoration: underline;
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.3);
         }
-
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Light Theme */
+        .light-mode {
+            background: #ffffff;
+            color: #1e1e2f;
+        }
+        .light-mode .container {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .light-mode #theme-toggle {
+            color: #1e1e2f;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <a href="index.html"><img src="https://i.ibb.co/zRXP9Ks/IMG-20241227-092058-628.jpg" alt="Logo" class="logo"></a>
-        <div class="header-text">
-            <h1>Exclusive Study Materials</h1>
-            <p>Boost your preparation with our curated selection of study materials!</p>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <header>
+            <h1>NextEdu Academy</h1>
+            <button id="theme-toggle">🌙</button>
+        </header>
+
+        <div class="content">
+            <h2>Welcome to the Future of Learning</h2>
+            <p>Get access to premium educational content, live classes, and more.</p>
+            <a href="materials.html" class="btn">Explore Materials</a>
         </div>
-    </header>
 
-    <main>
-        <!-- Search Bar -->
-        <section class="search-bar">
-            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search for Books.." onkeyup="filterBooks()">
-        </section>
-
-        <!-- Books Grid -->
-        <section class="materials-grid" id="materialsGrid">
-            <div class="book-item">
-                <h3>99 Pages Ebook</h3>
-                <p>Author: Padhle Akshay</p>
-                <a href="https://modijiurl.com/PadhleAkshay99" target="_blank" class="btn-download">📥 Download</a>
-            </div>
-
-            <div class="book-item">
-                <h3>Oswaal Combined Hindi</h3>
-                <p>Includes practice sets & solved papers.</p>
-                <a href="https://modijiurl.com/Oswaal_Combined_Hindi" target="_blank" class="btn-download">📥 Download</a>
-            </div>
-
-            <div class="book-item">
-                <h3>Final Hustle (Science)</h3>
-                <p>Last-minute revision book.</p>
-                <a href="https://modijiurl.com/FinalHustle_Science" target="_blank" class="btn-download">📥 Download</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p><a href="index.html">← Back to Main Page</a></p>
-        <p><strong>Note:</strong> All materials are for educational purposes only.</p>
-        <p>©️ Copyright - NextEdu 2024 - 25</p>
-    </footer>
+        <footer>
+            <p>© 2025 NextEdu Academy | Powered by Akshat Kumar</p>
+        </footer>
+    </div>
 
     <script>
-        function filterBooks() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const bookItems = document.querySelectorAll('.book-item');
+        // Initialize Particles.js
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80 },
+                size: { value: 3 },
+                move: { speed: 2 },
+                line_linked: { enable: true, color: "#ffffff" }
+            }
+        });
 
-            bookItems.forEach(item => {
-                const bookTitle = item.querySelector('h3').textContent.toLowerCase();
-                if (bookTitle.includes(searchInput)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+            themeToggle.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+        });
     </script>
+
 </body>
 </html>
