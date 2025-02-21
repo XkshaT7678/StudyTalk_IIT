@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://studystark.site/starklogo.jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>EduVerse</title>
+
+    <style>
+        /* Global Styling */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #f8f9fd; color: #333; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(135deg, #7b39e1, #9b59b6);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+        .header-logo { font-size: 1.8rem; font-weight: bold; letter-spacing: 1px; }
+        .icon { width: 28px; height: 28px; cursor: pointer; }
+
+        /* Main Content */
+        main { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
+        .profile { flex: 1; min-width: 280px; text-align: center; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); }
+        .profile-pic { width: 100px; height: 100px; border-radius: 50%; border: 5px solid #7b39e1; margin-bottom: 10px; }
+        h1 { font-size: 1.8rem; color: #7b39e1; }
+
+        /* Grid Layout for Cards */
+        .courses { flex: 2; min-width: 280px; }
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .course-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .course-card:hover { transform: translateY(-5px); box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15); }
+        .course-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            overflow: hidden;
+        }
+        .course-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .course-info h3 { font-size: 1.2rem; margin-bottom: 5px; color: #7b39e1; }
+        .course-info p { font-size: 0.9rem; color: #555; }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #fff;
+            transition: 0.3s ease-in-out;
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar.open { left: 0; }
+        .sidebar-header {
+            padding: 1rem;
+            background: #7b39e1;
+            color: #fff;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        .sidebar-content a {
+            display: block;
+            padding: 10px;
+            color: #555;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .sidebar-content a:hover { background: #f0f0f0; color: #7b39e1; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container { padding: 10px; }
+            .profile, .courses { min-width: 100%; }
+            .courses-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        <header>
+            <div class="header-logo">EduVerse</div>
+        </header>
+
+        <main>
+            <!-- Profile Section -->
+            <div class="profile">
+                <img src="images/20250216_113226.jpg" alt="EduVerse" class="profile-pic">
+                <h1>Welcome to EduVerse!</h1>
+            </div>
+
+            <!-- Course Grid -->
+            <div class="courses">
+                <div class="courses-grid">
+                    <div class="course-card" onclick="window.location.href='/PW'">
+                        <div class="course-icon"><img src="images/Pw.jpg" alt="PW Batches"></div>
+                        <div class="course-info"><h3>All Batches</h3><p>Physics Wallah</p></div>
+                    </div>
+
+                    <div class="course-card" onclick="window.location.href='/Next-Toppers'">
+                        <div class="course-icon"><img src="images/Next_Toppers_Image.gif" alt="Khazana"></div>
+                        <div class="course-info"><h3>Khazana</h3><p>Physics Wallah</p></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+  </html>
