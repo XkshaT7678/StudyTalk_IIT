@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8, #dbe9f6);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .error-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #7f8c8d;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00acee, #0078b8);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 172, 238, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 172, 238, 0.5);
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin-top: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles.js Container -->
+    <div id="particles-js"></div>
+
+    <div class="error-container">
+        <h1>⚠ 404 - Page Not Found ⚠</h1>
+        <p>The link you entered is **wrong** or **unavailable**. Please recheck it.</p>
+        <p>For updates and support, check our Telegram:</p>
+        <a href="https://t.me/EDUVERSE_NETWORK" target="_blank" class="btn">Join @EDUVERSE_NETWORK</a>
+        <p class="footer-note">Or go back to <a href="/" style="color:#3498db; text-decoration: none; font-weight: bold;">Homepage</a>.</p>
+    </div>
+
+    <!-- Particles.js Configuration -->
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 50,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#3498db"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "size": {
+                    "value": 4,
+                    "random": true,
+                    "anim": {
+                        "enable": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#3498db",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 3,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+  </html>
