@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,89 +16,106 @@
             color: #333;
         }
 
-        /* Header */
-        body {
-            padding-top: 50px;
+/* Header */
+body {
+    padding-top: 0px; /* Remove extra space */
+}
+
+.main-content {
+    padding: 60px 20px 20px; /* Adjusted for fixed header */
+}
+        
+header {
+    background-color: #6495ED; /* Cornflower blue */
+    padding: 0.5rem 10px; /* Reduce padding for less thickness */
+    display: flex;
+    justify-content: space-between; /* Aligns title on the left, bell on the right */
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+    height: 40px; /* Reduce height */
+    width: calc(100% - 20px); /* Leaves a little margin on the sides */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.header-title {
+    font-size: 1.2em; /* Reduce font size */
+    font-weight: bold;
+    color: #f9f9f9;
+}
+
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: url('images/notification.jpg') no-repeat center center;
+      background-size: cover;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .notification-icon .notification-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+      display: none; /* Hidden by default */
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      justify-content: center;
+      padding-top: 80px; /* Adjusted to fit the fixed header */
+    }
+
+    .notifications-dropdown {
+      display: none;
+      position: absolute;
+      top: 50px; /* Below the bell icon */
+      right: 0;
+      background-color: white;
+      color: black;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      width: 250px;
+      border-radius: 8px;
+      z-index: 1001;
+    }
+
+    .notifications-dropdown .notification {
+      padding: 10px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    .notifications-dropdown .notification:last-child {
+      border-bottom: none;
+    }
+
+    .notifications-dropdown p {
+      margin: 10px;
+      text-align: center;
         }
 
-        header {
-            background-color: #6495ED;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 8px;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            z-index: 1000;
-        }
-
-        .header-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #f9f9f9;
-        }
-
-        .notification-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: url('images/notification.jpg') no-repeat center center;
-            background-size: cover;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .notification-icon .notification-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: red;
-            color: white;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 50%;
-            padding: 2px 6px;
-            display: none;
-        }
-
-        .notifications-dropdown {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background-color: white;
-            color: black;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            width: 250px;
-            border-radius: 8px;
-            z-index: 1001;
-        }
-
-        .notifications-dropdown .notification {
-            padding: 10px;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
-        }
-
-        .notifications-dropdown .notification:last-child {
-            border-bottom: none;
-        }
-
-        .notifications-dropdown p {
-            margin: 10px;
-            text-align: center;
-        }
 
         /* Main Content */
         .main-content {
-            padding: 100px 20px 20px;
+            padding: 80px 20px 20px; /* Adjusted for fixed header */
             text-align: center;
         }
 
+        /* Batch Image */
         .batch-image {
             margin-top: 20px;
             width: 100%;
@@ -106,6 +124,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
+        /* Batch Name */
         .batch-name {
             font-size: 2rem;
             font-weight: 700;
@@ -113,103 +132,235 @@
             margin: 20px 0 30px;
         }
 
-        /* Board Grid */
-        .board-grid {
+        /* Subjects Section */
+        .subjects-grid {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
         }
 
-        .board-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            width: 90%;
-            max-width: 600px;
+        /* Subject Cards */
+/* Subject Cards */
+.subject-card {
+    text-decoration: none;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border: 1px solid #ddd;
+    border-radius: 15px; /* More rectangular shape */
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 40px); /* Full width with margin */
+    max-width: 600px; /* Optional limit for larger screens */
+    margin: 10px auto; /* Centered alignment */
+    height: auto; /* Automatic height for content */
+}
+
+/* Image inside the card */
+.subject-card img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+/* Title styling */
+.subject-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Hover effects */
+.subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            background: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
         }
 
-        .board-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .subject-card {
+                width: 140px;
+                height: 160px;
+            }
+
+            .batch-name {
+                font-size: 1.8rem;
+            }
         }
 
-        .board-card p {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-        }
+        @media (max-width: 480px) {
+            .subject-card {
+                width: 120px;
+                height: 140px;
+            }
 
-        .board-card img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            .batch-name {
+                font-size: 1.5rem;
+            }
         }
+        /* Container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
 
-        a {
-            text-decoration: none;
-            color: red;
+/* Header Section */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    font-size: 24px;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    color: #007bff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Breadcrumb Section */
+.breadcrumb {
+    font-size: 14px;
+    color: #6495ED;
+    margin-bottom: 20px;
+}
+
+/* Board Grid Section */
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Board Cards */
+.board-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.board-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.board-card p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.board-card img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+a {
+            text-decoration: none; /* Removes underline */
+            color: rgb(255, 0, 0); /* Set link color */
         }
     </style>
 </head>
 <body>
     <!-- Header -->
+    
     <header>
-        <div class="header-title">EduVerse</div>
-        <div class="notification-icon" onclick="toggleNotifications()">
-            <span class="notification-count" id="notification-count">0</span>
-            <div class="notifications-dropdown" id="notifications-dropdown">
-                <p>No new notifications</p>
-            </div>
-        </div>
-    </header>
+    <div class="header-title">EduVerse</div>
+    <div class="notification-icon" onclick="toggleNotifications()">
+      <span class="notification-count" id="notification-count">0</span>
+      <div class="notifications-dropdown" id="notifications-dropdown">
+        <p>No new notifications</p>
+      </div>
+    </div>
+  </header>
 
     <!-- Main Content -->
     <main class="main-content">
-        <img src="/images/Ev.jpg" alt="Batch Image" class="batch-image">
-        <h1 class="batch-name">Select Batch ꪜ</h1>
+        <!-- Batch Image -->
+        <img src="/images/Ev.jpg" alt="Batch Image" class="batch-image"><br>
         
+        <!-- Batch Name -->
+        <h1 class="batch-name">Select Batch ꪜ</h1><br>
+        
+        <!-- Subjects Section -->
         <div class="board-grid">
-            <a href="Next-Toppers/index.html">
-                <div class="board-card">
-                    <p>Next Toppers</p>
-                    <img src="/images/Next%20Toppers%20Final%20Logo.png" alt="CBSE Icon">
-                </div>
-            </a>
-        </div>
+            <!-- Board Card -->
+
+           <a href="Next-Toppers/index.html"> <div class="board-card">
+                <p>Next Toppers</p>
+                <img src="/images/Next%20Toppers%20Final%20Logo.png" alt="CBSE Icon">
+            </div></a>
     </main>
 
-    <script>
-        function toggleNotifications() {
-            const dropdown = document.getElementById("notifications-dropdown");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
+      <script>
+    function toggleNotifications() {
+      const dropdown = document.getElementById("notifications-dropdown");
+      dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+    }
 
-        function addNotification(message) {
-            const notificationCount = document.getElementById("notification-count");
-            const dropdown = document.getElementById("notifications-dropdown");
+    function addNotification(message) {
+      const notificationCount = document.getElementById("notification-count");
+      const dropdown = document.getElementById("notifications-dropdown");
 
-            const currentCount = parseInt(notificationCount.textContent, 10);
-            notificationCount.textContent = currentCount + 1;
-            notificationCount.style.display = "inline-block";
+      const currentCount = parseInt(notificationCount.textContent, 10);
+      notificationCount.textContent = currentCount + 1;
+      notificationCount.style.display = "inline-block";
 
-            const newNotification = document.createElement("div");
-            newNotification.className = "notification";
-            newNotification.textContent = message;
+      const newNotification = document.createElement("div");
+      newNotification.className = "notification";
+      newNotification.textContent = message;
 
-            if (dropdown.querySelector("p")) {
-                dropdown.innerHTML = "";
-            }
+      if (dropdown.querySelector("p")) {
+        dropdown.innerHTML = "";
+      }
 
-            dropdown.appendChild(newNotification);
-        }
-    </script>
+      dropdown.appendChild(newNotification);
+    }
+
+    // Example: Simulate adding notifications
+   // setTimeout(() => addNotification("Abhay 10th ENGLISH Lectures Launched!"), 2000);
+   // setTimeout(() => addNotification("Day 5 Targets Launched 🎯!"), 3000);
+   // setTimeout(() => addNotification("New App Interface Launched!"), 4000);
+  //  setTimeout(() => addNotification("Fixed all Styling Issues!"), 5000);
+      </script>
+   
 </body>
 </html>
