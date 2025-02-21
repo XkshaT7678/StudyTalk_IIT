@@ -3,222 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>—͟͞͞𝙀𝙙𝙪𝙑𝙚𝙧𝙨𝙚 𝙊𝙛𝙛𝙞𝙘𝙞𝙖𝙡 𝙉𝙚𝙩𝙬𝙤𝙧𝙠</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>EduVerse - Choose Your Class</title>
+
+    <!-- Meta Tags -->
+    <meta name="description" content="EduVerse - Your personalized learning hub. Click on your class to view the available batch.">
+    <meta name="keywords" content="EduVerse, NextToppers, Online Learning, Class Batches, Study Resources">
+    <meta property="og:title" content="EduVerse - Learn Smarter">
+    <meta property="og:description" content="Join EduVerse and access the best learning materials for your class.">
+    <meta property="og:image" content="https://yourwebsite.com/images/batch.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+
+    <!-- Styles -->
     <style>
-        /* Reset and Base Styles */
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            text-align: center;
         }
-
-        /* Header */
-        body {
-            padding-top: 50px;
-        }
-
-        header {
-            background-color: #6495ED;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 8px;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            z-index: 1000;
-        }
-
-        .header-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #f9f9f9;
-        }
-
-        .notification-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: url('images/notification.jpg') no-repeat center center;
-            background-size: cover;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .notification-icon .notification-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: red;
+        .header {
+            background-color: #0073e6;
             color: white;
-            font-size: 12px;
+            padding: 15px;
+            font-size: 24px;
             font-weight: bold;
-            border-radius: 50%;
-            padding: 2px 6px;
-            display: none;
         }
-
-        .notifications-dropdown {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background-color: white;
-            color: black;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            width: 250px;
-            border-radius: 8px;
-            z-index: 1001;
-        }
-
-        .notifications-dropdown .notification {
+        .notification {
+            background: #ffcc00;
+            color: #333;
             padding: 10px;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
+            margin: 10px auto;
+            width: 90%;
+            border-radius: 5px;
+            font-size: 16px;
         }
-
-        .notifications-dropdown .notification:last-child {
-            border-bottom: none;
+        .container {
+            margin-top: 20px;
         }
-
-        .notifications-dropdown p {
-            margin: 10px;
-            text-align: center;
+        .class-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
         }
-
-        /* Main Content */
-        .main-content {
-            padding: 100px 20px 20px;
-            text-align: center;
+        .class-box {
+            padding: 15px 25px;
+            background-color: #0073e6;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
         }
-
+        .class-box:hover {
+            background-color: #005bb5;
+        }
         .batch-image {
             margin-top: 20px;
-            width: 100%;
+        }
+        .batch-image img {
+            width: 80%;
             max-width: 400px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        .batch-name {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #333;
-            margin: 20px 0 30px;
-        }
-
-        /* Board Grid */
-        .board-grid {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .board-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-            width: 90%;
-            max-width: 600px;
-        }
-
-        .board-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .board-card p {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .board-card img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        a {
-            text-decoration: none;
-            color: red;
+        .batch-caption {
+            font-size: 18px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
+
     <!-- Header -->
-    <header>
-        <div class="header-title">EduVerse</div>
-        <div class="notification-icon" onclick="toggleNotifications()">
-            <span class="notification-count" id="notification-count">0</span>
-            <div class="notifications-dropdown" id="notifications-dropdown">
-                <p>No new notifications</p>
-            </div>
+    <div class="header">EduVerse - Choose Your Class</div>
+
+    <!-- Notifications -->
+    <div class="notification">
+        🎉 New batch starting soon! Click on your class to check details.
+    </div>
+
+    <!-- Class Selector -->
+    <div class="container">
+        <h2>Select Your Class:</h2>
+        <div class="class-list">
+            <a href="batch-9.html" class="class-box">Class 9</a>
+            <a href="batch-10.html" class="class-box">Class 10</a>
+            <a href="batch-11.html" class="class-box">Class 11</a>
+            <a href="batch-12.html" class="class-box">Class 12</a>
         </div>
-    </header>
+    </div>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <img src="/images/Ev.jpg" alt="Batch Image" class="batch-image">
-        <h1 class="batch-name">Select Your Class ꪜ</h1>
-        
-        <div class="board-grid">
-            <a href="10th/index.html">
-                <div class="board-card">
-                    <p>10th</p>
-                    <img src="/images/Next%20Toppers%20Final%20Logo.png" alt="CBSE Icon">
-                </div>
-            </a>
-        </div>
+    <!-- Batch Image -->
+    <div class="batch-image">
+        <img src="https://yourwebsite.com/images/batch.jpg" alt="EduVerse Batch">
+        <div class="batch-caption">Join the latest batch and excel in your studies!</div>
+    </div>
 
-        <div class="board-grid">
-            <a href="11th/index.html">
-                <div class="board-card">
-                    <p>11th</p>
-                    <img src="/images/Next%20Toppers%20Final%20Logo.png" alt="CBSE Icon">
-                </div>
-            </a>
-</div>
-    </main>
-
-    <script>
-        function toggleNotifications() {
-            const dropdown = document.getElementById("notifications-dropdown");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-
-        function addNotification(message) {
-            const notificationCount = document.getElementById("notification-count");
-            const dropdown = document.getElementById("notifications-dropdown");
-
-            const currentCount = parseInt(notificationCount.textContent, 10);
-            notificationCount.textContent = currentCount + 1;
-            notificationCount.style.display = "inline-block";
-
-            const newNotification = document.createElement("div");
-            newNotification.className = "notification";
-            newNotification.textContent = message;
-
-            if (dropdown.querySelector("p")) {
-                dropdown.innerHTML = "";
-            }
-
-            dropdown.appendChild(newNotification);
-        }
-    </script>
 </body>
 </html>
