@@ -136,15 +136,28 @@
         }
 
         /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #004aad, #007bff);
-            color: white;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-        }
+        body {
+    background: #eef5ff;
+    color: #333;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes the full height of the viewport */
+}
 
+main {
+    flex: 1; /* Pushes the footer down */
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #004aad, #007bff);
+    color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+        
         .footer a {
             color: #eef5ff;
             text-decoration: none;
