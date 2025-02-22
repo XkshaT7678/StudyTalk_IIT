@@ -4,90 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Form</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
         }
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: white;
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+            overflow: hidden;
+            position: relative;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
         .feedback-container {
             width: 380px;
             background: rgba(255, 255, 255, 0.15);
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             text-align: center;
-            backdrop-filter: blur(12px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
         }
         h2 {
-            margin-bottom: 15px;
-            color: #fff;
+            margin-bottom: 10px;
+            font-size: 22px;
+            font-weight: bold;
         }
         .stars {
             display: flex;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             margin: 15px 0;
         }
         .stars i {
             font-size: 26px;
-            color: #ddd;
+            color: rgba(255, 255, 255, 0.5);
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: transform 0.2s, color 0.3s;
         }
         .stars i.active {
-            color: #ffcc00;
+            color: #fbc02d;
+            transform: scale(1.1);
         }
         input, textarea {
             width: 100%;
             padding: 12px;
-            margin-top: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 12px;
+            border: none;
             border-radius: 8px;
             font-size: 15px;
             background: rgba(255, 255, 255, 0.2);
             color: white;
             outline: none;
+            transition: 0.3s ease;
         }
         input::placeholder, textarea::placeholder {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
         }
         textarea {
-            height: 80px;
+            height: 90px;
             resize: none;
+        }
+        input:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.3);
         }
         button {
             width: 100%;
             padding: 12px;
             margin-top: 15px;
-            background: #ffcc00;
-            color: #333;
-            font-size: 16px;
+            background: linear-gradient(90deg, #ff8c00, #ff3e00);
+            color: white;
             border: none;
             border-radius: 8px;
+            font-size: 16px;
             cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease, transform 0.2s ease;
+            transition: 0.3s ease-in-out;
         }
         button:hover {
-            background: #e6b800;
+            background: linear-gradient(90deg, #ff3e00, #ff8c00);
             transform: scale(1.05);
         }
     </style>
 </head>
 <body>
 
+    <div id="particles-js"></div>
+
     <div class="feedback-container">
-        <h2>Give Us Your Feedback</h2>
+        <h2>We Value Your Feedback!</h2>
         <input type="text" id="name" placeholder="Your Name">
         <input type="text" id="location" placeholder="State, Country">
         <input type="text" id="telegram" placeholder="Telegram Username">
@@ -101,8 +120,8 @@
             <i class="star" data-value="5">★</i>
         </div>
 
-        <textarea id="feedback" placeholder="Write your feedback here..."></textarea>
-        <button onclick="submitFeedback()">Submit</button>
+        <textarea id="feedback" placeholder="Share your experience..."></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
     </div>
 
     <script>
@@ -125,10 +144,10 @@
             let telegram = document.getElementById('telegram').value.trim();
             let phone = document.getElementById('phone').value.trim();
             let feedbackText = document.getElementById('feedback').value.trim();
-            let botToken = "YOUR_BOT_TOKEN";  // Replace with your bot token
-            let chatId = "YOUR_CHANNEL_CHAT_ID";  // Replace with your channel ID
+            let botToken = "7608906465:AAH36EqbcFIBtRfZLnmPVD0yu3byxzqKJ6w";  // Replace with actual bot token
+            let chatId = "-1002329884512";  // Replace with your Telegram channel/group ID
 
-            if (!name || !location || !telegram || !phone || selectedRating == 0 || feedbackText === "") {
+            if (!name || !location || !telegram || selectedRating == 0 || feedbackText === "") {
                 alert("Please fill in all fields before submitting!");
                 return;
             }
@@ -163,6 +182,16 @@
                     console.error(error);
                 });
         }
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100 },
+                size: { value: 3 },
+                move: { speed: 2 },
+                color: { value: "#ffffff" },
+                line_linked: { enable: true, distance: 150, color: "#ffffff" }
+            }
+        });
     </script>
 
 </body>
