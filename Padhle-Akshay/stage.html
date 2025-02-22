@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduVerse | Gamified Course</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="videoPlayer" allowfullscreen></iframe>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const iframe = document.getElementById('videoPlayer');
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoType = urlParams.get('Edu');
+
+            let iframeSrc = '';
+
+            if (videoType === 'PhyZ') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583159-1736175687/hls-e99b24/360p/master-4764782.012870273.m3u8';
+            } else if (videoType === 'PhyY') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=mp4&src=https://appx-content-v2.classx.co.in/uploadvideo2/2025-01-06/padhleakshay_db/2025-01-06-0.4284592066612629.mp4';
+            } else if (videoType === 'HisX') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583037-1736173714/hls-295f0b/360p/master-1370660.5893892476.m3u8';
+           } else if (videoType === 'HisW') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583037-1736173714/hls-295f0b/1080p/master-1370660.5893892476.m3u8';
+           } else if (videoType === 'CivV') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583340-1736180008/hls-f5b469/360p/master-1056783.1528944427.m3u8';
+          } else if (videoType === 'CivU') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583340-1736180008/hls-f5b469/1080p/master-1056783.1528944427.m3u8';
+          } else if (videoType === 'GeoT') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583432-1736182341/hls-ee53dc/360p/master-7224172.619106064.m3u8';
+          } else if (videoType === 'GeoS') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583432-1736182341/hls-ee53dc/1080p/master-7224172.619106064.m3u8';
+          } else if (videoType === 'EcoR') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583456-1736183420/hls-052994/360p/master-4576614.6545693.m3u8';
+          } else if (videoType === 'EcoQ') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583456-1736183420/hls-052994/1080p/master-4576614.6545693.m3u8';
+          } else if (videoType === 'Maths1') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1585146-1736238322/hls-1d029d/360p/master-5139205.432259506.m3u8';
+          } else if (videoType === 'Maths2a') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583189-1736176401/hls-d2cef1/360p/master-164202.03454474258.m3u8';
+          } else if (videoType === 'Maths2b') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583189-1736176401/hls-d2cef1/1080p/master-164202.03454474258.m3u8';
+          } else if (videoType === 'Maths3a') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583331-1736179642/hls-8731ae/360p/master-4896452.960211219.m3u8';
+          } else if (videoType === 'Maths3b') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1583331-1736179642/hls-8731ae/1080p/master-4896452.960211219.m3u8';
+          } else if (videoType === 'PresentationTips') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1584420-1736230046/hls-f285b5/360p/master-872895.0877328967.m3u8';
+          } else if (videoType === 'PresentationTipsB') {
+                iframeSrc = 'https://www.hlsplayer.net/embed?type=m3u8&src=https://transcoded-videos-v2.classx.co.in/videos/padhleakshay-data/1584420-1736230046/hls-f285b5/1080p/master-872895.0877328967.m3u8';
+          
+            } else {
+                alert("Error Occurred! Take SCREENSHOT and msg. @Akki_IzPro");
+                return;
+            }
+
+            iframe.src = iframeSrc;
+
+            function handleFullscreenChange() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    if (screen.orientation && screen.orientation.lock) {
+                        screen.orientation.lock('landscape').catch((error) => {
+                            console.warn('Orientation lock failed:', error);
+                        });
+                    }
+                } else {
+                    if (screen.orientation && screen.orientation.unlock) {
+                        screen.orientation.unlock();
+                    }
+                }
+            }
+
+            document.addEventListener('fullscreenchange', handleFullscreenChange);
+            document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+            document.addEventListener('msfullscreenchange', handleFullscreenChange);
+        });
+    </script>
+
+</body>
+</html>
