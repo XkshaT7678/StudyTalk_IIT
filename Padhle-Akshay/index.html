@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Batches</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f0f0f5;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden; /* Ensures horizontal scrolling is not enabled */
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Places particles in the background */
+        }
+
+        header {
+            background-color: #6495ED;
+            padding: 1rem 10px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            top: 10px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .header-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            justify-content: center;
+            padding-top: 80px; /* Adjusted to fit fixed header */
+        }
+
+        .batch-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .batch-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .batch-info {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .batch-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+.badge {
+    position: absolute;
+    top: 110px;
+    left: 4px;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Blue Gradient */
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 6px 12px 12px 6px; /* One side rounder */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+        .description {
+            font-size: 0.9em;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .original-price {
+            font-size: 0.9em;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            background-color: #dff0d8;
+            color: #28a745;
+            font-size: 0.8em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .button {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            text-decoration: none;
+            color: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .explore {
+            background-color: #6495ED;
+        }
+
+        .buy-now {
+            background-color: #ff4081;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            margin-right: auto;
+        }
+
+        header img {
+            margin-left: auto;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+
+        .icon {
+            fill: #fff;
+            margin-right: 10px;
+        }
+
+        .header-title {
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particles.js Background -->
+    <div id="particles-js"></div>
+
+    <header>
+        <a href="javascript:history.back()">
+            <img src="https://th.bing.com/th/id/R.757dcae10509bdbcbbbe7231f9cec8ab?rik=7RO2A7Du7jYBww&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fleft-arrow-png-left-icon-1600.png&ehk=nQr%2fWbRJHtKEaV53ijq71OpNptgpG4FZxnChrIO0fBI%3d&risl=&pid=ImgRaw&r=0" alt="Back" width="24" height="24">
+        </a>
+        <span class="header-title">EduVerse Network</span>
+    </header><br>
+
+    <div class="container">
+        <!-- Batch Card 1 -->
+        <div class="batch-card">
+            <div class="badge">Trending</div>
+            <img src="/images/Padhle_Akshay.png" alt="">
+            <div class="batch-info">
+                <div class="batch-title">10th In 24 Hours</div>
+                <div class="description">For Class 10th CBSE Students provided by Padhle Akshay</div>
+                <div class="price-section">
+                    <div>
+                        <span class="price">₹Free</span>
+                        <span class="original-price">₹299</span>
+                    </div>
+                    <span class="discount">100% Discount</span>
+                </div>
+                <div class="buttons">
+                    <a href="start.html" class="button explore">Lets Study</a>
+                </div>
+            </div>
+        </div>
+      
+   
+       
+    </div>
+
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: "#0342ff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 4 },
+                line_linked: { enable: true, distance: 150, color: "#03eaff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    bubble: { distance: 200, size: 40, duration: 2, opacity: 9, speed: 5},
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+  </html>
