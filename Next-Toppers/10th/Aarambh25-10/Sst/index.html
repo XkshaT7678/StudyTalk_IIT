@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Saari images ko select karega
+    document.querySelectorAll("img").forEach(function (img) {
+        // Har image ke src ko nayi image ke URL se replace karega
+        img.src = "https://i.ytimg.com/vi/cFK4To0gr7Y/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDEbMT-KB8TqyAGFRLot4mi-_JUpg";
+    });
+});
+    </script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Notes</title>
+      <style>
+         body {
+         background-color: #000;
+         color: #fff;
+         font-family: 'Arial', sans-serif;
+         margin: 0;
+         padding: 0;
+         }
+         header {
+         text-align: center;
+         padding: 30px;
+         background: linear-gradient(45deg, #FFD700, #000);
+         box-shadow: 0 4px 8px rgba(255, 215, 0, 0.7);
+         }
+         header h1 {
+         font-size: 3em;
+         color: #FFF;
+         margin: 0;
+         letter-spacing: 2px;
+         }
+         .content-container {
+         padding: 40px;
+         max-width: 1200px;
+         margin: auto;
+         }
+         .content-container h1 {
+         text-align: center;
+         font-size: 2.5em;
+         color: #FFD700;
+         margin-bottom: 40px;
+         }
+         #lectures {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+         gap: 30px;
+         }
+         .content-card {
+         background-color: #222;
+         border-radius: 10px;
+         overflow: hidden;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         }
+         .content-card:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+         }
+         .content-thumbnail {
+         width: 100%;
+         height: 180px;
+         object-fit: cover;
+         border-bottom: 3px solid #FFD700;
+         }
+         .content-card div {
+         padding: 20px;
+         }
+         .content-card h3 {
+         font-size: 1.5em;
+         margin: 0 0 10px;
+         color: #FFD700;
+         }
+         .content-card p {
+         margin: 0 0 10px;
+         color: #ccc;
+         }
+         .link-btn {
+         padding: 10px 20px;
+         font-size: 1.1em;
+         color: #FFD700;
+         background-color: #000;
+         border: 2px solid #FFD700;
+         text-decoration: none;
+         transition: background-color 0.3s ease, color 0.3s ease;
+         display: inline-block;
+         }
+         .link-btn:hover {
+         background-color: #FFD700;
+         color: #000;
+         }
+         footer {
+         text-align: center;
+         padding: 20px;
+         background-color: #000;
+         color: #FFD700;
+         box-shadow: 0 -4px 8px rgba(255, 215, 0, 0.7);
+         margin-top: 40px;
+         }
+         @media (max-width: 768px) {
+         .content-container h1 {
+         font-size: 2em;
+         }
+         #lectures {
+         grid-template-columns: 1fr;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Sst</h1>
+      </header>
+      <div class="content-container">
+      <div id='lectures'>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>outcomes of democrecy</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236298206_86219062307717680_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Money and credit final full</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236295822_626480272909827500_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Minerals and Energy Resources complete</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236293110_234591415083258430_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Globalisation and the Indian Economy pdf</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236290886_608770599928500500_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>gender religion and caste Complete</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236288988_535325025628280300_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Forest and Wildlife Resourses complete chapter_240624_221938</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236286344_37021298500602760_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>federalism Complete</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236283654_406721388155324900_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Development Complete</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236282053_879447474714416300_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>complete nationlism in india</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236278775_506878198083990140_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>agricultural full pdf</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236276737_894537862759308900_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>water resources full ..</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236274998_300092503938816400_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>The rise of Nationalism in Europe complete chapter_Complete</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236272364_547769653961661250_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>sectors of the indian economy</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236269522_67600983363173304_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>resources and development full pdf</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236268359_624868501752807200_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Power Sharing Complete Chapter</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236266605_421176385108896000_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/25354100_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Political Parties complete</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sst/1729236262689_308191772013795140_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3> WPP Solutions - Federalism</h3>
+                <p class='mb-1'>Date: 2024-06-28</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/506181599809094500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP 12 Money and Credit</h3>
+                <p class='mb-1'>Date: 2024-09-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/567741922845470400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #1 Power Sharing </h3>
+                <p class='mb-1'>Date: 2024-04-19</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/1275388486361407317683600.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP#1 Solution POWER SHARING</h3>
+                <p class='mb-1'>Date: 2024-08-26</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/111875554942164720.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP-2 Resourced and Development </h3>
+                <p class='mb-1'>Date: 2024-04-30</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/334495043781039100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP#2 solution RESOURCES AND DEVELOPMENT</h3>
+                <p class='mb-1'>Date: 2024-08-26</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/678980165081449900.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #3 The rise of nationalism in EUROPE</h3>
+                <p class='mb-1'>Date: 2024-05-22</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/866080639262244100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP#4 -Development </h3>
+                <p class='mb-1'>Date: 2024-06-05</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/102328974711554780.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #5 -Federalism</h3>
+                <p class='mb-1'>Date: 2024-06-22</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/354499194889984000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #6 Forests and Wildlife Resources</h3>
+                <p class='mb-1'>Date: 2024-07-16</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/681408991624946200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #7 Nationalism In INDIA</h3>
+                <p class='mb-1'>Date: 2024-07-26</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/128303477563659420.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #6 Solution FOREST AND WILDLIFE RESOURCES</h3>
+                <p class='mb-1'>Date: 2024-08-25</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/826423682316276900.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #7 Nationalism in India (solution)</h3>
+                <p class='mb-1'>Date: 2024-08-04</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/74823435060066350.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #8 SECTORS OF THE INDIAN ECONOMY</h3>
+                <p class='mb-1'>Date: 2024-08-08</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/181828932303924200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP#8 Sectors of the Indian Economy</h3>
+                <p class='mb-1'>Date: 2024-08-16</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/333006706771373060.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #9-GENDER, RELIGION AND CASTE</h3>
+                <p class='mb-1'>Date: 2024-08-22</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/534709285565101060.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP#9 SolutionGender Religion and Caste</h3>
+                <p class='mb-1'>Date: 2024-09-01</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/461616753524205600.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #10 water Resources</h3>
+                <p class='mb-1'>Date: 2024-09-01</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/482610072647219840.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP#11 THE MAKING OF A GLOBAL WORLD</h3>
+                <p class='mb-1'>Date: 2024-09-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/118971950703264140.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP#11 Solution The making of Global world</h3>
+                <p class='mb-1'>Date: 2024-09-08</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/508996557893205309152000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #12 money and credit</h3>
+                <p class='mb-1'>Date: 2024-09-21</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/237764439568496200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #13 Agriculture</h3>
+                <p class='mb-1'>Date: 2024-09-27</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/442394997010399000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #13 Agriculture Solution</h3>
+                <p class='mb-1'>Date: 2024-10-03</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/408200696522379500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #10 Solution Water resources</h3>
+                <p class='mb-1'>Date: 2024-10-05</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/34553346969500276.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #14 Political Parties</h3>
+                <p class='mb-1'>Date: 2024-10-07</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/3847767550231462968552800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #15 Globalisation and the Indian economy</h3>
+                <p class='mb-1'>Date: 2024-10-07</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/77429298179364350.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #14 and #15 solutions</h3>
+                <p class='mb-1'>Date: 2024-10-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/521399051422267400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP #16 Minerals and Energy Resources</h3>
+                <p class='mb-1'>Date: 2024-10-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/79688164637920270.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>WPP#17 OUTCOMES OF DEMOCRACY</h3>
+                <p class='mb-1'>Date: 2024-10-19</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/150057012920370400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+
+      </div>
+   </body>
+</html>
