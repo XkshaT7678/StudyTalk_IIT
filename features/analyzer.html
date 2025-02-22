@@ -6,43 +6,39 @@
     <title>Sample Paper Analysis</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        /* General Styling */
+        /* Professional Background */
         body {
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f4f7fc;
-            color: #333;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Glassmorphism Container */
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
 
         /* Header */
         .header {
-            background: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
             font-size: 1.8rem;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Container */
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 1.6rem;
             margin-bottom: 15px;
         }
 
-        /* Form Group */
+        /* Input Fields & Buttons */
         .form-group {
             display: flex;
             gap: 12px;
@@ -57,27 +53,39 @@
             padding: 12px;
             font-size: 1rem;
             border-radius: 8px;
-            border: 1px solid #ccc;
-            transition: all 0.3s ease-in-out;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .form-group input,
+        .form-group select {
+            background: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .form-group input:focus,
         .form-group select:focus {
-            border-color: #007bff;
+            border: 1px solid #fff;
             outline: none;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
         }
 
         .form-group button {
-            background: #007bff;
+            background: #ff4d4d;
             color: white;
-            border: none;
             cursor: pointer;
             font-weight: bold;
+            border-radius: 8px;
         }
 
         .form-group button:hover {
-            background: #0056b3;
+            background: #d93636;
+            transform: scale(1.05);
         }
 
         /* Chart */
@@ -89,13 +97,12 @@
 
         /* Reset Button */
         .reset-button {
-            display: block;
-            margin: 20px auto;
+            margin-top: 15px;
             padding: 12px 20px;
             font-size: 1rem;
             border: none;
             border-radius: 8px;
-            background: #ff4d4d;
+            background: rgba(255, 255, 255, 0.3);
             color: white;
             cursor: pointer;
             transition: all 0.3s;
@@ -103,16 +110,15 @@
         }
 
         .reset-button:hover {
-            background: #d93636;
+            background: rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
 
-    <header class="header">📊 Sample Paper Analysis</header>
-
     <div class="container">
-        <h2>Analyze Your Performance</h2>
+        <div class="header">📊 Sample Paper Analysis</div>
 
         <!-- Select Subject & Enter Marks -->
         <div class="form-group">
@@ -232,25 +238,9 @@
             document.getElementById("marksInput").value = "";
         });
 
-        document.getElementById("addSubjectButton").addEventListener("click", () => {
-            const newSubject = document.getElementById("newSubjectInput").value.trim();
-
-            if (!newSubject || marksData[newSubject]) {
-                alert("Invalid or duplicate subject name.");
-                return;
-            }
-
-            marksData[newSubject] = [];
-            subjectColors[newSubject] = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.6)`;
-            populateSubjects();
-            alert(`Subject "${newSubject}" added.`);
-            document.getElementById("newSubjectInput").value = "";
-        });
-
         document.getElementById("resetButton").addEventListener("click", () => {
             if (confirm("Reset all data?")) {
                 marksData = {};
-                subjectColors = {};
                 localStorage.clear();
                 populateSubjects();
                 updateChart();
@@ -258,4 +248,4 @@
         });
     </script>
 </body>
-              </html>
+</html>
