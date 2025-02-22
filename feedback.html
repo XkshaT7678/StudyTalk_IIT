@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .feedback-container {
+            width: 350px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 10px 0;
+        }
+        .stars i {
+            font-size: 24px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .stars i.active {
+            color: #fbc02d;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+            margin-top: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="feedback-container">
+        <h2>Give Us Your Feedback</h2>
+        <div class="stars">
+            <i class="star" data-value="1">★</i>
+            <i class="star" data-value="2">★</i>
+            <i class="star" data-value="3">★</i>
+            <i class="star" data-value="4">★</i>
+            <i class="star" data-value="5">★</i>
+        </div>
+        <textarea id="feedback" placeholder="Write your feedback here..."></textarea>
+        <button onclick="submitFeedback()">Submit</button>
+    </div>
+
+    <script>
+        let stars = document.querySelectorAll('.star');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                selectedRating = this.getAttribute('data-value');
+                stars.forEach(s => s.classList.remove('active'));
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].classList.add('active');
+                }
+            });
+        });
+
+        function submitFeedback() {
+            let feedbackText = document.getElementById('feedback').value.trim();
+            let botToken = "7608906465:AAH36EqbcFIBtRfZLnmPVD0yu3byxzqKJ6w";  // Replace with your bot token
+            let chatId = "-1002329884512";  // Replace with your channel ID
+
+            if (selectedRating == 0) {
+                alert("Please select a rating before submitting!");
+                return;
+            }
+            if (feedbackText === "") {
+                alert("Please enter your feedback before submitting!");
+                return;
+            }
+
+            let message = `🌟 New Feedback Received!\n\n⭐ Rating: ${selectedRating}/5\n📝 Feedback: ${feedbackText}`;
+
+            let url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert("Thank you for your feedback! It has been sent successfully.");
+                        document.getElementById('feedback').value = "";
+                        stars.forEach(s => s.classList.remove('active'));
+                        selectedRating = 0;
+                    } else {
+                        alert("Error sending feedback. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    alert("Error sending feedback. Please check your bot and channel settings.");
+                    console.error(error);
+                });
+        }
+    </script>
+
+</body>
+</html>
