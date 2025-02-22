@@ -93,17 +93,25 @@
             color: #333;
         }
 
-        .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: #ffcc00;
-            color: #333;
-            font-size: 0.8em;
-            font-weight: bold;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
+.badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #ffcc00, #ff9900);
+    color: #222;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
 
         .description {
             font-size: 0.9em;
