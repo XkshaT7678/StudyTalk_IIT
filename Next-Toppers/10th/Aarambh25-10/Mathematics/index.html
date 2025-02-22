@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Saari images ko select karega
+    document.querySelectorAll("img").forEach(function (img) {
+        // Har image ke src ko nayi image ke URL se replace karega
+        img.src = "https://i.ytimg.com/vi/cFK4To0gr7Y/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDEbMT-KB8TqyAGFRLot4mi-_JUpg";
+    });
+});
+    </script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Shobhit Nirwan - Maths Notes</title>
+      <style>
+         body {
+         background-color: #000;
+         color: #fff;
+         font-family: 'Arial', sans-serif;
+         margin: 0;
+         padding: 0;
+         }
+         header {
+         text-align: center;
+         padding: 30px;
+         background: linear-gradient(45deg, #FFD700, #000);
+         box-shadow: 0 4px 8px rgba(255, 215, 0, 0.7);
+         }
+         header h1 {
+         font-size: 3em;
+         color: #FFF;
+         margin: 0;
+         letter-spacing: 2px;
+         }
+         .content-container {
+         padding: 40px;
+         max-width: 1200px;
+         margin: auto;
+         }
+         .content-container h1 {
+         text-align: center;
+         font-size: 2.5em;
+         color: #FFD700;
+         margin-bottom: 40px;
+         }
+         #lectures {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+         gap: 30px;
+         }
+         .content-card {
+         background-color: #222;
+         border-radius: 10px;
+         overflow: hidden;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         }
+         .content-card:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+         }
+         .content-thumbnail {
+         width: 100%;
+         height: 180px;
+         object-fit: cover;
+         border-bottom: 3px solid #FFD700;
+         }
+         .content-card div {
+         padding: 20px;
+         }
+         .content-card h3 {
+         font-size: 1.5em;
+         margin: 0 0 10px;
+         color: #FFD700;
+         }
+         .content-card p {
+         margin: 0 0 10px;
+         color: #ccc;
+         }
+         .link-btn {
+         padding: 10px 20px;
+         font-size: 1.1em;
+         color: #FFD700;
+         background-color: #000;
+         border: 2px solid #FFD700;
+         text-decoration: none;
+         transition: background-color 0.3s ease, color 0.3s ease;
+         display: inline-block;
+         }
+         .link-btn:hover {
+         background-color: #FFD700;
+         color: #000;
+         }
+         footer {
+         text-align: center;
+         padding: 20px;
+         background-color: #000;
+         color: #FFD700;
+         box-shadow: 0 -4px 8px rgba(255, 215, 0, 0.7);
+         margin-top: 40px;
+         }
+         @media (max-width: 768px) {
+         .content-container h1 {
+         font-size: 2em;
+         }
+         #lectures {
+         grid-template-columns: 1fr;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Mathematics</h1>
+      </header>
+      <div class="content-container">
+      <div id='lectures'>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/6525652870466_DPP%201%20MATHS.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #1</h3>
+                <p class='mb-1'>Date: 2024-04-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/835153668013576300.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/3060443870614_dpp2.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #2</h3>
+                <p class='mb-1'>Date: 2024-04-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/381212617807938400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/4987641872020_math%20dpp%20%233.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #3</h3>
+                <p class='mb-1'>Date: 2024-04-20</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/329223029297522940.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #4</h3>
+                <p class='mb-1'>Date: 2024-04-24</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/678852496560783000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/6158181875592_dpp%20%23555.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #5</h3>
+                <p class='mb-1'>Date: 2024-04-26</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/63107337858534300.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #6</h3>
+                <p class='mb-1'>Date: 2024-04-29</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/3129400773834954336531200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #7</h3>
+                <p class='mb-1'>Date: 2024-05-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/238082511822435800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #8</h3>
+                <p class='mb-1'>Date: 2024-05-03</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/824854236457198700.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #9</h3>
+                <p class='mb-1'>Date: 2024-05-10</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/80277616854577550.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #10</h3>
+                <p class='mb-1'>Date: 2024-05-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/703570703178416800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #11</h3>
+                <p class='mb-1'>Date: 2024-05-23</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/208624261630370200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #12</h3>
+                <p class='mb-1'>Date: 2024-07-05</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/706526584385632800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #13</h3>
+                <p class='mb-1'>Date: 2024-07-06</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/1822529290791847707045100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #14</h3>
+                <p class='mb-1'>Date: 2024-07-24</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/222734407342640960.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #15</h3>
+                <p class='mb-1'>Date: 2024-07-25</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/205029259726246800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #16</h3>
+                <p class='mb-1'>Date: 2024-07-28</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/868312716639621200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #17</h3>
+                <p class='mb-1'>Date: 2024-07-28</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/475293487345447800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #18</h3>
+                <p class='mb-1'>Date: 2024-07-28</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/826548921055314800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #20</h3>
+                <p class='mb-1'>Date: 2024-09-25</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/242638437262611550.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #19</h3>
+                <p class='mb-1'>Date: 2024-09-25</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/377842168557148160.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #21</h3>
+                <p class='mb-1'>Date: 2024-09-25</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/335192830339295800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/73203871083140_19.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>DPP #22</h3>
+                <p class='mb-1'>Date: 2024-09-27</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/866663562028234000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/4245252861665_real%20num%20%20l1.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Real numbers Lec -1</h3>
+                <p class='mb-1'>Date: 2024-04-09</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/6230635122537064325240740.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/1147851863891_real%20l2.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Real Numbers Lec-2</h3>
+                <p class='mb-1'>Date: 2024-04-10</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/135103066473446740.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/1794426866039_Screenshot_2024-04-12-23-43-52-20_439a3fec0400f8974d35eed09a31f914.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Real Numbers Lec-3</h3>
+                <p class='mb-1'>Date: 2024-04-12</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/690919728011606794847700.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Doubt Class #1</h3>
+                <p class='mb-1'>Date: 2024-04-16</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/790234280047601800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/7251888870455_lec1.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Polynomials Lec - 1</h3>
+                <p class='mb-1'>Date: 2024-04-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/290881990736756160.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/4290762871788_POLY%20LEC%20-2.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Polynomials Lec -2</h3>
+                <p class='mb-1'>Date: 2024-04-19</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/731613206030621300.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/2391075871790_WhatsApp%20Image%202024-04-19%20at%2021.31.06_a511b2e5.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Polynomials Lec-3</h3>
+                <p class='mb-1'>Date: 2024-04-19</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/78725336893875760.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Polynomials Lec-4</h3>
+                <p class='mb-1'>Date: 2024-04-23</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/597321843357252000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Pair of Linear equations L1</h3>
+                <p class='mb-1'>Date: 2024-04-25</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/845888074171907600.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Pair of Linear equations L2</h3>
+                <p class='mb-1'>Date: 2024-04-26</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/625760234282012200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Pair of Linear equations in 2 Var L3</h3>
+                <p class='mb-1'>Date: 2024-05-01</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/544596013533881200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Pair of Linear equations Lec-4</h3>
+                <p class='mb-1'>Date: 2024-05-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/97799956365074940.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Pair of Linear equations Lec-5</h3>
+                <p class='mb-1'>Date: 2024-05-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/486560734477693200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Quadratic equation Lec-1</h3>
+                <p class='mb-1'>Date: 2024-05-07</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/329011771486915500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Quatratic Equation Lec-2</h3>
+                <p class='mb-1'>Date: 2024-05-08</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/393977804442221500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Quadratic equation Lec-3</h3>
+                <p class='mb-1'>Date: 2024-05-09</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/216803358346372640.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Quadratic Equation Lec-4</h3>
+                <p class='mb-1'>Date: 2024-05-14</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/393415283543932540.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Quadratic Equations LEC -5</h3>
+                <p class='mb-1'>Date: 2024-05-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/93583526450562720.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Quadratic Equation L-6</h3>
+                <p class='mb-1'>Date: 2024-05-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/252697913981793630.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Triangles L1</h3>
+                <p class='mb-1'>Date: 2024-05-22</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/623255636232658000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Triangles Lec-2</h3>
+                <p class='mb-1'>Date: 2024-05-23</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/194909263040634180.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Triangles Lec-3</h3>
+                <p class='mb-1'>Date: 2024-05-28</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/162042040158885250.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Triangles Lec -4</h3>
+                <p class='mb-1'>Date: 2024-05-29</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/568036343387820500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Triangles -5</h3>
+                <p class='mb-1'>Date: 2024-05-30</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/798524544013263900.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Triangles lec-6</h3>
+                <p class='mb-1'>Date: 2024-05-30</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/103096393506383620.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L1</h3>
+                <p class='mb-1'>Date: 2024-06-15</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/4362477226461148.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L2</h3>
+                <p class='mb-1'>Date: 2024-06-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/7271462221742069344368480.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L3</h3>
+                <p class='mb-1'>Date: 2024-06-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/861008178055158100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L4</h3>
+                <p class='mb-1'>Date: 2024-06-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/450501175274632300.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L6</h3>
+                <p class='mb-1'>Date: 2024-06-20</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/175936271789777180.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L5</h3>
+                <p class='mb-1'>Date: 2024-06-21</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/122926094615589920.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L7</h3>
+                <p class='mb-1'>Date: 2024-06-21</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/5586561660855814408264800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L8</h3>
+                <p class='mb-1'>Date: 2024-07-05</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/364008081090451800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L9</h3>
+                <p class='mb-1'>Date: 2024-07-05</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/819686080059700400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L10</h3>
+                <p class='mb-1'>Date: 2024-07-09</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/431750639421205760.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L11</h3>
+                <p class='mb-1'>Date: 2024-07-12</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/239673018623187400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Trigonometry L12</h3>
+                <p class='mb-1'>Date: 2024-07-12</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/975154679924461.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Some applications of trigno 1</h3>
+                <p class='mb-1'>Date: 2024-07-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/512926501736074900.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Some applications of trigno 2</h3>
+                <p class='mb-1'>Date: 2024-07-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/611427423414864100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Some applications of trigno 3</h3>
+                <p class='mb-1'>Date: 2024-07-19</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/873331498872368500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>AP Lecture 1</h3>
+                <p class='mb-1'>Date: 2024-07-23</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/691255944417134200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>AP Lecture 2</h3>
+                <p class='mb-1'>Date: 2024-07-24</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/521867257207995500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>AP lecture 3</h3>
+                <p class='mb-1'>Date: 2024-07-25</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/762607086944557300.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>AP lecture 4</h3>
+                <p class='mb-1'>Date: 2024-07-26</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/583316739505975900.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>AP lecture 5</h3>
+                <p class='mb-1'>Date: 2024-07-28</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/807796521436509400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>AP lecture 6</h3>
+                <p class='mb-1'>Date: 2024-07-29</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/787441533413798800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Coordinate Geometry -1</h3>
+                <p class='mb-1'>Date: 2024-08-10</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/224169593634472930.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Coordinate Geometry -2</h3>
+                <p class='mb-1'>Date: 2024-08-10</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/369471802807785860.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Coordinate Geometry -3</h3>
+                <p class='mb-1'>Date: 2024-08-11</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/38119925274719570.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Coordinate geometry-4</h3>
+                <p class='mb-1'>Date: 2024-08-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/100683109742101940.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Coordinate geometry-5</h3>
+                <p class='mb-1'>Date: 2024-08-14</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/717126006237391600.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Revision Triangles 1</h3>
+                <p class='mb-1'>Date: 2024-08-20</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/649343919790321500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Revision Triangles 2</h3>
+                <p class='mb-1'>Date: 2024-08-21</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/236240495358860830.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Revision Triangles 3</h3>
+                <p class='mb-1'>Date: 2024-08-23</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/7539682845200152696543700.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Revision Pair of Lin EQ in 2 Variable -1</h3>
+                <p class='mb-1'>Date: 2024-08-28</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/717483559620722600.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Revision Pair of Lin EQ in 2 Variable -2</h3>
+                <p class='mb-1'>Date: 2024-08-30</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/247209010049102370.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Revision Pair of Lin EQ in 2 Variable -3</h3>
+                <p class='mb-1'>Date: 2024-09-03</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/803490408055500700.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Half yearly Rev Quad Eq-1</h3>
+                <p class='mb-1'>Date: 2024-09-06</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/261604684923940960.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Half yearly Rev Quad Eq-2</h3>
+                <p class='mb-1'>Date: 2024-09-06</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/184830469946913820.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Half Yearly Revision Polynomials</h3>
+                <p class='mb-1'>Date: 2024-09-16</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/9450476571404098.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Half Yearly Revision Real Numbers</h3>
+                <p class='mb-1'>Date: 2024-09-16</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/192240876121614880.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Circles lecture 1</h3>
+                <p class='mb-1'>Date: 2024-09-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/11369366272154546.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Circles Lecture 2</h3>
+                <p class='mb-1'>Date: 2024-09-20</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/377403691742728900.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Circles Lecture 3</h3>
+                <p class='mb-1'>Date: 2024-09-20</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/436095432456412900.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Circles|Lecture 4</h3>
+                <p class='mb-1'>Date: 2024-09-20</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/751449086239369200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Area Related to circle 1</h3>
+                <p class='mb-1'>Date: 2024-09-27</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/547119871881596100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Area related to circles 2</h3>
+                <p class='mb-1'>Date: 2024-09-27</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/148027105869355200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Area Related to Circles 3</h3>
+                <p class='mb-1'>Date: 2024-10-01</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/168687237586328800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Area Related to Circle 4</h3>
+                <p class='mb-1'>Date: 2024-10-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/161890699284516130.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Surface are and Volume 2</h3>
+                <p class='mb-1'>Date: 2024-10-10</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/401146922456167740.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Surface Area and Volume 3</h3>
+                <p class='mb-1'>Date: 2024-10-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/325266053793366700.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Statistics - 1</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/183254743766069220.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>surface area and volume 4</h3>
+                <p class='mb-1'>Date: 2024-10-19</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/300110822767090500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+
+      </div>
+   </body>
+</html>
