@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextEdu</title>
+<!--  <script src="/cookie-validator.js"></script>
+    <script>
+   function getCookie(name) {
+   const value = `; ${document.cookie}`;
+   const parts = value.split(`; ${name}=`);
+   if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+   if (!getCookie('🔥')) {
+               
+     window.location.href = 'https://nextedu-official.netlify.app/login/';
+     }
+    </script> -->
+    <style>
+a {
+  text-decoration: none;
+}
+        body {
+            background-color: #fff;
+            color: #000;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+    padding-top: 60px; /* Creates space for the fixed header */
+}
+
+        header {
+    background-color: #f8f011;
+    padding: 1rem 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow */
+    height: 50px;
+    width: 100%; /* Sets width to full screen */
+    box-sizing: border-box; /* Ensures padding is included in width */
+    position: fixed; /* Fixes header to the top */
+    top: 10px; /* Keeps header at the top */
+    left: 0; /* Aligns header with the left edge */
+    right: 0; /* Aligns header with the right edge */
+    z-index: 1000; /* Ensures header stays above other elements */
+}
+
+/* Add some content below to demonstrate scrolling */
+.content {
+    padding: 20px;
+    height: 2000px; /* Just for demonstration, creates a long scrollable page */
+}
+
+header h1 {
+    margin-right: auto;
+}
+
+header img {
+    margin-left: auto; /* Aligns the image to the right */
+    margin-right: 5px;
+    margin-top: 5px; /* Adjust this value to move the image up or down */
+    /* Alternatively, you can use the transform property */
+    /* transform: translateY(2px); Adjust this value as needed */
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.header-title {
+    font-size: 1.2rem;
+    font-weight: 800; /* Set to 900 for maximum boldness */
+    color: #000000;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);
+    font-family: "Arial", sans-serif;
+    letter-spacing: 0.5px;
+}
+
+
+        .content-container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .content-container h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #FFD700;
+            margin-bottom: 40px;
+        }
+
+        #lectures {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+  .content-container h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #FFD700;
+            margin-bottom: 40px;
+        }
+
+        #lectures {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .content-card {
+    background-color: #efded2;
+    border-radius: 15px; /* Slightly rounded corners for a modern look */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #d9c5b1; /* Border to enhance the card outline */
+}
+
+.content-card:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Increased shadow on hover */
+}
+
+.content-thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 3px solid #000; /* Keeps the original divider line */
+}
+
+.content-card div {
+    padding: 20px;
+}
+
+.content-card h3 {
+    font-size: 1.2rem; /* Increased font size for better readability */
+    margin: 0 0 15px;
+    color: #000;
+    font-weight: bold; /* Bold header for emphasis */
+    text-align: center; /* Center-align text */
+}
+
+.content-card p {
+    margin: 0 0 15px;
+    color: #000;
+    font-size: 0.95rem; /* Slightly larger for readability */
+    line-height: 1.5; /* Increased line spacing */
+}
+
+.link-btn {
+    padding: 12px 20px; /* Slightly larger padding for a more balanced look */
+    font-size: 1.1rem;
+    color: #000;
+    background-color: #e5e1cf;
+    border: 2px solid #000;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+    display: block; /* Ensures button spans full width */
+    text-align: center;
+    border-radius: 8px; /* Smooth button corners */
+}
+
+.link-btn:hover {
+    background-color: #000;
+    color: #FFD700;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow on hover */
+}
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #FFD700;
+            color: #000;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content-container h1 {
+                font-size: 2em;
+            }
+
+            #lectures {
+                grid-template-columns: 1fr;
+            }
+            }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #FFD700;
+            color: #000;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content-container h1 {
+                font-size: 2em;
+            }
+
+            #lectures {
+                grid-template-columns: 1fr;
+            }
+        }
+  /* Tab Styles */
+.tab-button {
+    background: #ffffff;
+    font-weight: 700 !important;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0.5rem 10px; /* Adjusted padding */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    height: auto; /* Allows button height to adjust based on content */
+    width: 200px;
+    white-space: nowrap; /* Prevents text wrapping to a new line */
+    overflow: hidden; /* Hides overflow */
+    text-overflow: ellipsis; /* Adds "..." if text overflows */
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+
+
+.tabs {
+    display: flex;
+    justify-content: space-between; /* Distribute buttons evenly */
+    align-items: center;
+    gap: 10px; /* Adjusts space between each button */
+    padding: 10px;
+    background-color: #c6c4c4;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Make container full width */
+    box-sizing: border-box;
+}
+.active {
+    background: #ffd900; /* Darker shade for active tab */
+}
+
+.tab-button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="https://th.bing.com/th/id/R.757dcae10509bdbcbbbe7231f9cec8ab?rik=7RO2A7Du7jYBww&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fleft-arrow-png-left-icon-1600.png&ehk=nQr%2fWbRJHtKEaV53ijq71OpNptgpG4FZxnChrIO0fBI%3d&risl=&pid=ImgRaw&r=0" alt="Back" width="24" height="24"></a>
+         <span class="header-title">EduVerse</span>
+        
+     </header>
+     <section>
+        <div class="tabs">
+           <button class="tab-button active" id="lecturesButton">Lectures</button>
+           </div>    
+    <section>
+    <div class="content-container">
+        <div id='lectures'>
+
+<div class='content-card'>
+    <div>
+        <h3>Human Eye</h3>
+          <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4270256/173549276764798296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Reproduction L1</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4272066/173575152550008296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Reproduction L2</h3>
+         <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4272759/173583743715928296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Carbon and Compounds L1</h3>
+           <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4273638/173592491096628296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Carbon and Compounds L2</h3>
+         <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4274064/173601032973618296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Doubt Class</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4274297/173609567488868296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Our Environment</h3>
+         <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4277220/173635622075408296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Heridity 2</h3>
+          <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4279009/173652841254688296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Heridity 1</h3>
+          <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4278007/173644262877098296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+  </div>
+
+<div class='content-card'>
+      <div>
+        <h3>Electricity L2</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4270084/173540638532658296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+<div class='content-card'>
+    <div>
+        <h3>Electricity 1</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4269594/173531897040688296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+<div class='content-card'>
+        <div>
+        <h3>Metals and Non Metals 2</h3>
+         <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4268799/173523205288808296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+<div class='content-card'>
+      <div>
+        <h3>Metals and Non Metals 1</h3>
+          <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4267956/173514588477748296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+<div class='content-card'>
+       <div>
+        <h3>Control and Coordination L2</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4265525/173479976755458296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+<div class='content-card'>
+     <div>
+        <h3>Control and Coordination L1</h3>
+         <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4263665/173462783779448296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+<div class='content-card'>
+     <div>
+        <h3>Control and Coordination L2</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4265525/173479976755458296383/index_1.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+<div class='content-card'>
+     <div>
+        <h3>Acid,Base And Salts</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4262636/173454164634708296383/173454164634708296383_8296383.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+    <div>
+        <h3>Light 2</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4255487/173410951379678296383/index_4.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+<div class='content-card'>
+     <div>
+        <h3>Light 1</h3>
+        <a href='/Next-toppers/play.html?lessonurl=https://d2xqn12y4qo6nr.cloudfront.net/out/v1/4dacc3cc62ed4047b817b91580e11584/index.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+    </div>
+</div>
+
+                <div class='content-card'>
+                     <div>
+                        <h3>Chemical reactions and Equations | L-01</h3>
+                         <a href='/Next-toppers/play.html?lessonurl=https://edge.api.brightcove.com/playback/v1/accounts/6415636611001/videos/6365585524112/master.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+                    </div>
+                </div>
+            
+                <div class='content-card'>
+                     <div>
+                        <h3>Life Process | L-02</h3>
+                        <a href='/Next-toppers/play.html?lessonurl=https://d3cx6qbbd4cbso.cloudfront.net/file_library/videos/vod_non_drm_ios/4251456/1733755749_6573603194055109/13027201240p30.m3u8' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+                    </div>
+                </div>
+            
+                <div class='content-card'>
+                    <div>
+                        <h3>Life Process | L-01</h3>
+                         <a href='/Next-toppers/play.html?lessonurl=https://www.youtube.com/watch?v=3nnzRQEzIPM' class='btn btn-outline-danger link-btn'>Watch Now!</a>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+
+  
+</body>
+
+</html>
