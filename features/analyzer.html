@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Paper Analysis</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fc;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        /* Form Group */
+        .form-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group button {
+            flex: 1;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .form-group button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .form-group button:hover {
+            background: #0056b3;
+        }
+
+        /* Chart */
+        canvas {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+
+        /* Reset Button */
+        .reset-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: #ff4d4d;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .reset-button:hover {
+            background: #d93636;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">📊 Sample Paper Analysis</header>
+
+    <div class="container">
+        <h2>Analyze Your Performance</h2>
+
+        <!-- Select Subject & Enter Marks -->
+        <div class="form-group">
+            <select id="subjectInput">
+                <option value="" disabled selected>Select Subject</option>
+            </select>
+            <input type="number" id="marksInput" placeholder="Enter Marks (out of 80)" min="0" max="80">
+            <button id="addMarksButton">Add Marks</button>
+        </div>
+
+        <!-- Add New Subject -->
+        <div class="form-group">
+            <input type="text" id="newSubjectInput" placeholder="Enter New Subject Name">
+            <button id="addSubjectButton">+ Add Subject</button>
+        </div>
+
+        <!-- Chart -->
+        <canvas id="marksChart"></canvas>
+
+        <!-- Reset Button -->
+        <button class="reset-button" id="resetButton">Reset Graph</button>
+    </div>
+
+    <script>
+        // Initialize Data
+        let marksData = JSON.parse(localStorage.getItem("marksData")) || {
+            Math: [],
+            Science: [],
+            English: [],
+            "Social Studies": []
+        };
+
+        let subjectColors = JSON.parse(localStorage.getItem("subjectColors")) || {
+            Math: "rgba(255, 99, 132, 0.6)", 
+            Science: "rgba(54, 162, 235, 0.6)", 
+            English: "rgba(75, 192, 192, 0.6)", 
+            "Social Studies": "rgba(255, 206, 86, 0.6)" 
+        };
+
+        // Populate subject dropdown
+        function populateSubjects() {
+            const subjectInput = document.getElementById("subjectInput");
+            subjectInput.innerHTML = `<option value="" disabled selected>Select Subject</option>`;
+
+            Object.keys(marksData).forEach(subject => {
+                const option = document.createElement("option");
+                option.value = subject;
+                option.textContent = subject;
+                subjectInput.appendChild(option);
+            });
+        }
+
+        populateSubjects();
+
+        // Chart Setup
+        const ctx = document.getElementById("marksChart").getContext("2d");
+        const marksChart = new Chart(ctx, {
+            type: "line",
+            data: { labels: [], datasets: [] },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true, position: "top" }
+                },
+                scales: {
+                    x: { title: { display: true, text: "Attempts" } },
+                    y: { title: { display: true, text: "Marks (out of 80)" }, beginAtZero: true, suggestedMax: 80 }
+                }
+            }
+        });
+
+        function updateChart() {
+            marksChart.data.labels = [];
+            marksChart.data.datasets = [];
+
+            let maxAttempts = Math.max(...Object.values(marksData).map(marks => marks.length));
+
+            if (maxAttempts === 0) {
+                marksChart.data.labels = [];
+                marksChart.update();
+                return;
+            }
+
+            marksChart.data.labels = Array.from({ length: maxAttempts }, (_, i) => `${i + 1}`);
+
+            Object.keys(marksData).forEach(subject => {
+                const data = marksData[subject];
+                if (data.length === 0) return;
+
+                marksChart.data.datasets.push({
+                    label: subject,
+                    data: data,
+                    fill: false,
+                    borderColor: subjectColors[subject],
+                    backgroundColor: subjectColors[subject],
+                    tension: 0.4
+                });
+            });
+
+            marksChart.update();
+            localStorage.setItem("marksData", JSON.stringify(marksData));
+        }
+
+        updateChart();
+
+        document.getElementById("addMarksButton").addEventListener("click", () => {
+            const subject = document.getElementById("subjectInput").value;
+            const marks = parseInt(document.getElementById("marksInput").value);
+
+            if (!subject || isNaN(marks) || marks < 0 || marks > 80) {
+                alert("Please enter valid marks (0-80).");
+                return;
+            }
+
+            marksData[subject].push(marks);
+            updateChart();
+            document.getElementById("marksInput").value = "";
+        });
+
+        document.getElementById("addSubjectButton").addEventListener("click", () => {
+            const newSubject = document.getElementById("newSubjectInput").value.trim();
+
+            if (!newSubject || marksData[newSubject]) {
+                alert("Invalid or duplicate subject name.");
+                return;
+            }
+
+            marksData[newSubject] = [];
+            subjectColors[newSubject] = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.6)`;
+            populateSubjects();
+            alert(`Subject "${newSubject}" added.`);
+            document.getElementById("newSubjectInput").value = "";
+        });
+
+        document.getElementById("resetButton").addEventListener("click", () => {
+            if (confirm("Reset all data?")) {
+                marksData = {};
+                subjectColors = {};
+                localStorage.clear();
+                populateSubjects();
+                updateChart();
+            }
+        });
+    </script>
+</body>
+              </html>
