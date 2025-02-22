@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+
+
+    
+     <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Saari images ko select karega
+    document.querySelectorAll("img").forEach(function (img) {
+        // Har image ke src ko nayi image ke URL se replace karega
+        img.src = "https://i.ytimg.com/vi/cFK4To0gr7Y/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDEbMT-KB8TqyAGFRLot4mi-_JUpg";
+    });
+});
+    </script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Notes</title>
+      <style>
+         body {
+         background-color: #000;
+         color: #fff;
+         font-family: 'Arial', sans-serif;
+         margin: 0;
+         padding: 0;
+         }
+         header {
+         text-align: center;
+         padding: 30px;
+         background: linear-gradient(45deg, #FFD700, #000);
+         box-shadow: 0 4px 8px rgba(255, 215, 0, 0.7);
+         }
+         header h1 {
+         font-size: 3em;
+         color: #FFF;
+         margin: 0;
+         letter-spacing: 2px;
+         }
+         .content-container {
+         padding: 40px;
+         max-width: 1200px;
+         margin: auto;
+         }
+         .content-container h1 {
+         text-align: center;
+         font-size: 2.5em;
+         color: #FFD700;
+         margin-bottom: 40px;
+         }
+         #lectures {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+         gap: 30px;
+         }
+         .content-card {
+         background-color: #222;
+         border-radius: 10px;
+         overflow: hidden;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         }
+         .content-card:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+         }
+         .content-thumbnail {
+         width: 100%;
+         height: 180px;
+         object-fit: cover;
+         border-bottom: 3px solid #FFD700;
+         }
+         .content-card div {
+         padding: 20px;
+         }
+         .content-card h3 {
+         font-size: 1.5em;
+         margin: 0 0 10px;
+         color: #FFD700;
+         }
+         .content-card p {
+         margin: 0 0 10px;
+         color: #ccc;
+         }
+         .link-btn {
+         padding: 10px 20px;
+         font-size: 1.1em;
+         color: #FFD700;
+         background-color: #000;
+         border: 2px solid #FFD700;
+         text-decoration: none;
+         transition: background-color 0.3s ease, color 0.3s ease;
+         display: inline-block;
+         }
+         .link-btn:hover {
+         background-color: #FFD700;
+         color: #000;
+         }
+         footer {
+         text-align: center;
+         padding: 20px;
+         background-color: #000;
+         color: #FFD700;
+         box-shadow: 0 -4px 8px rgba(255, 215, 0, 0.7);
+         margin-top: 40px;
+         }
+         @media (max-width: 768px) {
+         .content-container h1 {
+         font-size: 2em;
+         }
+         #lectures {
+         grid-template-columns: 1fr;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <h1>Science</h1>
+      </header>
+      <div class="content-container">
+      <div id='lectures'>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/1549099867163_chemical.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP 1 - Chemical Reactions and Equations </h3>
+                <p class='mb-1'>Date: 2024-04-15</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/627703850713643300.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP 1 Solution - Chemical Reactions and Equations </h3>
+                <p class='mb-1'>Date: 2024-04-22</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/121996321776111420.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/file_manager/pdf/6055074878042_Screenshot%202024-04-30%20225550.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP 2 - Life Processes</h3>
+                <p class='mb-1'>Date: 2024-04-30</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/740664551266240800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP 2 Solution - Life Process </h3>
+                <p class='mb-1'>Date: 2024-05-07</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/524575831186621500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP - Light</h3>
+                <p class='mb-1'>Date: 2024-05-20</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/232074727049818340.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP - Light with solution </h3>
+                <p class='mb-1'>Date: 2024-05-29</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/389341656744918340.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP Acid Base and Salts </h3>
+                <p class='mb-1'>Date: 2024-06-09</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/894673857366001400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP(Solution )Acid Base and Salts </h3>
+                <p class='mb-1'>Date: 2024-06-15</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/389769000396221950.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP with solution Human Eye and colourful World</h3>
+                <p class='mb-1'>Date: 2024-06-20</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/798655470174374100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP - control and Coordination</h3>
+                <p class='mb-1'>Date: 2024-07-09</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540/course_pdf/4735626396496101873537600.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3> ACP Electricity with solution </h3>
+                <p class='mb-1'>Date: 2024-07-17</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/840614258114554600.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP -Metals and non Metals</h3>
+                <p class='mb-1'>Date: 2024-08-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/195700803349298180.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP - Magnetic effect of Electric current (</h3>
+                <p class='mb-1'>Date: 2024-09-09</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/354814027979072400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP Carbon and its Compounds</h3>
+                <p class='mb-1'>Date: 2024-09-26</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/74904985792522720.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP -How do organisms Reproduce</h3>
+                <p class='mb-1'>Date: 2024-08-21</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/396268201901569340.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP - Magnetic effect of Electric current with Solutions</h3>
+                <p class='mb-1'>Date: 2024-10-07</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/96570067748585100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP Heredity and Evolution</h3>
+                <p class='mb-1'>Date: 2024-10-30</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/119219569837899120.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Heredity and Evolution - 3</h3>
+                <p class='mb-1'>Date: 2024-10-30</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/194568334907540960.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Chemical reactions and equations L4</h3>
+                <p class='mb-1'>Date: 2024-04-23</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/418305685856962400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Acid Base and Salts LEC 5 part 2</h3>
+                <p class='mb-1'>Date: 2024-06-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/721691565994801200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Acid Base and Salts LEC 6</h3>
+                <p class='mb-1'>Date: 2024-06-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/832018672838415200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals -2</h3>
+                <p class='mb-1'>Date: 2024-08-01</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/649452294346953000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP_Control_and_Coordination_with_Solutions_Prashant_Kirad_</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252707945_664262731300406400_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP with Solutions - Life Processes (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252706765_382662906773507600_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP - Light ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252705637_642549950228036400_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP - Life Processes (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252704683_80966424501208430_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>ACP - Chemical Reactions and Equations ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252703950_212715778502995700_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L7 Acid Bases and Salts ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252619166_169804497895668400_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L8 LIFE PROCESSES ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252607095_301934934711293760_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L8 Chemical Reaction & Equation ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252604786_212758018227930900_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L3-Chemical Reaction & Equation ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252631233_220488936354604670_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L4 Chemical Reaction & Equation (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252637060_221444606590336830_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L5 Chemical Reaction & Equation ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252625675_177457628586182980_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L6 Chemical Reactions & Equations (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252616927_709438704998743800_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L7 Chemical Reaction & Equation (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252600317_621964079486516600_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L1 LIFE PROCESSES ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252658726_736623133062998000_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L2 LIFE PROCESSES ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252642016_664528052381242200_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L3 LIFE PROCESSES ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252651913_831576166238611800_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L4 LIFE PROCESSES ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252620651_815355075233290900_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L5 LIFE PROCESSES ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252611752_784478640469127700_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L7 LIFE PROCESSES ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252602780_878458180863282300_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Life Processes NCERT Hack (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252608782_106755616566175250_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L1 Light ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252661773_784133066892904000_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L2 Light (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252644639_690588961256471800_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L3 Light (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252653800_261486046262578600_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L5 Light (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252614382_391550006214355400_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L1 Acid Bases and Salts ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252683437_38831096158831490_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L2 Acids Bases and Salts (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252663438_558890880090239800_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L4 acid base</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252634007_297653176661435650_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L6 Acid Bases and Salts ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252615769_311074115721266900_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L1 Human Eye & Colorful World ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252657003_809041317237547900_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L2 Human Eye & Colorful World ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252641380_784044268356474400_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L3 Human Eye & Colorful World ( Prashant Kirad )-merged (1)</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252650403_223505737374542000_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>l4 human eye</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252639851_402923310249220700_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L 1 Control and Coordination</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252680131_615866226244836600_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L2 control and coordination</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252666139_688119489911571600_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L3 control and Coordination</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252646287_224477749891292220_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L4 Control and Coordination ( Prashant Kirad )pdf</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252639565_220403587635999700_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L5 Control and Coordination ( Prashant Kirad )</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252628140_766658139134024200_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L1 electricity</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252654531_46674156616306936_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L2 Electricity</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252669457_501604717384850240_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L3 electricity</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252648619_415560495554958660_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L4+5 Electricity</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252622472_163624295708011680_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L 6 Electricity</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252681903_591917890116746000_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals L-1</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252593493_603710564894404500_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals L-2</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252596303_157692905224969280_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals L-3</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252598567_872978728672547700_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals L-4</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252573017_878137615101965800_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals L-5</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252575541_589455303556979800_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals L-6</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252578811_73459298851748980_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals L-7</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252580642_10717322788331928_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>How do organism Reproduce 1</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252698370_482172248960577500_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>How do organism Reproduce 2</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252700113_58913882214523300_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>How do organism Reproduce 3</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/163571743513468450.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>How do organism Reproduce 4</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252671429_894611302689737000_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>How do organism Reproduce 5</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252673211_678881874670041100_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>How do organism Reproduce 6</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/417539397175191500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>How do organism Reproduce 7</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252678418_550355833488188000_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Magnetic effect of electric current 1</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252610216_120061942487067170_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Magnetic effect of electric current 2</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252585780_357678148798885700_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Magnetic effect of electric current 3</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252588201_38269752987918730_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Magnetic effect of electric current 4</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252591372_841333383347678700_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Electricity revision</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252696582_644820107847809200_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>carbon and its compound 1 </h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252709764_627568715435183500_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>carbon and its compound 2+3</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252685697_533737085417561860_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>carbon and its compound 4</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252687325_43371594927063380_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>carbon and its compound 5</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252689255_597026166553608700_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>carbon and its compound 6</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252690720_733627130019311400_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>carbon and its compound 7</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252691647_483083646780773440_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>carbon and its compound 8</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252693514_525121786511356540_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>carbon and its compound 9</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252694793_134946680674872030_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>our enviroment 1</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252583377_551497529677770300_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/24199020_pdf.png' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>our enviroment 2</h3>
+                <p class='mb-1'>Date: 2024-10-18</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/sunnynotews/1729252569073_892755359333031000_video_VOD.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and non metals NCERT Hack (Prashant Kirad)</h3>
+                <p class='mb-1'>Date: 2024-10-21</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/410580474575175500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Acid Base and Salts -3</h3>
+                <p class='mb-1'>Date: 2024-10-23</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/279494803033881380.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals-7</h3>
+                <p class='mb-1'>Date: 2024-08-14</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/201590814072452960.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals-6</h3>
+                <p class='mb-1'>Date: 2024-08-13</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/44183541523488136.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non Metals-5</h3>
+                <p class='mb-1'>Date: 2024-08-12</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/231929083481065100.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and Non metals -4</h3>
+                <p class='mb-1'>Date: 2024-08-05</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/562052683650431550.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Metals and non Metals -3</h3>
+                <p class='mb-1'>Date: 2024-08-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/584074667223729700.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Electricity Lec 4+5</h3>
+                <p class='mb-1'>Date: 2024-07-23</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/596770404695572500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Electricity L1</h3>
+                <p class='mb-1'>Date: 2024-07-16</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/530289059541796700.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Control and coordination L3</h3>
+                <p class='mb-1'>Date: 2024-07-09</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/679904667722588400.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Control and coordination L2</h3>
+                <p class='mb-1'>Date: 2024-07-08</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/824567205111207000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Control and coordination L1</h3>
+                <p class='mb-1'>Date: 2024-07-05</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/8780477424696742.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Carbon and its compounds 10</h3>
+                <p class='mb-1'>Date: 2024-10-15</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/521718559546962000.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Heredity and evolution 1</h3>
+                <p class='mb-1'>Date: 2024-10-29</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/730240964917763500.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>Heredity and evolution -2</h3>
+                <p class='mb-1'>Date: 2024-10-29</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/653319795603380900.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L4 Light</h3>
+                <p class='mb-1'>Date: 2024-11-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/811885842867505300.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L1 Chemical Reaction & Equation</h3>
+                <p class='mb-1'>Date: 2024-11-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/848610965374108200.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>L2 Chemical Reaction & Equation</h3>
+                <p class='mb-1'>Date: 2024-11-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/890090302744621800.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+        <div class='content-card'><img src='https://alphanetwork.fun/next-topper/alphanetwork.jpg' class='content-thumbnail' alt='Thumbnail'>
+            <div>
+                <h3>NCERT Hack Chemical Reaction & Equation</h3>
+                <p class='mb-1'>Date: 2024-11-02</p><a href='https://d3cx6qbbd4cbso.cloudfront.net/540admin_v1/file_manager/pdf/705307584292989700.pdf' target='_blank' class='btn btn-outline-success link-btn'>Download PDF</a>
+            </div>
+        </div>
+    </div>
+
+      </div>
+   </body>
+     </html>
