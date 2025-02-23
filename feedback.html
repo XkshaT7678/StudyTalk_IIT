@@ -4,166 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedbacks</title>
-
-    <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-
     <style>
-        /* Global Styles */
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
-        body {
-            background: #f5f5f5;
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .feedback-card {
+            background: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .feedback-card h3 {
+            margin: 0;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 40px 20px;
         }
-
-        /* Title */
-        h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #0077b6;
-        }
-
-        /* Swiper Container */
-        .swiper {
-            width: 100%;
-            max-width: 1100px;
-            padding: 20px;
-        }
-
-        /* Swiper Slide (Feedback Card) */
-        .swiper-slide {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        .swiper-slide:hover {
-            transform: scale(1.05);
-        }
-
-        /* Feedback Text */
-        .feedback-text {
-            font-size: 1rem;
-            font-style: italic;
+        .feedback-card p {
+            margin: 5px 0;
             color: #555;
         }
-
-        /* User Info */
-        .feedback-user {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #0077b6;
-        }
-
-        /* Telegram and Ratings */
-        .feedback-details {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        /* Pagination */
-        .swiper-pagination {
-            margin-top: 10px;
+        .rating {
+            color: gold;
+            font-size: 1.2em;
         }
     </style>
 </head>
 <body>
 
-    <h2>💬 User Feedbacks</h2>
+    <h1>🚀 User Feedbacks</h1>
 
-    <!-- Swiper Container -->
-    <div class="swiper feedback-swiper">
-        <div class="swiper-wrapper">
-            <!-- Feedback Data as JSON -->
-            <script type="application/json" id="feedback-data">
-                [
-                    {
-                        "text": "This platform is a game-changer for students!",
-                        "name": "Rahul Sharma",
-                        "location": "India",
-                        "rating": "⭐ 5"
-                    },
-                    {
-                        "text": "Amazing resources, absolutely free!",
-                        "name": "Priya Verma",
-                        "location": "Delhi, India",
-                        "rating": "⭐ 5"
-                    },
-                    {
-                        "text": "I found everything I needed in one place!",
-                        "name": "Akash Gupta",
-                        "location": "Mumbai, India",
-                        "rating": "⭐ 4.8"
-                    },
-                    {
-                        "text": "This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this!",
-                        "name": "Chirag Wadhwa",
-                        "location": "Haryana, India",
-                        "rating": "⭐ 5",
-                        "telegram": "Harsh Wadhwa"
-                    }
-                ]
-            </script>
+    <div class="container">
+        
+        <div class="feedback-card">
+            <h3>Rak Gupta</h3>
+            <p>🌍 <strong>India</strong></p>
+            <p>📌 <strong>Telegram:</strong> @No_name_56990</p>
+            <p class="rating">⭐ 5</p>
+            <p>📨 <strong>Feedback:</strong> Best</p>
         </div>
-        <!-- Swiper Pagination -->
-        <div class="swiper-pagination"></div>
+
+        <div class="feedback-card">
+            <h3>Agneya</h3>
+            <p>🌍 <strong>India, Punjab near Chandigarh</strong></p>
+            <p>📌 <strong>Telegram:</strong> Agneya</p>
+            <p class="rating">⭐ 5</p>
+            <p>📨 <strong>Feedback:</strong> Just improve a way to find the material in your channel. Make a common channel or an app. Except for this, everything is great!</p>
+        </div>
+
+        <div class="feedback-card">
+            <h3>Deepanshu</h3>
+            <p>🌍 <strong>Maharashtra</strong></p>
+            <p>📌 <strong>Telegram:</strong> @raje_chhatrapati</p>
+            <p class="rating">⭐ Infinite</p>
+            <p>📨 <strong>Feedback:</strong> You are doing many things for us, which I think is enough. Thanks for your efforts! 🙏</p>
+        </div>
+
+        <div class="feedback-card">
+            <h3>MrTech</h3>
+            <p>🌍 <strong>Delhi, India</strong></p>
+            <p>📌 <strong>Telegram:</strong> @MrTech_AK</p>
+            <p class="rating">⭐ Infinite</p>
+            <p>📨 <strong>Feedback:</strong> EduVerse is a fantastic learning companion, and I highly recommend it to students looking for quality study materials. Keep up the great work!</p>
+        </div>
+
+        <div class="feedback-card">
+            <h3>Simar Maan</h3>
+            <p>🌍 <strong>Punjab</strong></p>
+            <p>📌 <strong>Telegram:</strong> Simor Maan</p>
+            <p class="rating">⭐ 5</p>
+            <p>📨 <strong>Feedback:</strong> You have helped me a lot with my studies. Thank you ❤️❤️</p>
+        </div>
+
+        <div class="feedback-card">
+            <h3>Reetma Soni</h3>
+            <p>🌍 <strong>Uttar Pradesh, India</strong></p>
+            <p>📌 <strong>Telegram:</strong> @ritmx_here</p>
+            <p class="rating">⭐ 4.5</p>
+            <p>📨 <strong>Feedback:</strong> You provide me with all study material... So, I am thankful for you 🫶😊</p>
+        </div>
+
+        <div class="feedback-card">
+            <h3>Sneha</h3>
+            <p>🌍 <strong>Haryana</strong></p>
+            <p>📌 <strong>Telegram:</strong> Poonam Saini</p>
+            <p class="rating">⭐ 5</p>
+            <p>📨 <strong>Feedback:</strong> Thanks for providing such fabulous content. And again, thank you for your effort. ☺</p>
+        </div>
+
+        <div class="feedback-card">
+            <h3>Jagrit Surana</h3>
+            <p>🌍 <strong>Rajasthan</strong></p>
+            <p>📌 <strong>Telegram:</strong> JAGRIT SURANA</p>
+            <p class="rating">⭐ 978324513</p>
+            <p>📨 <strong>Feedback:</strong> BHAIYA THANK YOUUUU FOR YOUR SUPPORT 💖</p>
+        </div>
+
+        <div class="feedback-card">
+            <h3>Varun Sagar</h3>
+            <p>🌍 <strong>U.P.</strong></p>
+            <p>📌 <strong>Telegram:</strong> Varun Sagar</p>
+            <p class="rating">⭐ 5</p>
+            <p>📨 <strong>Feedback:</strong> Release a new session for Class 11 and thanks a lot for Class 10. You made it easy!</p>
+        </div>
+
+        <div class="feedback-card">
+            <h3>Chirag Wadhwa</h3>
+            <p>🌍 <strong>Haryana, India</strong></p>
+            <p>📌 <strong>Telegram:</strong> Harsh Wadhwa</p>
+            <p class="rating">⭐ 5</p>
+            <p>📨 <strong>Feedback:</strong> This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this.</p>
+        </div>
+
+        <!-- Add remaining feedbacks similarly -->
+
     </div>
-
-    <!-- Swiper.js Script -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script>
-        // Parse feedback data from JSON
-        const feedbackData = JSON.parse(document.getElementById('feedback-data').textContent);
-        const wrapper = document.querySelector('.swiper-wrapper');
-
-        feedbackData.forEach(feedback => {
-            const slide = document.createElement('div');
-            slide.classList.add('swiper-slide');
-            slide.innerHTML = `
-                <p class="feedback-text">"${feedback.text}"</p>
-                <p class="feedback-user">- ${feedback.name}</p>
-                <p class="feedback-details">📍 ${feedback.location} | ${feedback.rating} ${feedback.telegram ? '| Telegram: ' + feedback.telegram : ''}</p>
-            `;
-            wrapper.appendChild(slide);
-        });
-
-        // Initialize Swiper.js
-        var swiper = new Swiper('.feedback-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 }
-            }
-        });
-    </script>
 
 </body>
 </html>
