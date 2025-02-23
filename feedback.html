@@ -3,73 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Display</title>
+    <title>User Feedbacks</title>
     
-    <!-- Swiper.js CDN -->
+    <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-    
+
     <style>
         /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            background: #0f172a;
+            color: #fff;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        
-        /* Container */
-        .feedback-container {
-            max-width: 900px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
         }
 
         /* Title */
-        .section-heading {
-            font-size: 24px;
-            color: #fff;
+        h2 {
+            font-size: 2rem;
+            text-align: center;
             margin-bottom: 20px;
+            font-weight: bold;
+            color: #38bdf8;
         }
 
-        /* Swiper Styles */
+        /* Swiper Container */
         .swiper {
             width: 100%;
-            padding: 20px 0;
-        }
-        .swiper-slide {
-            background: white;
+            max-width: 1100px;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Swiper Slide (Feedback Card) */
+        .swiper-slide {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease-in-out;
         }
         .swiper-slide:hover {
             transform: scale(1.05);
         }
+
+        /* Feedback Text */
         .feedback-text {
-            font-size: 16px;
+            font-size: 1rem;
             font-style: italic;
-            color: #444;
+            color: #ddd;
         }
+
+        /* User Info */
         .feedback-user {
-            font-weight: bold;
             margin-top: 10px;
-            color: #333;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #38bdf8;
         }
-        
-        /* Swiper Pagination */
+
+        /* Telegram and Ratings */
+        .feedback-details {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        /* Pagination */
         .swiper-pagination {
             margin-top: 10px;
         }
@@ -77,37 +87,38 @@
 </head>
 <body>
 
-    <div class="feedback-container">
-        <h2 class="section-heading">💬 User Feedbacks</h2>
+    <h2>💬 What Users Say</h2>
 
-        <!-- Swiper Slider -->
-        <div class="swiper feedback-swiper">
-            <div class="swiper-wrapper">
-                <!-- Feedback 1 -->
-                <div class="swiper-slide">
-                    <p class="feedback-text">"This platform has helped me a lot in my studies!"</p>
-                    <p class="feedback-user">- Rahul Sharma</p>
-                </div>
-                <!-- Feedback 2 -->
-                <div class="swiper-slide">
-                    <p class="feedback-text">"The best educational website I have ever used!"</p>
-                    <p class="feedback-user">- Priya Verma</p>
-                </div>
-                <!-- Feedback 3 -->
-                <div class="swiper-slide">
-                    <p class="feedback-text">"The resources are extremely useful. Thank you!"</p>
-                    <p class="feedback-user">- Akash Gupta</p>
-                </div>
-                <!-- Feedback 4 (Chirag Wadhwa) -->
-                <div class="swiper-slide">
-                    <p class="feedback-text">"This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this!"</p>
-                    <p class="feedback-user">- Chirag Wadhwa (Haryana, India)</p>
-                    <p class="feedback-user">🌟 Telegram: Harsh Wadhwa | ⭐ Ratings: 5</p>
-                </div>
+    <!-- Swiper Container -->
+    <div class="swiper feedback-swiper">
+        <div class="swiper-wrapper">
+            <!-- Feedback 1 -->
+            <div class="swiper-slide">
+                <p class="feedback-text">"This platform is a game-changer for students!"</p>
+                <p class="feedback-user">- Rahul Sharma</p>
+                <p class="feedback-details">📍 India | ⭐ 5</p>
             </div>
-            <!-- Swiper Pagination -->
-            <div class="swiper-pagination"></div>
+            <!-- Feedback 2 -->
+            <div class="swiper-slide">
+                <p class="feedback-text">"Amazing resources, absolutely free!"</p>
+                <p class="feedback-user">- Priya Verma</p>
+                <p class="feedback-details">📍 Delhi, India | ⭐ 5</p>
+            </div>
+            <!-- Feedback 3 -->
+            <div class="swiper-slide">
+                <p class="feedback-text">"I found everything I needed in one place!"</p>
+                <p class="feedback-user">- Akash Gupta</p>
+                <p class="feedback-details">📍 Mumbai, India | ⭐ 4.8</p>
+            </div>
+            <!-- Chirag Wadhwa -->
+            <div class="swiper-slide">
+                <p class="feedback-text">"This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this!"</p>
+                <p class="feedback-user">- Chirag Wadhwa</p>
+                <p class="feedback-details">📍 Haryana, India | ⭐ 5 | Telegram: Harsh Wadhwa</p>
+            </div>
         </div>
+        <!-- Swiper Pagination -->
+        <div class="swiper-pagination"></div>
     </div>
 
     <!-- Swiper.js Script -->
