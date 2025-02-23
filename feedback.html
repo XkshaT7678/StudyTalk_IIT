@@ -3,63 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<section class="feedback-section bg-light-gray">
-    <div class="container">
-        <div class="section-title text-center wow animated fadeInUp">
-            <h2 class="section-heading">What Our Users Say</h2>
-            <span class="section-title-line"></span>
-            <p>Read feedback from students who have used our platform.</p>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div id="feedbackContainer">
-                    <!-- Manually added feedbacks -->
-                    <div class="feedback-box">
-                        <p class="feedback-text">"This platform has helped me a lot in my studies. The materials are well-structured!"</p>
-                        <p class="feedback-user">- Rahul Sharma</p>
-                    </div>
-                    <div class="feedback-box">
-                        <p class="feedback-text">"The live classes and resources are amazing! Thank you for this great initiative."</p>
-                        <p class="feedback-user">- Priya Verma</p>
-                    </div>
-                    <div class="feedback-box">
-                        <p class="feedback-text">"The best educational website I have ever used. Highly recommended!"</p>
-                        <p class="feedback-user">- Akash Gupta</p>
-                    </div>
-                    <div class="feedback-box">
-                        <p class="feedback-text">"This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this!"</p>
-                        <p class="feedback-user">- Chirag Wadhwa (Haryana, India)</p>
-                        <p class="feedback-user">🌟 Telegram: Harsh Wadhwa | ⭐ Ratings: 5</p>
-                    </div>
+    <title>Feedback Display</title>
+    
+    <!-- Swiper.js CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        
+        /* Container */
+        .feedback-container {
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Title */
+        .section-heading {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Swiper Styles */
+        .swiper {
+            width: 100%;
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .swiper-slide:hover {
+            transform: scale(1.05);
+        }
+        .feedback-text {
+            font-size: 16px;
+            font-style: italic;
+            color: #444;
+        }
+        .feedback-user {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+        
+        /* Swiper Pagination */
+        .swiper-pagination {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="feedback-container">
+        <h2 class="section-heading">💬 User Feedbacks</h2>
+
+        <!-- Swiper Slider -->
+        <div class="swiper feedback-swiper">
+            <div class="swiper-wrapper">
+                <!-- Feedback 1 -->
+                <div class="swiper-slide">
+                    <p class="feedback-text">"This platform has helped me a lot in my studies!"</p>
+                    <p class="feedback-user">- Rahul Sharma</p>
+                </div>
+                <!-- Feedback 2 -->
+                <div class="swiper-slide">
+                    <p class="feedback-text">"The best educational website I have ever used!"</p>
+                    <p class="feedback-user">- Priya Verma</p>
+                </div>
+                <!-- Feedback 3 -->
+                <div class="swiper-slide">
+                    <p class="feedback-text">"The resources are extremely useful. Thank you!"</p>
+                    <p class="feedback-user">- Akash Gupta</p>
+                </div>
+                <!-- Feedback 4 (Chirag Wadhwa) -->
+                <div class="swiper-slide">
+                    <p class="feedback-text">"This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this!"</p>
+                    <p class="feedback-user">- Chirag Wadhwa (Haryana, India)</p>
+                    <p class="feedback-user">🌟 Telegram: Harsh Wadhwa | ⭐ Ratings: 5</p>
                 </div>
             </div>
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination"></div>
         </div>
     </div>
-</section>
 
-<style>
-    .feedback-section {
-        padding: 50px 0;
-    }
-    .feedback-box {
-        background: #ffffff;
-        padding: 15px;
-        margin: 10px 0;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .feedback-text {
-        font-size: 16px;
-        font-style: italic;
-    }
-    .feedback-user {
-        font-weight: bold;
-        text-align: right;
-        margin-top: 5px;
-    }
-</style>
+    <!-- Swiper.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.feedback-swiper', {
+            slidesPerView: 1, /* 1 feedback per row */
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 }, /* 2 per row on tablets */
+                1024: { slidesPerView: 3 } /* 3 per row on desktops */
+            }
+        });
+    </script>
 
 </body>
 </html>
