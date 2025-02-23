@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Feedbacks</title>
-    
+    <title>Feedbacks</title>
+
     <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 
@@ -17,8 +17,8 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-            background: #0f172a;
-            color: #fff;
+            background: #f5f5f5;
+            color: #333;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -33,7 +33,7 @@
             text-align: center;
             margin-bottom: 20px;
             font-weight: bold;
-            color: #38bdf8;
+            color: #0077b6;
         }
 
         /* Swiper Container */
@@ -45,12 +45,12 @@
 
         /* Swiper Slide (Feedback Card) */
         .swiper-slide {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
         }
         .swiper-slide:hover {
@@ -61,7 +61,7 @@
         .feedback-text {
             font-size: 1rem;
             font-style: italic;
-            color: #ddd;
+            color: #555;
         }
 
         /* User Info */
@@ -69,13 +69,13 @@
             margin-top: 10px;
             font-size: 1.1rem;
             font-weight: bold;
-            color: #38bdf8;
+            color: #0077b6;
         }
 
         /* Telegram and Ratings */
         .feedback-details {
             font-size: 0.9rem;
-            color: #ccc;
+            color: #666;
             margin-top: 5px;
         }
 
@@ -87,35 +87,41 @@
 </head>
 <body>
 
-    <h2>💬 What Users Say</h2>
+    <h2>💬 User Feedbacks</h2>
 
     <!-- Swiper Container -->
     <div class="swiper feedback-swiper">
         <div class="swiper-wrapper">
-            <!-- Feedback 1 -->
-            <div class="swiper-slide">
-                <p class="feedback-text">"This platform is a game-changer for students!"</p>
-                <p class="feedback-user">- Rahul Sharma</p>
-                <p class="feedback-details">📍 India | ⭐ 5</p>
-            </div>
-            <!-- Feedback 2 -->
-            <div class="swiper-slide">
-                <p class="feedback-text">"Amazing resources, absolutely free!"</p>
-                <p class="feedback-user">- Priya Verma</p>
-                <p class="feedback-details">📍 Delhi, India | ⭐ 5</p>
-            </div>
-            <!-- Feedback 3 -->
-            <div class="swiper-slide">
-                <p class="feedback-text">"I found everything I needed in one place!"</p>
-                <p class="feedback-user">- Akash Gupta</p>
-                <p class="feedback-details">📍 Mumbai, India | ⭐ 4.8</p>
-            </div>
-            <!-- Chirag Wadhwa -->
-            <div class="swiper-slide">
-                <p class="feedback-text">"This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this!"</p>
-                <p class="feedback-user">- Chirag Wadhwa</p>
-                <p class="feedback-details">📍 Haryana, India | ⭐ 5 | Telegram: Harsh Wadhwa</p>
-            </div>
+            <!-- Feedback Data as JSON -->
+            <script type="application/json" id="feedback-data">
+                [
+                    {
+                        "text": "This platform is a game-changer for students!",
+                        "name": "Rahul Sharma",
+                        "location": "India",
+                        "rating": "⭐ 5"
+                    },
+                    {
+                        "text": "Amazing resources, absolutely free!",
+                        "name": "Priya Verma",
+                        "location": "Delhi, India",
+                        "rating": "⭐ 5"
+                    },
+                    {
+                        "text": "I found everything I needed in one place!",
+                        "name": "Akash Gupta",
+                        "location": "Mumbai, India",
+                        "rating": "⭐ 4.8"
+                    },
+                    {
+                        "text": "This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this!",
+                        "name": "Chirag Wadhwa",
+                        "location": "Haryana, India",
+                        "rating": "⭐ 5",
+                        "telegram": "Harsh Wadhwa"
+                    }
+                ]
+            </script>
         </div>
         <!-- Swiper Pagination -->
         <div class="swiper-pagination"></div>
@@ -124,8 +130,24 @@
     <!-- Swiper.js Script -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
+        // Parse feedback data from JSON
+        const feedbackData = JSON.parse(document.getElementById('feedback-data').textContent);
+        const wrapper = document.querySelector('.swiper-wrapper');
+
+        feedbackData.forEach(feedback => {
+            const slide = document.createElement('div');
+            slide.classList.add('swiper-slide');
+            slide.innerHTML = `
+                <p class="feedback-text">"${feedback.text}"</p>
+                <p class="feedback-user">- ${feedback.name}</p>
+                <p class="feedback-details">📍 ${feedback.location} | ${feedback.rating} ${feedback.telegram ? '| Telegram: ' + feedback.telegram : ''}</p>
+            `;
+            wrapper.appendChild(slide);
+        });
+
+        // Initialize Swiper.js
         var swiper = new Swiper('.feedback-swiper', {
-            slidesPerView: 1, /* 1 feedback per row */
+            slidesPerView: 1,
             spaceBetween: 20,
             loop: true,
             autoplay: {
@@ -137,8 +159,8 @@
                 clickable: true,
             },
             breakpoints: {
-                768: { slidesPerView: 2 }, /* 2 per row on tablets */
-                1024: { slidesPerView: 3 } /* 3 per row on desktops */
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
             }
         });
     </script>
