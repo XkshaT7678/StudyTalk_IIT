@@ -21,16 +21,78 @@
 
 <!-- Cloudflare -->
 <!-- Cloudflare -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            document.getElementById("popupModal").style.display = "flex";
+        }, 500);
+    });
+
+    function closePopup() {
+        document.getElementById("popupModal").style.display = "none";
+    }
+</script>
 
 
+	<style>
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .popup-btn {
+        background-color: #db1a4b;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .popup-btn:hover {
+        background-color: #b3173b;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
 
 <style>
 body {
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 </style>
-
-	
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,101 +108,6 @@ body {
 <div id="particles-js">
 </div>
 
-	<style>
-		{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Blur background when popup is active */
-body.popup-active {
-    filter: blur(5px);
-    pointer-events: none;
-}
-
-/* Popup Styling */
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-/* Popup Content */
-.popup-content {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    width: 350px;
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-    animation: popupFade 0.5s ease-in-out;
-}
-
-@keyframes popupFade {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Heading */
-.popup-content h2 {
-    color: #d9534f;
-    margin-bottom: 10px;
-}
-
-/* Buttons */
-.join-btn, .close-btn {
-    display: block;
-    width: 100%;
-    margin-top: 15px;
-    padding: 12px;
-    border: none;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* Join Button */
-.join-btn {
-    background: #28a745;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.join-btn:hover {
-    background: #218838;
-}
-
-/* Close Button */
-.close-btn {
-    background: #dc3545;
-    color: white;
-    font-weight: bold;
-}
-
-.close-btn:hover {
-    background: #c82333;
-}
-
-/* Responsive Design */
-@media (max-width: 400px) {
-    .popup-content {
-        width: 90%;
-    }
-}
-
-		
-	</style>
 <style>
         .navbar-brand {
             font-weight:bold;
@@ -279,6 +246,17 @@ body.popup-active {
 }
 </style>
 
+<!-- WARNING: Ensure this popup does not interfere with existing website functionality. Test it properly before deploying. -->
+<!-- For updates and support, join our Telegram channel: t.me/Eduverse_network -->
+
+<div id="popupModal" class="popup-overlay">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>⚠️ Warning!</h2>
+        <p>You will be banned from this website if you don't join our Telegram Channel</p>
+        <p>Join - <a href="https://t.me/Eduverse_network" target="_blank">Telegram Channel</a>.</p>
+    </div>
+</div>
 
 <section class="eduverse blog-blockx inner-section-padding blog-page" id="eduverse">
     <div class="container">
@@ -421,16 +399,6 @@ body.popup-active {
     </div>
 </section>
 
-	   <!-- Popup Modal -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <h2>⚠️ Important Notice</h2>
-            <p>You **must join our Telegram channel** to continue using EduVerse. Failure to do so will result in a ban from this website!!</p>
-            <a href="https://t.me/Eduverse_network" target="_blank" id="joinBtn" class="join-btn">📢 Join Now</a>
-            <button id="closeBtn" class="close-btn">🚫 Close</button>
-        </div>
-    </div>
-	
 <footer class="py-5x text-center wowx animated zoomIn">
 				<div class="mt-0 mb-0">
                     <ul class="list-inline">
@@ -469,35 +437,6 @@ document.addEventListener('copy', event => event.preventDefault()); // Disable c
 document.addEventListener('cut', event => event.preventDefault()); // Disable cut
 </script>
 
-	<script>
-
-		document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.getElementById("popup");
-    const closeBtn = document.getElementById("closeBtn");
-    const joinBtn = document.getElementById("joinBtn");
-    const body = document.body;
-
-    // Check if user has joined Telegram
-    if (!localStorage.getItem("joinedTelegram")) {
-        popup.style.display = "flex";
-        body.classList.add("popup-active");
-    }
-
-    // When user clicks "Join Now"
-    joinBtn.addEventListener("click", function () {
-        localStorage.setItem("joinedTelegram", "true");
-        popup.style.display = "none";
-        body.classList.remove("popup-active");
-    });
-
-    // When user tries to close without joining
-    closeBtn.addEventListener("click", function () {
-        alert("🚨 You must join the Telegram channel to use this website!");
-        window.location.href = "https://t.me/Eduverse_network"; // Redirect to Telegram
-    });
-});
-	</script>
-	
 </body>
 
 </html>
