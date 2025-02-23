@@ -1,0 +1,282 @@
+
+<!DOCTYPE html><html lang="en">
+  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduVerse</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap');
+
+/* General Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f, #283c86, #45a247);
+  background-size: 400% 400%;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  animation: gradientMove 8s ease infinite, fadeIn 1s ease-in-out;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Header */
+.header {
+  font-family: 'Pacifico', cursive;
+  font-size: 64px;
+  color: #00FFA3;
+  text-shadow: 3px 3px 10px rgba(0, 255, 163, 0.6);
+  margin-bottom: 15px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Motivational Text */
+.motivational-text {
+  font-size: 22px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  max-width: 80%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: slideIn 1s ease;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Player Container */
+.player-container {
+  width: 85%;
+  max-width: 850px;
+  margin: 20px 0;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+  border: 1px solid #00FFA3;
+  box-shadow: 0 10px 30px rgba(0, 255, 179, 0.2);
+  overflow: hidden;
+  animation: scaleIn 0.8s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Tool Buttons */
+.tool-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.tool-button {
+  padding: 15px 40px;
+  background: linear-gradient(45deg, #ff7eb3, #ff758c, #ff1a66);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.tool-button:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Download Container */
+.download-container {
+  display: none;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 0 20px rgba(0, 255, 179, 0.3);
+  position: relative;
+  overflow-y: auto;
+  max-height: 50vh;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.download-container.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.download-link {
+  margin: 10px 0;
+  color: #00FFA3;
+  font-weight: bold;
+  font-size: 18px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(145deg, #ff4d4d, #ff1a1a);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+}
+
+.close-button:hover {
+  background: linear-gradient(145deg, #ff6666, #ff4d4d);
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+}
+
+/* Attention Text */
+.attention-text {
+  font-size: 22px;
+  color: #ffcc00;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+  animation: fadeIn 2s ease-in-out;
+}
+  </style>
+
+</head>
+<body>
+
+  <div class="EduVerse</div>
+
+
+  <div class="attention-text" id="attention-text">
+    Double Click on Video for Full Screen
+  </div>
+
+  <div class="player-container">
+    <div id="my-player"></div>
+  </div>
+
+  <div class="tool-section">
+    <button class="tool-button" onclick="showDownloadLink()">⬇️ Download Video</button>
+  </div>
+
+  <div class="download-container" id="download-container">    <button class="close-button" onclick="closeDownload()">Close</button>
+    <div class="download-link" id="download-link"></div>
+    <div class="popup-message">
+      Copy this link and paste it into the <strong>1DM app</strong> to download lectures.<br>
+      If you need help, check our <strong>Telegram channel</strong>!
+    </div>
+  </div>
+
+  <script src="https://content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+  <script>
+    const motivationalThoughts = [
+      'Success is not final; failure is not fatal: It is the courage to continue that counts.',
+      'Believe you can and you\'re halfway there.',
+      'The only way to do great work is to love what you do.',
+      'Your time is limited, so don’t waste it living someone else’s life.',
+      'Do something today that your future self will thank you for.',
+      'Don’t watch the clock; do what it does. Keep going.',
+      'Small steps every day lead to big results.'
+    ];
+
+    function generateMotivation() {
+      const randomIndex = Math.floor(Math.random() * motivationalThoughts.length);
+      document.getElementById('motivational-text').innerText = motivationalThoughts[randomIndex];
+    }
+
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    const vidId = getQueryParam('vid-id');
+    const fallbackUrl = 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8';
+    const videoUrl = vidId
+      ? (vidId.startsWith('http') ? vidId : `https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/${vidId}/index_3.m3u8`)
+      : fallbackUrl;
+
+    jwplayer("my-player").setup({
+      file: videoUrl,
+      width: "100%",
+      aspectratio: "16:9",
+      autostart: false,
+      playbackRateControls: true,
+      playbackRates: [0.5, 1, 1.25, 1.5, 2],
+      controls: true,
+    }).on('ready', function() {
+      jwplayer("my-player").addButton(
+        "https://img.icons8.com/ios-filled/50/00FFA3/fast-forward.png", // Icon URL
+        "Forward 10 Seconds",
+        function() {
+          jwplayer("my-player").seek(jwplayer("my-player").getPosition() + 10);
+        },
+        "forward10"
+      );
+    });
+
+   function showDownloadLink() {      const downloadContainer = document.getElementById('download-container');
+      const downloadLink = document.getElementById('download-link');
+      downloadLink.textContent = videoUrl;
+      downloadContainer.classList.add('show');
+    }
+
+    function closeDownload() {
+      document.getElementById('download-container').classList.remove('show');
+    }
+    
+    document.getElementById('my-player').addEventListener('dblclick', function () {
+      const player = jwplayer('my-player');
+      if (player.getFullscreen()) {
+        player.exitFullscreen();
+      } else {
+        player.enterFullscreen();
+      }
+    });
+
+    
+    generateMotivation();
+  </script>
+</body>
+</html>
