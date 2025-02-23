@@ -5,201 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback Form</title>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Orbitron", sans-serif;
-        }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: radial-gradient(circle, #111, #000);
-            overflow: hidden;
-            position: relative;
-            color: #0ff; /* Neon Cyan */
-        }
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        .feedback-container {
-            width: 400px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 25px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
-            text-align: center;
-            border: 2px solid rgba(0, 255, 255, 0.5);
-            animation: glow 1.5s infinite alternate;
-        }
-        @keyframes glow {
-            from { box-shadow: 0 0 10px rgba(0, 255, 255, 0.6); }
-            to { box-shadow: 0 0 20px rgba(0, 255, 255, 1); }
-        }
-        h2 {
-            margin-bottom: 15px;
-            font-size: 22px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-        }
-        .stars {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        .stars i {
-            font-size: 30px;
-            color: rgba(0, 255, 255, 0.5);
-            cursor: pointer;
-            transition: transform 0.3s, color 0.3s;
-        }
-        .stars i.active {
-            color: #0ff;
-            transform: scale(1.2);
-            text-shadow: 0 0 8px #0ff;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-top: 12px;
-            border: 2px solid rgba(0, 255, 255, 0.5);
-            border-radius: 8px;
-            font-size: 15px;
-            background: transparent;
-            color: #0ff;
-            outline: none;
-            transition: 0.3s ease;
-        }
-        input::placeholder, textarea::placeholder {
-            color: rgba(0, 255, 255, 0.6);
-        }
-        textarea {
-            height: 90px;
-            resize: none;
-        }
-        input:focus, textarea:focus {
-            border-color: #0ff;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 15px;
-            background: #0ff;
-            color: #000;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-            text-transform: uppercase;
-        }
-        button:hover {
-            background: #00ffee;
-            box-shadow: 0 0 10px #0ff;
-            transform: scale(1.05);
-        }
-    </style>
-</head>
-<body>
-
-    <div id="particles-js"></div>
-
-    <div class="feedback-container">
-        <h2>We Value Your Feedback!</h2>
-        <input type="text" id="name" placeholder="Your Name">
-        <input type="text" id="location" placeholder="State, Country">
-        <input type="text" id="telegram" placeholder="Telegram Username">
-        <input type="text" id="phone" placeholder="Phone Number">
-        
-        <div class="stars">
-            <i class="star" data-value="1">★</i>
-            <i class="star" data-value="2">★</i>
-            <i class="star" data-value="3">★</i>
-            <i class="star" data-value="4">★</i>
-            <i class="star" data-value="5">★</i>
+<section class="feedback-section bg-light-gray">
+    <div class="container">
+        <div class="section-title text-center wow animated fadeInUp">
+            <h2 class="section-heading">What Our Users Say</h2>
+            <span class="section-title-line"></span>
+            <p>Read feedback from students who have used our platform.</p>
         </div>
-
-        <textarea id="feedback" placeholder="Share your experience..."></textarea>
-        <button onclick="submitFeedback()">Submit Feedback</button>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div id="feedbackContainer">
+                    <!-- Manually added feedbacks -->
+                    <div class="feedback-box">
+                        <p class="feedback-text">"This platform has helped me a lot in my studies. The materials are well-structured!"</p>
+                        <p class="feedback-user">- Rahul Sharma</p>
+                    </div>
+                    <div class="feedback-box">
+                        <p class="feedback-text">"The live classes and resources are amazing! Thank you for this great initiative."</p>
+                        <p class="feedback-user">- Priya Verma</p>
+                    </div>
+                    <div class="feedback-box">
+                        <p class="feedback-text">"The best educational website I have ever used. Highly recommended!"</p>
+                        <p class="feedback-user">- Akash Gupta</p>
+                    </div>
+                    <div class="feedback-box">
+                        <p class="feedback-text">"This is a very useful website for every student. They make education free by providing valuable resources, which helped me a lot. Thanks for this!"</p>
+                        <p class="feedback-user">- Chirag Wadhwa (Haryana, India)</p>
+                        <p class="feedback-user">🌟 Telegram: Harsh Wadhwa | ⭐ Ratings: 5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <script>
-        let stars = document.querySelectorAll('.star');
-        let selectedRating = 0;
-
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                selectedRating = this.getAttribute('data-value');
-                stars.forEach(s => s.classList.remove('active'));
-                for (let i = 0; i < selectedRating; i++) {
-                    stars[i].classList.add('active');
-                }
-            });
-        });
-
-        function submitFeedback() {
-            let name = document.getElementById('name').value.trim();
-            let location = document.getElementById('location').value.trim();
-            let telegram = document.getElementById('telegram').value.trim();
-            let phone = document.getElementById('phone').value.trim();
-            let feedbackText = document.getElementById('feedback').value.trim();
-            let botToken = "7608906465:AAH36EqbcFIBtRfZLnmPVD0yu3byxzqKJ6w";  
-            let chatId = "-1002329884512";  
-
-            if (!name || !location || !telegram || selectedRating == 0 || feedbackText === "") {
-                alert("Please fill in all fields before submitting!");
-                return;
-            }
-
-            let message = `🚀 *New Feedback Received!* 🚀\n\n` +
-                          `⭐ *Rating:* ${selectedRating}/5\n` +
-                          `👤 *Name:* ${name}\n` +
-                          `📍 *Location:* ${location}\n` +
-                          `📞 *Contact:* ${telegram} (${phone})\n` +
-                          `💬 *Feedback:* ${feedbackText}`;
-
-            let url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=Markdown`;
-
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        alert("Thank you for your feedback!");
-                        document.querySelectorAll('input, textarea').forEach(el => el.value = "");
-                        stars.forEach(s => s.classList.remove('active'));
-                        selectedRating = 0;
-                    } else {
-                        alert("Error sending feedback.");
-                    }
-                })
-                .catch(error => {
-                    alert("Error sending feedback.");
-                    console.error(error);
-                });
-        }
-
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 80 },
-                size: { value: 3 },
-                move: { speed: 2 },
-                color: { value: "#0ff" },
-                line_linked: { enable: true, distance: 120, color: "#0ff" }
-            }
-        });
-    </script>
+<style>
+    .feedback-section {
+        padding: 50px 0;
+    }
+    .feedback-box {
+        background: #ffffff;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .feedback-text {
+        font-size: 16px;
+        font-style: italic;
+    }
+    .feedback-user {
+        font-weight: bold;
+        text-align: right;
+        margin-top: 5px;
+    }
+</style>
 
 </body>
 </html>
