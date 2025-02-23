@@ -17,8 +17,6 @@
 <link rel="stylesheet" href="https://modijiurl.com/soft_theme/build/css/styles.min.css?ver=6.6.1"/>
 
 <link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all" rel="stylesheet">
-  <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
 
 
 <!-- Cloudflare -->
@@ -78,82 +76,7 @@ body {
     }
 </style>
 
-   <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background: #f5f5f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
 
-        /* Title */
-        h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #0077b6;
-        }
-
-        /* Swiper Container */
-        .swiper {
-            width: 100%;
-            max-width: 1100px;
-            padding: 20px;
-        }
-
-        /* Swiper Slide (Feedback Card) */
-        .swiper-slide {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        .swiper-slide:hover {
-            transform: scale(1.05);
-        }
-
-        /* Feedback Text */
-        .feedback-text {
-            font-size: 1rem;
-            font-style: italic;
-            color: #555;
-        }
-
-        /* User Info */
-        .feedback-user {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #0077b6;
-        }
-
-        /* Telegram and Ratings */
-        .feedback-details {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        /* Pagination */
-        .swiper-pagination {
-            margin-top: 10px;
-        }
-   </style>
 
 
 <!-- Header -->
@@ -401,13 +324,6 @@ body {
     </div>
 </section>
 
-	 <h2>💬 What People Say</h2>
-
-    <div class="swiper feedback-swiper">
-        <div class="swiper-wrapper"></div>
-        <div class="swiper-pagination"></div>
-    </div>
-
 <footer class="py-5x text-center wowx animated zoomIn">
 				<div class="mt-0 mb-0">
                     <ul class="list-inline">
@@ -425,40 +341,7 @@ body {
   /* ]]> */
 </script>
 
-  <!-- Swiper.js Script -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script>
-        // Fetch feedback data from feedback.html
-        fetch('feedback.html')
-            .then(response => response.text())
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const feedbackData = JSON.parse(doc.getElementById('feedback-data').textContent);
-                const wrapper = document.querySelector('.swiper-wrapper');
 
-                feedbackData.forEach(feedback => {
-                    const slide = document.createElement('div');
-                    slide.classList.add('swiper-slide');
-                    slide.innerHTML = `
-                        <p class="feedback-text">"${feedback.text}"</p>
-                        <p class="feedback-user">- ${feedback.name}</p>
-                        <p class="feedback-details">📍 ${feedback.location} | ${feedback.rating}</p>
-                    `;
-                    wrapper.appendChild(slide);
-                });
-
-                new Swiper('.feedback-swiper', {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    loop: true,
-                    autoplay: { delay: 3000, disableOnInteraction: false },
-                    pagination: { el: ".swiper-pagination", clickable: true },
-                    breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
-                });
-            });
-    </script>
-	
 <script data-cfasync="false" src="https://modijiurl.com/js/ads.js"></script>
 
 
