@@ -61,12 +61,19 @@
 
 .close-btn {
     position: absolute;
-    top: 10px;  /* Fixes it to the top */
-    left: 10px; /* Fixes it to the left */
+    top: 10px;
+    right: 10px;
     font-size: 25px;
-    color: black; /* Ensures visibility */
+    color: black;
     cursor: pointer;
     font-weight: bold;
+    background: white; /* Ensures visibility */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid black;
 }
 
     .popup-btn {
@@ -256,7 +263,7 @@ body {
         <span class="close-btn" onclick="closePopup()">&times;</span>
         <h4>⚠️ Important Notice!</h4>
         <p>Access to this website requires joining our official Telegram channel for updates and support.</p>
-        <p>Failure to do so may result in Ban from this Website!</p>
+        <p>Failure to do so may result in a ban from this website!</p>
         <p>🚀 Join Here 》 
            <a href="https://t.me/Eduverse_network" target="_blank">Telegram Channel</a>.</p>
     </div>
@@ -439,7 +446,13 @@ document.addEventListener('keydown', event => {
 
 document.addEventListener('copy', event => event.preventDefault()); // Disable copy
 document.addEventListener('cut', event => event.preventDefault()); // Disable cut
+
+	    
 </script>
+
+	<spript>function closePopup() {
+    document.getElementById("popupModal").style.display = "none";
+}</spript>
 
 </body>
 
