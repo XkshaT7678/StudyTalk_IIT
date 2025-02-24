@@ -13,7 +13,19 @@
 <link href='https://EduVerse.netlify.app/images/20250216_113226.jpg' type='image/x-icon' rel='icon'/><link href='https://EduVerse.netlify.app/images/20250216_113226.jpg' type='image/x-icon' rel='shortcut icon'/>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+
+	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "46430792-a709-46f6-920e-c0ef9a9abcee",
+      notifyButton: { enable: true }  // Adds a subscribe button
+    });
+  });
+</script>
+	
+	<style>
         /* Reset and Base Styles */
         body, html {
             margin: 0;
