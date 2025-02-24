@@ -20,13 +20,30 @@
 
 
 <!-- Cloudflare -->
-	<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+	<button id="subscribe-btn">🔔 Subscribe to EduVerse</button>
+
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "46430792-a709-46f6-920e-c0ef9a9abcee",
-      notifyButton: { enable: true } // Enables the floating subscribe button
+      notifyButton: { enable: true } // This should show the floating button
+    });
+
+    // Check if notifications are already enabled
+    const isSubscribed = await OneSignal.isPushNotificationsEnabled();
+    document.getElementById("subscribe-btn").innerText = isSubscribed ? "✅ Subscribed!" : "🔔 Subscribe to EduVerse";
+
+    // Click event for manual subscription
+    document.getElementById("subscribe-btn").addEventListener("click", async () => {
+      const permission = await OneSignal.Notification.requestPermission();
+      if (permission === "granted") {
+        await OneSignal.registerForPushNotifications();
+        document.getElementById("subscribe-btn").innerText = "✅ Subscribed!";
+      } else {
+        alert("🚫 You have blocked notifications! Enable them in your browser settings.");
+      }
     });
   });
 </script>
