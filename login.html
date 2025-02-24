@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,97 +16,89 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      height: 100vh;
+      background: linear-gradient(135deg, #000428, #004e92);
       color: #fff;
+      overflow: hidden;
+      position: relative;
     }
 
-    /* Background with Particles */
+    /* Particles Background */
     #particles-js {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
       z-index: -1;
     }
 
-    /* Glassmorphism Container */
+    /* Neon Glow Container */
     .container {
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
-      padding: 40px;
+      padding: 30px;
       border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 183, 255, 0.5);
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      max-width: 400px;
-      animation: fadeIn 1s ease-out;
+      width: 400px;
+      animation: floatUp 1.5s ease-in-out;
     }
 
     h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #ffcb6b;
-      text-shadow: 0 2px 10px rgba(255, 203, 107, 0.7);
+      font-size: 26px;
+      color: #00eaff;
+      text-shadow: 0 0 10px rgba(0, 234, 255, 0.8);
     }
 
     p {
-      font-size: 16px;
+      font-size: 15px;
       margin-bottom: 20px;
-      line-height: 1.6;
       color: #dcdcdc;
     }
 
     /* Buttons */
     .button {
       display: inline-block;
-      padding: 12px 25px;
+      width: 100%;
+      padding: 12px;
       font-size: 16px;
       color: #fff;
-      background: linear-gradient(90deg, #6a11cb, #2575fc);
-      border: none;
+      border: 2px solid #00eaff;
+      background: transparent;
       border-radius: 8px;
       cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin: 10px 0;
-      text-decoration: none;
+      margin: 8px 0;
       font-weight: 600;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
     }
 
     .button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    }
-
-    .video-button {
-      background: linear-gradient(90deg, #34ebba, #18b48e);
+      background: #00eaff;
       color: #000;
-    }
-
-    .recommend-button {
-      background: linear-gradient(90deg, #ffae00, #ffd700);
-      color: #000;
+      box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
     }
 
     .loading {
-      margin-top: 20px;
       font-size: 14px;
       color: #ffcb6b;
+      margin-top: 10px;
       display: none;
     }
 
-    /* Animations */
-    @keyframes fadeIn {
+    /* Floating Animation */
+    @keyframes floatUp {
       from {
-        opacity: 0;
         transform: translateY(20px);
+        opacity: 0;
       }
       to {
-        opacity: 1;
         transform: translateY(0);
+        opacity: 1;
       }
     }
   </style>
@@ -119,8 +110,8 @@
     <p>Click a button below to generate your key.<br>Validity: 8 hours ⏰</p>
     <button id="server02" class="button">Server 01</button>
     <button id="server03Url" class="button">Server 02</button><br>
-    <button id="recommendServer" class="button recommend-button">Server 03</button><br>
-    <button id="watchVideo" class="button video-button">How To Generate Key</button>
+    <button id="recommendServer" class="button">Server 03</button><br>
+    <button id="watchVideo" class="button">How To Generate Key</button>
     <p class="loading" id="loadingMessage">Generating URL, please wait...</p>
   </div>
 
@@ -128,58 +119,18 @@
     /* Particles.js Configuration */
     particlesJS("particles-js", {
       particles: {
-        number: {
-          value: 100,
-          density: { enable: true, value_area: 800 }
-        },
-        color: { value: "#ffffff" },
-        shape: {
-          type: "circle",
-          stroke: { width: 0, color: "#000000" },
-          polygon: { nb_sides: 5 }
-        },
-        opacity: {
-          value: 0.5,
-          random: false,
-          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#ffffff",
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 6,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: { enable: false, rotateX: 600, rotateY: 1200 }
-        }
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: "#00eaff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.6, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#00eaff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, out_mode: "out" }
       },
       interactivity: {
         detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 140, line_linked: { opacity: 1 } },
-          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-          repulse: { distance: 200, duration: 0.4 },
-          push: { particles_nb: 4 },
-          remove: { particles_nb: 2 }
-        }
+        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } },
+        modes: { grab: { distance: 140, line_linked: { opacity: 1 } } }
       },
       retina_detect: true
     });
@@ -194,9 +145,7 @@
 
     function setTemporaryCookieAndRedirect(cookieName, url) {
       if (!url) return alert('Invalid URL!');
-      const now = new Date();
-      const tempExpirationTime = now.getTime() + 300 * 60 * 1000; // 5 Hours
-      document.cookie = `${cookieName}=true; expires=${new Date(tempExpirationTime).toUTCString()}; path=/`;
+      document.cookie = `${cookieName}=true; path=/; max-age=${5 * 60 * 60}`;
       window.location.href = url;
     }
 
