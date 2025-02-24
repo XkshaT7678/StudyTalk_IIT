@@ -20,7 +20,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #0d0d0d;
+      background: linear-gradient(135deg, #001f3f, #004080, #0074cc);
       overflow: hidden;
       position: relative;
       color: #fff;
@@ -34,39 +34,39 @@
       z-index: -1;
     }
 
-    /* Cyberpunk Neon Glowing Box */
+    /* Blue Neon Box */
     .container {
-      background: rgba(255, 255, 255, 0.05);
+      background: linear-gradient(145deg, #003366, #004080);
       border-radius: 15px;
       padding: 30px;
       width: 400px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
-      border: 2px solid rgba(0, 234, 255, 0.3);
+      box-shadow: 0 0 25px rgba(0, 174, 255, 0.6);
+      border: 2px solid rgba(0, 174, 255, 0.5);
       animation: pulseNeon 2s infinite alternate;
     }
 
     h2 {
       font-size: 26px;
-      color: #00eaff;
-      text-shadow: 0 0 15px rgba(0, 234, 255, 0.8);
+      color: #00d9ff;
+      text-shadow: 0 0 20px rgba(0, 234, 255, 0.9);
     }
 
     p {
       font-size: 15px;
       margin-bottom: 20px;
-      color: #dcdcdc;
+      color: #cfdde7;
     }
 
-    /* Buttons - Cyberwave Effect */
+    /* Buttons */
     .button {
       display: inline-block;
       width: 100%;
       padding: 12px;
       font-size: 16px;
       color: #fff;
-      border: 2px solid #00eaff;
-      background: transparent;
+      border: 2px solid #00d9ff;
+      background: #002b55;
       border-radius: 8px;
       cursor: pointer;
       margin: 8px 0;
@@ -77,32 +77,14 @@
       overflow: hidden;
     }
 
-    /* Glowing Ripple Effect on Click */
-    .button:after {
-      content: "";
-      position: absolute;
-      width: 300%;
-      height: 300%;
-      top: 50%;
-      left: 50%;
-      background: radial-gradient(circle, rgba(0, 234, 255, 0.5) 10%, transparent 60%);
-      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0;
-    }
-
-    .button:active:after {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-
+    /* Button Hover Effect */
     .button:hover {
-      background: #00eaff;
-      color: #000;
-      box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
+      background: #00d9ff;
+      color: #001f3f;
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.8);
     }
 
-    /* Key Generation Animation */
+    /* Loading Animation */
     .loading {
       font-size: 14px;
       color: #ffcb6b;
@@ -114,10 +96,10 @@
     /* Subtle Neon Pulse */
     @keyframes pulseNeon {
       from {
-        box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+        box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
       }
       to {
-        box-shadow: 0 0 30px rgba(0, 234, 255, 0.8);
+        box-shadow: 0 0 35px rgba(0, 234, 255, 0.8);
       }
     }
 
