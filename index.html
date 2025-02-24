@@ -26,6 +26,7 @@
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "46430792-a709-46f6-920e-c0ef9a9abcee",
+      notifyButton: { enable: true } // Enables the floating subscribe button
     });
   });
 </script>
@@ -456,12 +457,15 @@ document.addEventListener('keydown', event => {
 document.addEventListener('copy', event => event.preventDefault()); // Disable copy
 document.addEventListener('cut', event => event.preventDefault()); // Disable cut
 
-	    
-</script>
-
-	<spript>function closePopup() {
+		
+		function closePopup() {
     document.getElementById("popupModal").style.display = "none";
-}</spript>
+}
+	
+		    
+</script>
+	
+
 
 </body>
 
