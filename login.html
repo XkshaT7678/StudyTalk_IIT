@@ -20,10 +20,10 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: linear-gradient(135deg, #001f3f, #004080, #0074cc);
+      background: #0a0f1d; /* Dark grayish-blue */
       overflow: hidden;
       position: relative;
-      color: #fff;
+      color: #ffffff;
     }
 
     /* Particle Background */
@@ -34,28 +34,28 @@
       z-index: -1;
     }
 
-    /* Blue Neon Box */
+    /* Cyberpunk-Themed Box */
     .container {
-      background: linear-gradient(145deg, #003366, #004080);
+      background: rgba(255, 255, 255, 0.07);
       border-radius: 15px;
       padding: 30px;
       width: 400px;
       text-align: center;
-      box-shadow: 0 0 25px rgba(0, 174, 255, 0.6);
-      border: 2px solid rgba(0, 174, 255, 0.5);
-      animation: pulseNeon 2s infinite alternate;
+      box-shadow: 0 0 15px rgba(0, 174, 255, 0.3);
+      border: 1px solid rgba(0, 174, 255, 0.2);
+      backdrop-filter: blur(8px);
     }
 
     h2 {
-      font-size: 26px;
-      color: #00d9ff;
-      text-shadow: 0 0 20px rgba(0, 234, 255, 0.9);
+      font-size: 24px;
+      color: #a3f7ff;
+      text-shadow: 0 0 10px rgba(0, 234, 255, 0.5);
     }
 
     p {
-      font-size: 15px;
+      font-size: 14px;
       margin-bottom: 20px;
-      color: #cfdde7;
+      color: #d4eaff;
     }
 
     /* Buttons */
@@ -63,10 +63,10 @@
       display: inline-block;
       width: 100%;
       padding: 12px;
-      font-size: 16px;
-      color: #fff;
-      border: 2px solid #00d9ff;
-      background: #002b55;
+      font-size: 15px;
+      color: #ffffff;
+      border: 1px solid #00bcd4;
+      background: transparent;
       border-radius: 8px;
       cursor: pointer;
       margin: 8px 0;
@@ -77,33 +77,22 @@
       overflow: hidden;
     }
 
-    /* Button Hover Effect */
     .button:hover {
-      background: #00d9ff;
-      color: #001f3f;
-      box-shadow: 0 0 20px rgba(0, 234, 255, 0.8);
+      background: #00bcd4;
+      color: #000;
+      box-shadow: 0 0 12px rgba(0, 188, 212, 0.6);
     }
 
-    /* Loading Animation */
+    /* Key Generation Animation */
     .loading {
-      font-size: 14px;
+      font-size: 13px;
       color: #ffcb6b;
       margin-top: 10px;
       display: none;
       animation: flicker 1.5s infinite alternate;
     }
 
-    /* Subtle Neon Pulse */
-    @keyframes pulseNeon {
-      from {
-        box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
-      }
-      to {
-        box-shadow: 0 0 35px rgba(0, 234, 255, 0.8);
-      }
-    }
-
-    /* Flickering Light Effect */
+    /* Subtle Glow */
     @keyframes flicker {
       from {
         opacity: 0.6;
@@ -130,18 +119,18 @@
     /* Particles.js Configuration */
     particlesJS("particles-js", {
       particles: {
-        number: { value: 120, density: { enable: true, value_area: 800 } },
-        color: { value: "#00eaff" },
+        number: { value: 100, density: { enable: true, value_area: 800 } },
+        color: { value: "#00bcd4" },
         shape: { type: "circle" },
-        opacity: { value: 0.6, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: "#00eaff", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, out_mode: "out" }
+        opacity: { value: 0.5, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+        size: { value: 2.5, random: true },
+        line_linked: { enable: true, distance: 140, color: "#00bcd4", opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 1.5, out_mode: "out" }
       },
       interactivity: {
         detect_on: "canvas",
         events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } },
-        modes: { grab: { distance: 140, line_linked: { opacity: 1 } } }
+        modes: { grab: { distance: 120, line_linked: { opacity: 1 } } }
       },
       retina_detect: true
     });
