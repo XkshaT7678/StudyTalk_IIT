@@ -4,37 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Success</title>
-<script src="/cookie-validator.js"></script>
+  <script src="/cookie-validator.js"></script>
+  
   <script>
-  // Set the cookie for universal domain access
-  document.cookie = "🚀=success; path=/; Secure; expires=" + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
+    // Set a universal cookie for domain-wide access
+    document.cookie = "🚀=success; path=/; Secure; expires=" + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
 
-  // Function to get cookies
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  }
+    // Function to get a specific cookie
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
 
-  // Check for valid cookies
-  const hasValidCookie = getCookie('server01KeyGenerated') ||
-    getCookie('server02KeyGenerated') ||
-    getCookie('server03KeyGenerated') ||
-    getCookie('recommendServerKeyGenerated');
+    // Check for valid cookies
+    const hasValidCookie = getCookie('server01KeyGenerated') ||
+      getCookie('server02KeyGenerated') ||
+      getCookie('server03KeyGenerated') ||
+      getCookie('recommendServerKeyGenerated');
 
-  if (!hasValidCookie) {
-    // Redirect to login page if no valid cookie found
-    window.location.href = 'https://nextedu-official.netlify.app/login/';
-  } else {
-    // Display this page for 3 seconds, then redirect
-    setTimeout(() => {
-      window.location.href = 'https://nextedu-official.netlify.app/';
-    }, 3000);
-  }
+    if (!hasValidCookie) {
+      // Redirect to login page if no valid key is found
+      window.location.href = 'https://nextedu-official.netlify.app/login/';
+    } else {
+      // Display for 3 seconds, then redirect
+      setTimeout(() => {
+        window.location.href = 'https://nextedu-official.netlify.app/';
+      }, 3000);
+    }
   </script>
   
   <style>
-    /* Reset and general styling */
+    /* Reset & General Styling */
     * {
       margin: 0;
       padding: 0;
@@ -43,7 +44,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1d3557, #457b9d);
+      background: linear-gradient(135deg, #264653, #2a9d8f);
       height: 100vh;
       color: #fff;
       display: flex;
@@ -60,11 +61,11 @@
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
       padding: 40px 60px;
       border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       text-align: center;
       max-width: 500px;
       animation: fadeIn 1.5s ease-out;
@@ -73,14 +74,14 @@
 
     .container:hover {
       transform: scale(1.05);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     }
 
     h2 {
       font-size: 36px;
-      color: #f1c40f;
+      color: #f4a261;
       margin-bottom: 20px;
-      text-shadow: 0 4px 10px rgba(241, 196, 15, 0.8);
+      text-shadow: 0 4px 10px rgba(244, 162, 97, 0.8);
     }
 
     p {
@@ -92,7 +93,7 @@
 
     .loading {
       font-size: 18px;
-      color: #f39c12;
+      color: #e76f51;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -104,33 +105,18 @@
       animation: bounce 1.2s infinite;
     }
 
-    .loading span:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .loading span:nth-child(3) {
-      animation-delay: 0.4s;
-    }
+    .loading span:nth-child(2) { animation-delay: 0.2s; }
+    .loading span:nth-child(3) { animation-delay: 0.4s; }
 
     /* Animations */
     @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes bounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
@@ -144,82 +130,32 @@
     </div>
   </div>
 
+  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     /* Particles.js Configuration */
     particlesJS("particles-js", {
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
+        number: { value: 70, density: { enable: true, value_area: 900 } },
         color: { value: "#ffffff" },
-        shape: {
-          type: "circle",
-          stroke: { width: 0, color: "#000000" },
-          polygon: { nb_sides: 5 },
-        },
-        opacity: {
-          value: 0.5,
-          random: false,
-          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#ffffff",
-          opacity: 0.4,
-          width: 1,
-        },
-        move: {
-          enable: true,
-          speed: 6,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: { enable: false, rotateX: 600, rotateY: 1200 },
-        },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, anim: { enable: false } },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 140, color: "#ffffff", opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 4, direction: "none", random: false, straight: false, out_mode: "out" }
       },
       interactivity: {
         detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" },
-          resize: true,
-        },
-        modes: {
-          grab: { distance: 140, line_linked: { opacity: 1 } },
-          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-          repulse: { distance: 200, duration: 0.4 },
-          push: { particles_nb: 4 },
-          remove: { particles_nb: 2 },
-        },
+        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
+        modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
       },
       retina_detect: true,
     });
 
-    // Function to get cookies
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
-    // Check for valid cookies
-    const hasValidCookie = getCookie('server01KeyGenerated') ||
-      getCookie('server02KeyGenerated') ||
-      getCookie('server03KeyGenerated') ||
-      getCookie('recommendServerKeyGenerated');
-
+    // Cookie validation (Rechecked)
     if (!hasValidCookie) {
-      // Redirect to login page if no valid cookie found
       window.location.href = 'https://NextEdu-Official.netlify.app/login/';
     } else {
-      // Display this page for 3 seconds, then redirect
       setTimeout(() => {
         window.location.href = 'https://nextedu-official.netlify.app/';
       }, 3000);
