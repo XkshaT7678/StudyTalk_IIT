@@ -14,13 +14,12 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+	<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
       appId: "46430792-a709-46f6-920e-c0ef9a9abcee",
-      notifyButton: { enable: true }  // Adds a subscribe button
     });
   });
 </script>
