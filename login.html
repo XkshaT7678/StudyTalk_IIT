@@ -20,13 +20,13 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: linear-gradient(135deg, #000428, #004e92);
-      color: #fff;
+      background: #0d0d0d;
       overflow: hidden;
       position: relative;
+      color: #fff;
     }
 
-    /* Particles Background */
+    /* Particle Background */
     #particles-js {
       position: absolute;
       width: 100%;
@@ -34,22 +34,22 @@
       z-index: -1;
     }
 
-    /* Neon Glow Container */
+    /* Cyberpunk Neon Glowing Box */
     .container {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 183, 255, 0.5);
-      text-align: center;
+      padding: 30px;
       width: 400px;
-      animation: floatUp 1.5s ease-in-out;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
+      border: 2px solid rgba(0, 234, 255, 0.3);
+      animation: pulseNeon 2s infinite alternate;
     }
 
     h2 {
       font-size: 26px;
       color: #00eaff;
-      text-shadow: 0 0 10px rgba(0, 234, 255, 0.8);
+      text-shadow: 0 0 15px rgba(0, 234, 255, 0.8);
     }
 
     p {
@@ -58,7 +58,7 @@
       color: #dcdcdc;
     }
 
-    /* Buttons */
+    /* Buttons - Cyberwave Effect */
     .button {
       display: inline-block;
       width: 100%;
@@ -71,10 +71,29 @@
       cursor: pointer;
       margin: 8px 0;
       font-weight: 600;
-      transition: all 0.3s ease-in-out;
+      transition: 0.3s;
       text-transform: uppercase;
       position: relative;
       overflow: hidden;
+    }
+
+    /* Glowing Ripple Effect on Click */
+    .button:after {
+      content: "";
+      position: absolute;
+      width: 300%;
+      height: 300%;
+      top: 50%;
+      left: 50%;
+      background: radial-gradient(circle, rgba(0, 234, 255, 0.5) 10%, transparent 60%);
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+
+    .button:active:after {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
     }
 
     .button:hover {
@@ -83,21 +102,31 @@
       box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
     }
 
+    /* Key Generation Animation */
     .loading {
       font-size: 14px;
       color: #ffcb6b;
       margin-top: 10px;
       display: none;
+      animation: flicker 1.5s infinite alternate;
     }
 
-    /* Floating Animation */
-    @keyframes floatUp {
+    /* Subtle Neon Pulse */
+    @keyframes pulseNeon {
       from {
-        transform: translateY(20px);
-        opacity: 0;
+        box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
       }
       to {
-        transform: translateY(0);
+        box-shadow: 0 0 30px rgba(0, 234, 255, 0.8);
+      }
+    }
+
+    /* Flickering Light Effect */
+    @keyframes flicker {
+      from {
+        opacity: 0.6;
+      }
+      to {
         opacity: 1;
       }
     }
@@ -119,7 +148,7 @@
     /* Particles.js Configuration */
     particlesJS("particles-js", {
       particles: {
-        number: { value: 100, density: { enable: true, value_area: 800 } },
+        number: { value: 120, density: { enable: true, value_area: 800 } },
         color: { value: "#00eaff" },
         shape: { type: "circle" },
         opacity: { value: 0.6, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
@@ -145,8 +174,11 @@
 
     function setTemporaryCookieAndRedirect(cookieName, url) {
       if (!url) return alert('Invalid URL!');
-      document.cookie = `${cookieName}=true; path=/; max-age=${5 * 60 * 60}`;
-      window.location.href = url;
+      document.getElementById("loadingMessage").style.display = "block";
+      setTimeout(() => {
+        document.cookie = `${cookieName}=true; path=/; max-age=${5 * 60 * 60}`;
+        window.location.href = url;
+      }, 2000);
     }
 
     document.getElementById('server02').addEventListener('click', () => setTemporaryCookieAndRedirect('server02KeyGenerated', urls.server02));
