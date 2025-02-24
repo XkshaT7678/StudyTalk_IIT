@@ -20,22 +20,19 @@
 
 
 <!-- Cloudflare -->
-	<button id="subscribe-btn">🔔 Subscribe to EduVerse</button>
-
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "46430792-a709-46f6-920e-c0ef9a9abcee",
-      notifyButton: { enable: true } // This should show the floating button
     });
 
-    // Check if notifications are already enabled
+    // Check if already subscribed
     const isSubscribed = await OneSignal.isPushNotificationsEnabled();
     document.getElementById("subscribe-btn").innerText = isSubscribed ? "✅ Subscribed!" : "🔔 Subscribe to EduVerse";
 
-    // Click event for manual subscription
+    // Subscribe on button click
     document.getElementById("subscribe-btn").addEventListener("click", async () => {
       const permission = await OneSignal.Notification.requestPermission();
       if (permission === "granted") {
@@ -47,6 +44,7 @@
     });
   });
 </script>
+  
 <!-- Cloudflare -->
 <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -174,6 +172,26 @@ body {
         }
         
     }
+
+	.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff5722;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.floating-btn:hover {
+  background: #e64a19;
+}
 </style>
 
 
@@ -296,6 +314,10 @@ body {
     </div>
 </div>
 
+	<button id="subscribe-btn" class="floating-btn">
+  🔔 Subscribe to EduVerse
+	</button>
+	
 <section class="eduverse blog-blockx inner-section-padding blog-page" id="eduverse">
     <div class="container">
         <div class="row">
