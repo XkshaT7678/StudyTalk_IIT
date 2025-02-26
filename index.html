@@ -9,7 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="EduVerse Network is your go-to platform for quality education. Access study materials, attend live classes, and enhance your learning experience—all in one place. Join us today!">
 <meta name="keywords" content="EduVerse, EduVerse Network, online learning, study materials, free courses, educational platform, e-learning, student resources, best study materials, live classes, learn online">
-	
 <link href='https://EduVerse.netlify.app/images/20250216_113226.jpg' type='image/x-icon' rel='icon'/><link href='https://EduVerse.netlify.app/images/20250216_113226.jpg' type='image/x-icon' rel='shortcut icon'/>
 <link href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CMuli:300,300i,400" rel="stylesheet">
 
@@ -20,43 +19,9 @@
 
 
 <!-- Cloudflare -->
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "46430792-a709-46f6-920e-c0ef9a9abcee",
-    });
 
-    // Check if already subscribed
-    const isSubscribed = await OneSignal.isPushNotificationsEnabled();
-    document.getElementById("subscribe-btn").innerText = isSubscribed ? "✅ Subscribed!" : "🔔 Subscribe to EduVerse";
-
-    // Subscribe on button click
-    document.getElementById("subscribe-btn").addEventListener("click", async () => {
-      const permission = await OneSignal.Notification.requestPermission();
-      if (permission === "granted") {
-        await OneSignal.registerForPushNotifications();
-        document.getElementById("subscribe-btn").innerText = "✅ Subscribed!";
-      } else {
-        alert("🚫 You have blocked notifications! Enable them in your browser settings.");
-      }
-    });
-  });
-</script>
-  
 <!-- Cloudflare -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(function() {
-            document.getElementById("popupModal").style.display = "flex";
-        }, 500);
-    });
 
-    function closePopup() {
-        document.getElementById("popupModal").style.display = "none";
-    }
-</script>
 
 
 	<style>
