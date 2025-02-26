@@ -19,7 +19,17 @@
 
 
 <!-- Cloudflare -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            document.getElementById("popupModal").style.display = "flex";
+        }, 500);
+    });
 
+    function closePopup() {
+        document.getElementById("popupModal").style.display = "none";
+    }
+</script>
 <!-- Cloudflare -->
 
 
