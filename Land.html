@@ -7,15 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body {
-            background: radial-gradient(circle at top, #081c3d, #0c2c57);
+            background: linear-gradient(180deg, #081c3d, #0c2c57);
             color: white; text-align: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            height: 100vh; overflow: hidden; position: relative;
+            overflow-x: hidden;
         }
-        #particles-js { position: absolute; width: 100%; height: 100%; z-index: -1; }
-        .container { z-index: 1; max-width: 800px; padding: 20px; }
+        #particles-js { position: absolute; width: 100%; height: 100vh; z-index: -1; }
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            position: relative; text-align: center; padding: 20px;
+        }
         h1 {
             font-size: 4rem; font-weight: 600;
             background: linear-gradient(45deg, #00e5ff, #80d8ff);
@@ -59,14 +61,26 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        footer {
-            position: absolute; bottom: 10px; font-size: 0.9rem; opacity: 0.8;
+        .section {
+            padding: 100px 10%; text-align: center;
+            background: linear-gradient(180deg, #0c2c57, #081c3d);
+        }
+        .section h2 {
+            font-size: 2.5rem; margin-bottom: 15px;
+            color: #00e5ff; text-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+        }
+        .section p { font-size: 1.2rem; opacity: 0.85; }
+        .footer {
+            padding: 20px; background: #06142e;
+            font-size: 0.9rem; opacity: 0.8;
         }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
-    <div class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
         <h1>EduVerse</h1>
         <p class="tagline">
             ✦ Expert-Curated Courses ✦ <br>
@@ -85,8 +99,31 @@
         <div class="counter">
             <span id="userCount">2.5k+</span> Connected Users
         </div>
-    </div>
-    <footer>&copy; 2025 EduVerse. All rights reserved.</footer>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <h2>About EduVerse</h2>
+        <p>EduVerse is a platform where learning meets innovation. We provide expert-curated courses, interactive study materials, and live mentorship to help students master every subject with ease.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <h2>Why Choose Us?</h2>
+        <p>✔ 100% Free Study Materials<br>✔ Expert-Led Live Classes<br>✔ Interactive Quizzes & Assignments<br>✔ Career Guidance & Mentorship</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <h2>Join Our Community</h2>
+        <p>Become a part of the EduVerse family and start your journey towards excellence.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 EduVerse. All rights reserved.
+    </footer>
+
     <script>
         particlesJS("particles-js", {
             "particles": {
