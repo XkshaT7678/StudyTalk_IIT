@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduVerse - Learning Redefined</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body {
-            background: linear-gradient(135deg, #0f2c5b, #1a75bc);
+            background: radial-gradient(circle at top, #081c3d, #0c2c57);
             color: white; text-align: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             height: 100vh; overflow: hidden; position: relative;
@@ -18,18 +18,24 @@
         .container { z-index: 1; max-width: 800px; padding: 20px; }
         h1 {
             font-size: 4rem; font-weight: 600;
-            background: linear-gradient(to right, #ffffff, #90caf9);
+            background: linear-gradient(45deg, #00e5ff, #80d8ff);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.7);
+            animation: glow 1.5s infinite alternate;
         }
-        .tagline { font-size: 1.5rem; margin: 15px 0; }
-        .description { font-size: 1.1rem; opacity: 0.9; margin-bottom: 20px; }
-        .buttons { margin-top: 20px; }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(0, 229, 255, 0.6); }
+            to { text-shadow: 0 0 25px rgba(0, 229, 255, 1); }
+        }
+        .tagline { font-size: 1.4rem; margin: 15px 0; opacity: 0.9; }
+        .description { font-size: 1.1rem; opacity: 0.85; margin-bottom: 25px; }
+        .buttons { margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .btn {
-            display: inline-block; margin: 10px; padding: 12px 25px;
+            display: inline-block; padding: 12px 25px;
             font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none;
             border-radius: 50px; position: relative; overflow: hidden;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #2196f3, #6ec6ff);
+            box-shadow: 0px 4px 15px rgba(0, 229, 255, 0.3);
             transition: all 0.3s ease-in-out;
         }
         .btn::before {
@@ -40,14 +46,14 @@
             transition: all 0.3s ease-in-out; opacity: 0;
         }
         .btn:hover::before { opacity: 1; width: 250%; height: 250%; }
-        .btn:hover { transform: scale(1.05); }
+        .btn:hover { transform: scale(1.06); background: linear-gradient(135deg, #6ec6ff, #2196f3); }
         .counter {
-            margin-top: 25px; font-size: 1.4rem; font-weight: bold;
+            margin-top: 25px; font-size: 1.5rem; font-weight: bold;
             display: flex; align-items: center; justify-content: center;
         }
         .counter span {
             font-size: 2rem; font-weight: bold; color: #ffeb3b;
-            animation: countUp 2s ease-in-out;
+            animation: countUp 1.5s ease-in-out;
         }
         @keyframes countUp {
             from { opacity: 0; transform: translateY(-10px); }
@@ -84,13 +90,13 @@
     <script>
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 120, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#ffffff" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.7, "random": true },
+                "opacity": { "value": 0.6, "random": true },
                 "size": { "value": 3, "random": true },
                 "line_linked": { "enable": false },
-                "move": { "speed": 2, "direction": "none", "random": false, "straight": false }
+                "move": { "speed": 2.5, "direction": "none", "random": false, "straight": false }
             }
         });
 
@@ -103,7 +109,7 @@
                 if (count >= finalCount) clearInterval(interval);
             }, 50);
         }
-        setTimeout(animateUserCount, 1000);
+        setTimeout(animateUserCount, 800);
     </script>
 </body>
-  </html>
+</html>
