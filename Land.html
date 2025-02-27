@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduVerse - Learning Redefined</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
@@ -33,12 +34,12 @@
         .description { font-size: 1.1rem; opacity: 0.85; margin-bottom: 25px; }
         .buttons { margin-top: 20px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
         .btn {
-            display: inline-block; padding: 12px 25px;
-            font-size: 1.2rem; font-weight: bold; color: white; text-decoration: none;
-            border-radius: 50px; position: relative; overflow: hidden;
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 12px 25px; font-size: 1.2rem; font-weight: bold; color: white;
+            border-radius: 50px; text-decoration: none; position: relative;
             background: linear-gradient(135deg, #2196f3, #6ec6ff);
             box-shadow: 0px 4px 15px rgba(0, 229, 255, 0.3);
-            transition: all 0.3s ease-in-out;
+            overflow: hidden; transition: all 0.3s ease-in-out;
         }
         .btn::before {
             content: ""; position: absolute; top: 50%; left: 50%;
@@ -74,6 +75,11 @@
             padding: 20px; background: #06142e;
             font-size: 0.9rem; opacity: 0.8;
         }
+        .icon {
+            font-size: 1.4rem;
+            color: #ffeb3b;
+            animation: fadeIn 1.5s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -83,40 +89,28 @@
     <section class="hero">
         <h1>EduVerse</h1>
         <p class="tagline">
-            ✦ Expert-Curated Courses ✦ <br>
-            ✦ Free Study Materials & Live Sessions ✦ <br>
-            ✦ Master Every Subject ✦
+            <i class="fa-solid fa-graduation-cap icon"></i> ✦ Expert-Curated Courses ✦ <br>
+            <i class="fa-solid fa-book icon"></i> ✦ Free Study Materials & Live Sessions ✦ <br>
+            <i class="fa-solid fa-lightbulb icon"></i> ✦ Master Every Subject ✦
         </p>
         <p class="description">
             Your one-stop destination for quality education. Learn at your pace, access expert study materials, 
             and unlock new opportunities with interactive courses and live mentorship.
         </p>
         <div class="buttons">
-            <a href="#" class="btn">Explore Courses</a>
-            <a href="#" class="btn">Download Materials</a>
-            <a href="#" class="btn">Join Live Session</a>
+            <a href="#" class="btn"><i class="fa-solid fa-laptop"></i> Explore Courses</a>
+            <a href="#" class="btn"><i class="fa-solid fa-download"></i> Download Materials</a>
+            <a href="#" class="btn"><i class="fa-solid fa-video"></i> Join Live Session</a>
         </div>
         <div class="counter">
-            <span id="userCount">2.5k+</span> Connected Users
+            <i class="fa-solid fa-users icon"></i> <span id="userCount">2.5k+</span> Connected Users
         </div>
     </section>
 
     <!-- About Section -->
     <section class="section">
         <h2>About EduVerse</h2>
-        <p>EduVerse is a platform where learning meets innovation. We provide expert-curated courses, interactive study materials, and live mentorship to help students master every subject with ease.</p>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section">
-        <h2>Why Choose Us?</h2>
-        <p>✔ 100% Free Study Materials<br>✔ Expert-Led Live Classes<br>✔ Interactive Quizzes & Assignments<br>✔ Career Guidance & Mentorship</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section">
-        <h2>Join Our Community</h2>
-        <p>Become a part of the EduVerse family and start your journey towards excellence.</p>
+        <p><i class="fa-solid fa-chalkboard-teacher icon"></i> EduVerse is a platform where learning meets innovation. We provide expert-curated courses, interactive study materials, and live mentorship to help students master every subject with ease.</p>
     </section>
 
     <!-- Footer -->
@@ -137,7 +131,6 @@
             }
         });
 
-        // User Count Animation
         function animateUserCount() {
             let count = 0, finalCount = 2500;
             let interval = setInterval(() => {
