@@ -4,104 +4,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Player</title>
+    <title>Ultimate Video Player</title>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <script src="https://cdn.tailwindcss.com/"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+
     <style>
-        /* Header */
         body {
-            padding-top: 60px; /* Space for the fixed header */
+            padding-top: 60px;
+            background-color: #f3f4f6;
+            transition: background 0.3s;
         }
 
         header {
             background-color: #03eaff;
-            padding: 1rem 10px;
+            padding: 1rem;
             display: flex;
             align-items: center;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            height: 50px;
-            width: 100%;
+            justify-content: space-between;
             position: fixed;
             top: 10px;
             left: 0;
+            width: 100%;
             z-index: 1000;
-        }
-
-        header img {
-            margin-right: 10px;
-            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
         }
 
         .header-title {
             font-size: 1.2rem;
-            font-weight: 800;
+            font-weight: bold;
             color: #000;
-            font-family: "Arial", sans-serif;
         }
 
-        .content {
-            padding: 20px;
+        .player-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
         }
 
-        .button-container a {
-            text-align: center;
-            margin: 0 10px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            transition: all 0.3s ease-in-out;
+        .floating-player {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 300px;
+            display: none;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
 
-        .button-container a:hover {
-            transform: translateY(-2px);
+        .dark-mode {
+            background-color: #111;
+            color: white;
+        }
+
+        video {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 10px;
+        }
+
+        .floating-player video {
+            width: 100%;
+            border-radius: 10px;
         }
     </style>
 </head>
 
 <body class="bg-gray-100">
+
     <!-- Header -->
     <header>
         <a href="javascript:history.back()">
-            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back" width="24" height="24">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back" width="24">
         </a>
         <span class="header-title">EduVerse Network</span>
+        <button id="toggleDarkMode" class="p-2 bg-black text-white rounded">🌙</button>
     </header>
 
-    <!-- Video Player Section -->
-    <div id="plyr-video" class="p-4">
-        <video id="player" controls class="w-full max-w-screen-lg mx-auto block rounded-lg shadow-lg plyr--video"></video>
+    <!-- Video Player -->
+    <div class="player-container">
+        <video id="player" controls class="plyr__video-embed"></video>
+    </div>
 
-        
+    <!-- Floating Mini Player -->
+    <div class="floating-player" id="floatingPlayer">
+        <video id="miniPlayer" controls muted></video>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('player');
+            const miniPlayer = document.getElementById('miniPlayer');
             const urlParams = new URLSearchParams(window.location.search);
             const lessonurl = urlParams.get('lessonurl');
 
             if (!lessonurl) {
-                Swal.fire('Error', 'Live Is Not Started Yet.', 'error');
+                Swal.fire('Error', 'Live is not started yet.', 'error');
                 return;
             }
 
+            const player = new Plyr(video, {
+                controls: [
+                    'play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time',
+                    'duration', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'
+                ],
+                settings: ['captions', 'quality', 'speed'],
+                speed: { selected: 1.0, options: [0.5, 1, 1.5, 2, 3] }
+            });
+
+            // YouTube Support
             if (/^(http|https):\/\/(?:www\.)?youtube\.com\/watch\?v=|https:\/\/youtu\.be\//.test(lessonurl)) {
-                const youtubePlayer = new Plyr(video, {
-                    autoplay: true,
-                    controls: [
-                        'play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time',
-                        'duration', 'mute', 'volume', 'captions', 'settings', 'fullscreen'
-                    ]
-                });
-                youtubePlayer.source = {
+                player.source = {
                     type: 'video',
                     sources: [{ src: lessonurl, provider: 'youtube' }]
                 };
-            } else if (/^(http|https):\/\/.+\.m3u8$/.test(lessonurl)) {
+            }
+            // HLS Streaming Support
+            else if (/^(http|https):\/\/.+\.m3u8$/.test(lessonurl)) {
                 if (Hls.isSupported()) {
                     const hls = new Hls();
                     hls.loadSource(lessonurl);
@@ -112,8 +134,63 @@
             } else {
                 Swal.fire('Error', 'Invalid video URL.', 'error');
             }
+
+            // Floating Mini Player on Scroll
+            window.addEventListener('scroll', () => {
+                const floatingPlayer = document.getElementById('floatingPlayer');
+                if (window.scrollY > 200) {
+                    floatingPlayer.style.display = 'block';
+                    miniPlayer.src = video.src;
+                    miniPlayer.play();
+                } else {
+                    floatingPlayer.style.display = 'none';
+                    miniPlayer.pause();
+                }
+            });
+
+            // Dark Mode Toggle
+            document.getElementById('toggleDarkMode').addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+            });
+
+            // Keyboard Shortcuts
+            document.addEventListener('keydown', (event) => {
+                switch (event.code) {
+                    case 'ArrowLeft': player.rewind(10); break; // ⏪ Rewind 10s
+                    case 'ArrowRight': player.forward(10); break; // ⏩ Forward 10s
+                    case 'ArrowUp': player.volume = Math.min(player.volume + 0.1, 1); break; // 🔊 Volume Up
+                    case 'ArrowDown': player.volume = Math.max(player.volume - 0.1, 0); break; // 🔉 Volume Down
+                    case 'Space': player.togglePlay(); break; // ▶️/⏸ Play/Pause
+                    case 'KeyF': player.fullscreen.enter(); break; // 🔲 Fullscreen
+                    case 'KeyM': player.muted = !player.muted; break; // 🔇 Mute
+                }
+            });
+
+            // Skip ±10, ±30, ±60 seconds
+            function skip(seconds) {
+                player.currentTime += seconds;
+            }
+
+            // Adding Skip Buttons
+            const controls = player.elements.controls;
+            if (controls) {
+                const skipButtons = [
+                    { label: '⏪ -10s', time: -10 },
+                    { label: '⏪ -30s', time: -30 },
+                    { label: '⏩ +10s', time: 10 },
+                    { label: '⏩ +30s', time: 30 },
+                    { label: '⏩ +60s', time: 60 }
+                ];
+                skipButtons.forEach(btn => {
+                    const button = document.createElement('button');
+                    button.innerHTML = btn.label;
+                    button.classList.add('plyr__control');
+                    button.onclick = () => skip(btn.time);
+                    controls.appendChild(button);
+                });
+            }
         });
     </script>
-</body>
 
+</body>
 </html>
