@@ -25,11 +25,11 @@
 
     if (!hasValidCookie) {
       // Redirect to login page if no valid cookie found
-      window.location.href = 'https://nextedu-official.netlify.app/login/';
+      window.location.href = '/login/';
     } else {
       // Redirect after 3 seconds
       setTimeout(() => {
-        window.location.href = 'https://nextedu-official.netlify.app/';
+        window.location.href = '/main';
       }, 3000);
     }
   </script>
