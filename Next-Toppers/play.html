@@ -93,80 +93,75 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const video = document.getElementById('player');
-            const miniPlayer = document.getElementById('miniPlayer');
-            const urlParams = new URLSearchParams(window.location.search);
-            const lessonurl = urlParams.get('lessonurl');
+    document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('player');
+        const miniPlayer = document.getElementById('miniPlayer');
+        const urlParams = new URLSearchParams(window.location.search);
+        const lessonurl = urlParams.get('lessonurl');
 
-            if (!lessonurl) {
-                Swal.fire('Error', 'Live is not started yet.', 'error');
-                return;
-            }
+        if (!lessonurl) {
+            Swal.fire('Error', 'Live is not started yet.', 'error');
+            return;
+        }
 
-            const player = new Plyr(video, {
-                controls: [
-                    'play-large', 'rewind', 'play', 'fast-forward', 'progress',
-                    'duration', 'captions', 'settings', 'airplay', 'fullscreen'
-                ],
-                settings: ['captions', 'quality'],
-                speed: { selected: 1.0, options: [0.5, 1, 1.5, 2, 3] }
-            });
-
-            // YouTube Support
-            if (/^(http|https):\/\/(?:www\.)?youtube\.com\/watch\?v=|https:\/\/youtu\.be\//.test(lessonurl)) {
-                player.source = {
-                    type: 'video',
-                    sources: [{ src: lessonurl, provider: 'youtube' }]
-                };
-            }
-            // HLS Streaming Support
-            else if (/^(http|https):\/\/.+\.m3u8$/.test(lessonurl)) {
-                if (Hls.isSupported()) {
-                    const hls = new Hls();
-                    hls.loadSource(lessonurl);
-                    hls.attachMedia(video);
-                } else {
-                    video.src = lessonurl;
-                }
-            } else {
-                Swal.fire('Error', 'Invalid video URL.', 'error');
-            }
-
-            // Floating Mini Player on Scroll
-            window.addEventListener('scroll', () => {
-                const floatingPlayer = document.getElementById('floatingPlayer');
-                if (window.scrollY > 200) {
-                    floatingPlayer.style.display = 'block';
-                    miniPlayer.src = video.src;
-                    miniPlayer.play();
-                } else {
-                    floatingPlayer.style.display = 'none';
-                    miniPlayer.pause();
-                }
-            });
-
-            // Keyboard Shortcuts
-            document.addEventListener('keydown', (event) => {
-                switch (event.code) {
-                    case 'ArrowLeft': player.rewind(10); break; // ⏪ Rewind 10s
-                    case 'ArrowRight': player.forward(10); break; // ⏩ Forward 10s
-                    case 'ArrowUp': player.volume = Math.min(player.volume + 0.1, 1); break; // 🔊 Volume Up
-                    case 'ArrowDown': player.volume = Math.max(player.volume - 0.1, 0); break; // 🔉 Volume Down
-                    case 'Space': player.togglePlay(); break; // ▶️/⏸ Play/Pause
-                    case 'KeyF': player.fullscreen.enter(); break; // 🔲 Fullscreen
-                    case 'KeyM': player.muted = !player.muted; break; // 🔇 Mute
-                }
-            });
-
-            // Skip ±10 seconds
-            function skip(seconds) {
-                player.currentTime += seconds;
-            }
-
-            // Adding Skip Buttons
-            
+        const player = new Plyr(video, {
+            controls: [
+                'play-large', 'rewind', 'play', 'fast-forward', 
+                'progress', 'settings', 
+                'captions', 'airplay', 'fullscreen'
+            ],
+            settings: ['captions', 'quality'],
+            speed: { selected: 1.0, options: [0.5, 1, 1.5, 2, 3] },
+            quality: { default: 720, options: [360, 480, 720, 1080] }
         });
+
+        // YouTube Support
+        if (/^(http|https):\/\/(?:www\.)?youtube\.com\/watch\?v=|https:\/\/youtu\.be\//.test(lessonurl)) {
+            player.source = {
+                type: 'video',
+                sources: [{ src: lessonurl, provider: 'youtube' }]
+            };
+        }
+        // HLS Streaming Support
+        else if (/^(http|https):\/\/.+\.m3u8$/.test(lessonurl)) {
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(lessonurl);
+                hls.attachMedia(video);
+            } else {
+                video.src = lessonurl;
+            }
+        } else {
+            Swal.fire('Error', 'Invalid video URL.', 'error');
+        }
+
+        // Floating Mini Player on Scroll
+        window.addEventListener('scroll', () => {
+            const floatingPlayer = document.getElementById('floatingPlayer');
+            if (window.scrollY > 200) {
+                floatingPlayer.style.display = 'block';
+                miniPlayer.src = video.src;
+                miniPlayer.play();
+            } else {
+                floatingPlayer.style.display = 'none';
+                miniPlayer.pause();
+            }
+        });
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', (event) => {
+            switch (event.code) {
+                case 'ArrowLeft': player.rewind(10); break;
+                case 'ArrowRight': player.forward(10); break;
+                case 'ArrowUp': player.volume = Math.min(player.volume + 0.1, 1); break;
+                case 'ArrowDown': player.volume = Math.max(player.volume - 0.1, 0); break;
+                case 'Space': player.togglePlay(); break;
+                case 'KeyF': player.fullscreen.enter(); break;
+                case 'KeyM': player.muted = !player.muted; break;
+            }
+        });
+
+    });
     </script>
 
 </body>
