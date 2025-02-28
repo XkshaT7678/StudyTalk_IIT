@@ -106,8 +106,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('player');
-            const volumeSlider = document.getElementById('volumeSlider');
-            const muteBtn = document.getElementById('muteBtn');
             const rewindBtn = document.getElementById('rewind');
             const forwardBtn = document.getElementById('forward');
 
@@ -121,8 +119,8 @@
 
             const player = new Plyr(video, {
                 controls: [
-                    'play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time',
-                    'duration', 'mute', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'
+                    'play-large', 'rewind', 'play', 'progress',
+                    'duration', 'mute', 'settings', 'pip', 'airplay', 'fullscreen'
                 ],
                 settings: ['captions', 'quality', 'speed'],
                 speed: { selected: 1.0, options: [0.5, 1, 1.5, 2, 3] }
