@@ -4,29 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduVerse - Lectures & Notes</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: "Poppins", sans-serif;
         }
 
         body {
-            background: #121212;
+            background: #0f0f0f;
             color: white;
             text-align: center;
-            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
         .container {
-            max-width: 600px;
-            margin: auto;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+            transition: 0.3s ease;
         }
 
         h1 {
             color: #00ffcc;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 28px;
         }
 
         .top-controls {
@@ -36,32 +52,60 @@
             margin-bottom: 20px;
         }
 
-        .top-controls button {
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            background: #00ffcc;
-            color: black;
-            font-weight: bold;
-            transition: 0.3s;
-            flex: 1;
-            margin: 0 5px;
-            border-radius: 5px;
+        .switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
         }
 
-        .top-controls button.active {
-            background: #0077b6;
-            color: white;
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #0077b6;
+            border-radius: 34px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: #00ffcc;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(30px);
         }
 
         #searchInput {
-            padding: 8px;
+            padding: 10px;
             width: 100%;
             border-radius: 5px;
             border: none;
-            margin-top: 10px;
+            margin: 15px 0;
             outline: none;
             text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
         }
 
         .content {
@@ -69,12 +113,13 @@
         }
 
         .card {
-            background: #1e1e1e;
+            background: rgba(255, 255, 255, 0.2);
             padding: 15px;
             margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px #00ffcc;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px #00ffcc;
             transition: 0.3s;
+            backdrop-filter: blur(10px);
         }
 
         .card:hover {
@@ -83,10 +128,13 @@
 
         .card h2 {
             margin-bottom: 5px;
+            font-size: 20px;
         }
 
         .card p {
             margin-bottom: 10px;
+            font-size: 16px;
+            color: #d1d1d1;
         }
 
         .btn {
@@ -97,6 +145,7 @@
             text-decoration: none;
             border-radius: 5px;
             transition: 0.3s;
+            font-weight: bold;
         }
 
         .btn:hover {
@@ -111,12 +160,16 @@
 </head>
 <body>
 
+    <div id="particles-js"></div>
+
     <div class="container">
         <h1>EduVerse - Lectures & Notes</h1>
 
         <div class="top-controls">
-            <button id="toggleLectures" class="active">Lectures</button>
-            <button id="toggleNotes">Notes</button>
+            <label class="switch">
+                <input type="checkbox" id="toggleSwitch">
+                <span class="slider"></span>
+            </label>
         </div>
 
         <input type="text" id="searchInput" placeholder="Search Chapters...">
@@ -152,25 +205,29 @@
     </div>
 
     <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80 },
+                size: { value: 3 },
+                move: { speed: 2 },
+                line_linked: { enable: true, color: "#00ffcc" }
+            }
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
-            const toggleLectures = document.getElementById("toggleLectures");
-            const toggleNotes = document.getElementById("toggleNotes");
+            const toggleSwitch = document.getElementById("toggleSwitch");
             const lecturesSection = document.getElementById("lecturesSection");
             const notesSection = document.getElementById("notesSection");
             const searchInput = document.getElementById("searchInput");
 
-            toggleLectures.addEventListener("click", () => {
-                lecturesSection.classList.remove("hidden");
-                notesSection.classList.add("hidden");
-                toggleLectures.classList.add("active");
-                toggleNotes.classList.remove("active");
-            });
-
-            toggleNotes.addEventListener("click", () => {
-                notesSection.classList.remove("hidden");
-                lecturesSection.classList.add("hidden");
-                toggleNotes.classList.add("active");
-                toggleLectures.classList.remove("active");
+            toggleSwitch.addEventListener("change", () => {
+                if (toggleSwitch.checked) {
+                    notesSection.classList.remove("hidden");
+                    lecturesSection.classList.add("hidden");
+                } else {
+                    lecturesSection.classList.remove("hidden");
+                    notesSection.classList.add("hidden");
+                }
             });
 
             searchInput.addEventListener("input", () => {
@@ -186,4 +243,4 @@
     </script>
 
 </body>
-          </html>
+</html>
