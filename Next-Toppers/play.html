@@ -11,104 +11,91 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
 
     <style>
-        /* General Body Styling */
         body {
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            font-family: Arial, sans-serif;
+            padding-top: 60px;
+            background-color: #f3f4f6;
+            transition: background 0.3s;
         }
 
-        /* Video Container */
-        .video-container {
-            position: relative;
-            max-width: 900px;
-            margin: 60px auto;
+        header {
+            background-color: #03eaff;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .header-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .player-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .floating-player {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 300px;
+            display: none;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
 
         video {
             width: 100%;
+            max-width: 900px;
             border-radius: 10px;
         }
 
-        /* Full-Width Progress Bar */
-        .plyr__controls {
-            flex-direction: column-reverse;
-        }
-
-        .plyr__progress {
-            width: 100% !important;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-
-        /* Sidebar Volume Control */
-        .volume-sidebar {
-            position: fixed;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .volume-sidebar input {
-            transform: rotate(-90deg);
-            width: 100px;
-        }
-
-        .volume-sidebar img {
-            cursor: pointer;
-            width: 24px;
-            margin-bottom: 5px;
-        }
-
-        /* Skip Buttons */
-        .skip-buttons {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            top: 50%;
+        .floating-player video {
             width: 100%;
-            transform: translateY(-50%);
+            border-radius: 10px;
         }
 
-        .skip-buttons button {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .skip-buttons button:hover {
-            background: rgba(0, 0, 0, 0.9);
+        /* Smooth Progress Bar */
+        .plyr__progress input[type="range"] {
+            transition: all 0.2s ease-in-out;
         }
     </style>
 </head>
 
 <body>
 
+    <!-- Header -->
+    <header>
+        <a href="javascript:history.back()">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back" width="24">
+        </a>
+        <span class="header-title">EduVerse Network</span>
+    </header>
+
     <!-- Video Player -->
-    <div class="video-container">
+    <div class="player-container">
         <video id="player" controls class="plyr__video-embed"></video>
     </div>
 
-    <!-- Sidebar Volume Control -->
+    <!-- Floating Mini Player -->
+    <div class="floating-player" id="floatingPlayer">
+        <video id="miniPlayer" controls muted></video>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('player');
-            const rewindBtn = document.getElementById('rewind');
-            const forwardBtn = document.getElementById('forward');
-
+            const miniPlayer = document.getElementById('miniPlayer');
             const urlParams = new URLSearchParams(window.location.search);
             const lessonurl = urlParams.get('lessonurl');
 
@@ -119,8 +106,8 @@
 
             const player = new Plyr(video, {
                 controls: [
-                    'play-large', 'rewind', 'play', 'progress',
-                    'duration', 'mute', 'settings', 'pip', 'airplay', 'fullscreen'
+                    'play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time',
+                    'duration', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'
                 ],
                 settings: ['captions', 'quality', 'speed'],
                 speed: { selected: 1.0, options: [0.5, 1, 1.5, 2, 3] }
@@ -146,30 +133,52 @@
                 Swal.fire('Error', 'Invalid video URL.', 'error');
             }
 
-            // Sidebar Volume Control
-            volumeSlider.value = player.volume;
-            volumeSlider.addEventListener('input', () => {
-                player.volume = volumeSlider.value;
-                if (player.volume == 0) {
-                    muteBtn.src = "https://cdn-icons-png.flaticon.com/512/61/61046.png"; // Muted Icon
+            // Floating Mini Player on Scroll
+            window.addEventListener('scroll', () => {
+                const floatingPlayer = document.getElementById('floatingPlayer');
+                if (window.scrollY > 200) {
+                    floatingPlayer.style.display = 'block';
+                    miniPlayer.src = video.src;
+                    miniPlayer.play();
                 } else {
-                    muteBtn.src = "https://cdn-icons-png.flaticon.com/512/61/61045.png"; // Normal Icon
+                    floatingPlayer.style.display = 'none';
+                    miniPlayer.pause();
                 }
             });
 
-            muteBtn.addEventListener('click', () => {
-                player.muted = !player.muted;
-                muteBtn.src = player.muted ? "https://cdn-icons-png.flaticon.com/512/61/61046.png" : "https://cdn-icons-png.flaticon.com/512/61/61045.png";
+            // Keyboard Shortcuts
+            document.addEventListener('keydown', (event) => {
+                switch (event.code) {
+                    case 'ArrowLeft': player.rewind(10); break; // ⏪ Rewind 10s
+                    case 'ArrowRight': player.forward(10); break; // ⏩ Forward 10s
+                    case 'ArrowUp': player.volume = Math.min(player.volume + 0.1, 1); break; // 🔊 Volume Up
+                    case 'ArrowDown': player.volume = Math.max(player.volume - 0.1, 0); break; // 🔉 Volume Down
+                    case 'Space': player.togglePlay(); break; // ▶️/⏸ Play/Pause
+                    case 'KeyF': player.fullscreen.enter(); break; // 🔲 Fullscreen
+                    case 'KeyM': player.muted = !player.muted; break; // 🔇 Mute
+                }
             });
 
             // Skip ±10 seconds
-            rewindBtn.addEventListener('click', () => {
-                player.currentTime -= 10;
-            });
+            function skip(seconds) {
+                player.currentTime += seconds;
+            }
 
-            forwardBtn.addEventListener('click', () => {
-                player.currentTime += 10;
-            });
+            // Adding Skip Buttons
+            const controls = player.elements.controls;
+            if (controls) {
+                const skipButtons = [
+                    { label: '⏪', time: -10 },
+                    { label: '⏩', time: 10 }
+                ];
+                skipButtons.forEach(btn => {
+                    const button = document.createElement('button');
+                    button.innerHTML = btn.label;
+                    button.classList.add('plyr__control');
+                    button.onclick = () => skip(btn.time);
+                    controls.appendChild(button);
+                });
+            }
         });
     </script>
 
