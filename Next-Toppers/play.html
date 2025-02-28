@@ -42,16 +42,7 @@
             display: flex;
             justify-content: center;
             margin-top: 60px;
-        }
-
-        .floating-player {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 300px;
-            display: none;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
+            position: relative;
         }
 
         video {
@@ -60,14 +51,41 @@
             border-radius: 10px;
         }
 
-        .floating-player video {
-            width: 100%;
-            border-radius: 10px;
+        /* Full-width Progress Bar */
+        .plyr__controls {
+            flex-direction: column-reverse;
         }
 
-        /* Smooth Progress Bar */
-        .plyr__progress input[type="range"] {
-            transition: all 0.2s ease-in-out;
+        .plyr__progress {
+            width: 100% !important;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* Sidebar Volume Control */
+        .volume-sidebar {
+            position: fixed;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .volume-sidebar input {
+            transform: rotate(-90deg);
+            width: 100px;
+        }
+
+        .volume-sidebar img {
+            cursor: pointer;
+            width: 24px;
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -87,15 +105,18 @@
         <video id="player" controls class="plyr__video-embed"></video>
     </div>
 
-    <!-- Floating Mini Player -->
-    <div class="floating-player" id="floatingPlayer">
-        <video id="miniPlayer" controls muted></video>
+    <!-- Sidebar Volume Control -->
+    <div class="volume-sidebar">
+        <img id="muteBtn" src="https://cdn-icons-png.flaticon.com/512/61/61045.png" alt="Mute" width="30">
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.05">
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const video = document.getElementById('player');
-            const miniPlayer = document.getElementById('miniPlayer');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const muteBtn = document.getElementById('muteBtn');
+
             const urlParams = new URLSearchParams(window.location.search);
             const lessonurl = urlParams.get('lessonurl');
 
@@ -107,7 +128,7 @@
             const player = new Plyr(video, {
                 controls: [
                     'play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time',
-                    'duration', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'
+                    'duration', 'mute', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'
                 ],
                 settings: ['captions', 'quality', 'speed'],
                 speed: { selected: 1.0, options: [0.5, 1, 1.5, 2, 3] }
@@ -133,30 +154,20 @@
                 Swal.fire('Error', 'Invalid video URL.', 'error');
             }
 
-            // Floating Mini Player on Scroll
-            window.addEventListener('scroll', () => {
-                const floatingPlayer = document.getElementById('floatingPlayer');
-                if (window.scrollY > 200) {
-                    floatingPlayer.style.display = 'block';
-                    miniPlayer.src = video.src;
-                    miniPlayer.play();
+            // Sidebar Volume Control
+            volumeSlider.value = player.volume;
+            volumeSlider.addEventListener('input', () => {
+                player.volume = volumeSlider.value;
+                if (player.volume == 0) {
+                    muteBtn.src = "https://cdn-icons-png.flaticon.com/512/61/61046.png"; // Muted Icon
                 } else {
-                    floatingPlayer.style.display = 'none';
-                    miniPlayer.pause();
+                    muteBtn.src = "https://cdn-icons-png.flaticon.com/512/61/61045.png"; // Normal Icon
                 }
             });
 
-            // Keyboard Shortcuts
-            document.addEventListener('keydown', (event) => {
-                switch (event.code) {
-                    case 'ArrowLeft': player.rewind(10); break; // ⏪ Rewind 10s
-                    case 'ArrowRight': player.forward(10); break; // ⏩ Forward 10s
-                    case 'ArrowUp': player.volume = Math.min(player.volume + 0.1, 1); break; // 🔊 Volume Up
-                    case 'ArrowDown': player.volume = Math.max(player.volume - 0.1, 0); break; // 🔉 Volume Down
-                    case 'Space': player.togglePlay(); break; // ▶️/⏸ Play/Pause
-                    case 'KeyF': player.fullscreen.enter(); break; // 🔲 Fullscreen
-                    case 'KeyM': player.muted = !player.muted; break; // 🔇 Mute
-                }
+            muteBtn.addEventListener('click', () => {
+                player.muted = !player.muted;
+                muteBtn.src = player.muted ? "https://cdn-icons-png.flaticon.com/512/61/61046.png" : "https://cdn-icons-png.flaticon.com/512/61/61045.png";
             });
 
             // Skip ±10 seconds
