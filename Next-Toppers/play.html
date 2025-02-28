@@ -165,20 +165,7 @@
             }
 
             // Adding Skip Buttons
-            const controls = player.elements.controls;
-            if (controls) {
-                const skipButtons = [
-                    { label: '⏪', time: -10 },
-                    { label: '⏩', time: 10 }
-                ];
-                skipButtons.forEach(btn => {
-                    const button = document.createElement('button');
-                    button.innerHTML = btn.label;
-                    button.classList.add('plyr__control');
-                    button.onclick = () => skip(btn.time);
-                    controls.appendChild(button);
-                });
-            }
+            
         });
     </script>
 
