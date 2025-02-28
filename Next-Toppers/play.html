@@ -4,74 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Video Player</title>
+    <title>Advanced Video Player</title>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
 
     <style>
-        /* General Body Styling */
+        /* General Styling */
         body {
             margin: 0;
             padding: 0;
             background: #f4f4f4;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
         }
 
-        /* Video Container */
-        .video-container {
+        /* Video Player Container */
+        .video-wrapper {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
             position: relative;
-            width: 900px;
-            max-width: 100%;
         }
 
         video {
             width: 100%;
             border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Full-Width Progress Bar */
-        .plyr__controls {
-            flex-direction: column-reverse;
-        }
-
+        /* Full-Width Progress Bar at the Bottom */
         .plyr__progress {
             width: 100% !important;
-            position: absolute;
+            position: fixed;
             bottom: 0;
             left: 0;
-        }
-
-        /* Sidebar Volume Control */
-        .volume-sidebar {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
             background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .volume-sidebar input {
-            transform: rotate(-90deg);
-            width: 120px;
-            cursor: pointer;
-        }
-
-        .volume-sidebar img {
-            cursor: pointer;
-            width: 30px;
-            margin-bottom: 10px;
+            padding: 10px 0;
+            z-index: 999;
         }
 
         /* Skip Buttons */
@@ -82,6 +52,7 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
+            pointer-events: none;
         }
 
         .skip-buttons button {
@@ -93,10 +64,38 @@
             cursor: pointer;
             border-radius: 5px;
             transition: 0.3s;
+            pointer-events: auto;
         }
 
         .skip-buttons button:hover {
             background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Sidebar Volume Control */
+        .volume-sidebar {
+            position: fixed;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .volume-sidebar input {
+            transform: rotate(-90deg);
+            width: 130px;
+            cursor: pointer;
+        }
+
+        .volume-sidebar img {
+            cursor: pointer;
+            width: 35px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -104,7 +103,7 @@
 <body>
 
     <!-- Video Player -->
-    <div class="video-container">
+    <div class="video-wrapper">
         <video id="player" controls class="plyr__video-embed"></video>
 
         <!-- Skip Buttons -->
