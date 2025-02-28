@@ -17,25 +17,32 @@
             transition: background 0.3s;
         }
 
+              /* Header */
         header {
             background-color: #03eaff;
-            padding: 1rem;
+            padding: 1rem 10px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            height: 50px;
+            width: 100%;
             position: fixed;
             top: 10px;
             left: 0;
-            width: 100%;
             z-index: 1000;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+        }
+
+        header img {
+            margin-right: 10px;
+            cursor: pointer;
         }
 
         .header-title {
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 800;
             color: #000;
+            font-family: "Arial", sans-serif;
         }
 
         .player-container {
@@ -74,13 +81,14 @@
 
 <body>
 
-    <!-- Header -->
+   <!-- Header -->
     <header>
         <a href="javascript:history.back()">
-            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back" width="24">
+            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back" width="24" height="24">
         </a>
         <span class="header-title">EduVerse Network</span>
     </header>
+
 
     <!-- Video Player -->
     <div class="player-container">
