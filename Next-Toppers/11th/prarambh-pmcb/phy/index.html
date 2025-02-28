@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduVerse - Lectures & Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #121212;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #00ffcc;
+            margin-bottom: 20px;
+        }
+
+        .top-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .top-controls button {
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            background: #00ffcc;
+            color: black;
+            font-weight: bold;
+            transition: 0.3s;
+            flex: 1;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+
+        .top-controls button.active {
+            background: #0077b6;
+            color: white;
+        }
+
+        #searchInput {
+            padding: 8px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            margin-top: 10px;
+            outline: none;
+            text-align: center;
+        }
+
+        .content {
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #1e1e1e;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #00ffcc;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card h2 {
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #0077b6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #00ffcc;
+            color: black;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>EduVerse - Lectures & Notes</h1>
+
+        <div class="top-controls">
+            <button id="toggleLectures" class="active">Lectures</button>
+            <button id="toggleNotes">Notes</button>
+        </div>
+
+        <input type="text" id="searchInput" placeholder="Search Chapters...">
+
+        <div id="lecturesSection" class="content">
+            <div class="card">
+                <h2>Chapter 1: Motion</h2>
+                <p>Part 1</p>
+                <a href="#" class="btn">Watch Now</a>
+            </div>
+            <div class="card">
+                <h2>Chapter 1: Motion</h2>
+                <p>Part 2</p>
+                <a href="#" class="btn">Watch Now</a>
+            </div>
+            <div class="card">
+                <h2>Chapter 2: Electricity</h2>
+                <p>Part 1</p>
+                <a href="#" class="btn">Watch Now</a>
+            </div>
+        </div>
+
+        <div id="notesSection" class="content hidden">
+            <div class="card">
+                <h2>Chapter 1: Motion</h2>
+                <a href="notes.html" class="btn">View PDF</a>
+            </div>
+            <div class="card">
+                <h2>Chapter 2: Electricity</h2>
+                <a href="notes.html" class="btn">View PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleLectures = document.getElementById("toggleLectures");
+            const toggleNotes = document.getElementById("toggleNotes");
+            const lecturesSection = document.getElementById("lecturesSection");
+            const notesSection = document.getElementById("notesSection");
+            const searchInput = document.getElementById("searchInput");
+
+            toggleLectures.addEventListener("click", () => {
+                lecturesSection.classList.remove("hidden");
+                notesSection.classList.add("hidden");
+                toggleLectures.classList.add("active");
+                toggleNotes.classList.remove("active");
+            });
+
+            toggleNotes.addEventListener("click", () => {
+                notesSection.classList.remove("hidden");
+                lecturesSection.classList.add("hidden");
+                toggleNotes.classList.add("active");
+                toggleLectures.classList.remove("active");
+            });
+
+            searchInput.addEventListener("input", () => {
+                let filter = searchInput.value.toLowerCase();
+                let cards = document.querySelectorAll(".card");
+
+                cards.forEach(card => {
+                    let text = card.querySelector("h2").textContent.toLowerCase();
+                    card.style.display = text.includes(filter) ? "block" : "none";
+                });
+            });
+        });
+    </script>
+
+</body>
+          </html>
