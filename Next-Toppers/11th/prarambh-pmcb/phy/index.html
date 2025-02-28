@@ -14,7 +14,7 @@
         }
 
         body {
-            background: #0f0f0f;
+            background: #0d1117;
             color: white;
             text-align: center;
             overflow-x: hidden;
@@ -28,21 +28,23 @@
         }
 
         .container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 50px auto;
             padding: 20px;
             backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
-            transition: 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+            transition: 0.3s ease-in-out;
         }
 
         h1 {
             color: #00ffcc;
             margin-bottom: 20px;
             text-transform: uppercase;
-            font-size: 28px;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         .top-controls {
@@ -50,12 +52,25 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toggle-label {
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         .switch {
             position: relative;
-            width: 60px;
-            height: 30px;
+            width: 50px;
+            height: 25px;
         }
 
         .switch input {
@@ -79,8 +94,8 @@
         .slider:before {
             position: absolute;
             content: "";
-            height: 22px;
-            width: 22px;
+            height: 18px;
+            width: 18px;
             left: 4px;
             bottom: 4px;
             background-color: white;
@@ -93,7 +108,7 @@
         }
 
         input:checked + .slider:before {
-            transform: translateX(30px);
+            transform: translateX(24px);
         }
 
         #searchInput {
@@ -106,6 +121,7 @@
             text-align: center;
             background: rgba(255, 255, 255, 0.2);
             color: white;
+            font-size: 16px;
         }
 
         .content {
@@ -113,22 +129,24 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             padding: 15px;
             margin: 10px 0;
             border-radius: 8px;
-            box-shadow: 0px 0px 15px #00ffcc;
-            transition: 0.3s;
+            box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
             backdrop-filter: blur(10px);
         }
 
         .card:hover {
             transform: scale(1.05);
+            box-shadow: 0px 0px 25px rgba(0, 255, 204, 0.5);
         }
 
         .card h2 {
             margin-bottom: 5px;
             font-size: 20px;
+            font-weight: bold;
         }
 
         .card p {
@@ -139,7 +157,7 @@
 
         .btn {
             display: inline-block;
-            padding: 8px 15px;
+            padding: 10px 15px;
             background: #0077b6;
             color: white;
             text-decoration: none;
@@ -166,13 +184,16 @@
         <h1>EduVerse - Lectures & Notes</h1>
 
         <div class="top-controls">
-            <label class="switch">
-                <input type="checkbox" id="toggleSwitch">
-                <span class="slider"></span>
-            </label>
+            <input type="text" id="searchInput" placeholder="Search Chapters...">
+            <div class="toggle-container">
+                <span class="toggle-label">Lectures</span>
+                <label class="switch">
+                    <input type="checkbox" id="toggleSwitch">
+                    <span class="slider"></span>
+                </label>
+                <span class="toggle-label">Notes</span>
+            </div>
         </div>
-
-        <input type="text" id="searchInput" placeholder="Search Chapters...">
 
         <div id="lecturesSection" class="content">
             <div class="card">
@@ -207,7 +228,7 @@
     <script>
         particlesJS("particles-js", {
             particles: {
-                number: { value: 80 },
+                number: { value: 100 },
                 size: { value: 3 },
                 move: { speed: 2 },
                 line_linked: { enable: true, color: "#00ffcc" }
