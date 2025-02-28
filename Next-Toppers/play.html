@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultimate Video Player</title>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-    <script src="https://cdn.tailwindcss.com/"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
@@ -55,11 +54,6 @@
             border-radius: 10px;
         }
 
-        .dark-mode {
-            background-color: #111;
-            color: white;
-        }
-
         video {
             width: 100%;
             max-width: 900px;
@@ -70,10 +64,15 @@
             width: 100%;
             border-radius: 10px;
         }
+
+        /* Smooth Progress Bar */
+        .plyr__progress input[type="range"] {
+            transition: all 0.2s ease-in-out;
+        }
     </style>
 </head>
 
-<body class="bg-gray-100">
+<body>
 
     <!-- Header -->
     <header>
@@ -81,7 +80,6 @@
             <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back" width="24">
         </a>
         <span class="header-title">EduVerse Network</span>
-        <button id="toggleDarkMode" class="p-2 bg-black text-white rounded">🌙</button>
     </header>
 
     <!-- Video Player -->
@@ -148,11 +146,6 @@
                 }
             });
 
-            // Dark Mode Toggle
-            document.getElementById('toggleDarkMode').addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-            });
-
             // Keyboard Shortcuts
             document.addEventListener('keydown', (event) => {
                 switch (event.code) {
@@ -166,7 +159,7 @@
                 }
             });
 
-            // Skip ±10, ±30, ±60 seconds
+            // Skip ±10 seconds
             function skip(seconds) {
                 player.currentTime += seconds;
             }
@@ -175,11 +168,8 @@
             const controls = player.elements.controls;
             if (controls) {
                 const skipButtons = [
-                    { label: '⏪ -10s', time: -10 },
-                    { label: '⏪ -30s', time: -30 },
-                    { label: '⏩ +10s', time: 10 },
-                    { label: '⏩ +30s', time: 30 },
-                    { label: '⏩ +60s', time: 60 }
+                    { label: '⏪', time: -10 },
+                    { label: '⏩', time: 10 }
                 ];
                 skipButtons.forEach(btn => {
                     const button = document.createElement('button');
