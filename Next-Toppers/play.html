@@ -10,6 +10,19 @@
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
 
+    <script>
+   function getCookie(name) {
+   const value = `; ${document.cookie}`;
+   const parts = value.split(`; ${name}=`);
+   if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+   if (!getCookie('🚀')) {
+               
+     window.location.href = '/login/';
+     }
+    </script>
+    
     <style>
         body {
             padding-top: 60px;
