@@ -1,20 +1,20 @@
-// cookie-validator.js
 function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
+    return document.cookie
+        .split('; ')
+        .find(row => row.startsWith(name + '='))
+        ?.split('=')[1];
 }
 
 function checkCookie() {
-  const hasValidCookie = getCookie('server01KeyGenerated') ||
-    getCookie('server02KeyGenerated') ||
-    getCookie('server03KeyGenerated') ||
-    getCookie('adminAuth') ||
-    getCookie('recommendServerKeyGenerated');
+    const validCookies = ['server01KeyGenerated', 'server02KeyGenerated', 'server03KeyGenerated', 'adminAuth', 'recommendServerKeyGenerated'];
+    const hasValidCookie = validCookies.some(cookie => getCookie(cookie));
 
-  if (!hasValidCookie) {
-    window.location.href = '/login/';
-  }
+    if (!hasValidCookie) {
+        if (!window.location.pathname.includes('/login')) {
+            window.location.href = '/login/';
+        }
+    }
 }
 
-checkCookie();
+// Ensure it runs after DOM is fully loaded
+document.addEventListener('DOMContentLoaded', checkCookie);
