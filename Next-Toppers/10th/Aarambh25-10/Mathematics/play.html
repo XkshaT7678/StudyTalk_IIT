@@ -6,6 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EduVerse</title>
 
+  <script>
+   function getCookie(name) {
+   const value = `; ${document.cookie}`;
+   const parts = value.split(`; ${name}=`);
+   if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+   if (!getCookie('🚀')) {
+               
+     window.location.href = '/login/';
+     }
+  </script>
+  
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap');
 
