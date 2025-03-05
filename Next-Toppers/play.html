@@ -70,17 +70,17 @@
 
             // Function to play HLS videos
             function playHlsVideo(m3u8Url) {
-                const defaultQuality = 720; // Default quality
+                const defaultQuality = 480; // Default quality
                 const availableQualities = [0, 240, 360, 480, 720];
                 const player = new Plyr(video, {
                     controls: [
                         'play-large', 'rewind', 'play', 'fast-forward', 'progress',
-                        'current-time', 'duration', 'mute', 'captions',
+                        'current-time', 'duration', 'captions',
                         'settings', 'fullscreen'
                     ],
                     autoplay: true,
                     captions: { active: true, update: true },
-                    speed: { options: [1, 1.25, 1.5, 1.75, 2, 2.5] },
+                    speed: { options: [1, 1.5, 2, 2.5] },
                     tooltips: { controls: true, seek: true },
                     quality: { default: defaultQuality, options: availableQualities, forced: true, onChange: updateQuality },
                     i18n: {
