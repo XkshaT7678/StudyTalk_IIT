@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate Video Player</title>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
-
     <script>
    function getCookie(name) {
    const value = `; ${document.cookie}`;
@@ -22,167 +13,103 @@
      window.location.href = '/login/';
      }
     </script>
-    
-    <style>
-        body {
-            padding-top: 60px;
-            background-color: #f3f4f6;
-            transition: background 0.3s;
-        }
-
-              /* Header */
-        header {
-            background-color: #03eaff;
-            padding: 1rem 10px;
-            display: flex;
-            align-items: center;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            height: 50px;
-            width: 100%;
-            position: fixed;
-            top: 10px;
-            left: 0;
-            z-index: 1000;
-        }
-
-        header img {
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        .header-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: #000;
-            font-family: "Arial", sans-serif;
-        }
-
-        .player-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 60px;
-        }
-
-        .floating-player {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 300px;
-            display: none;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
-
-        video {
-            width: 100%;
-            max-width: 900px;
-            border-radius: 10px;
-        }
-
-        .floating-player video {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        /* Smooth Progress Bar */
-        .plyr__progress input[type="range"] {
-            transition: all 0.2s ease-in-out;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Video - Player</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+    <link rel="stylesheet" href="https://static.pw.live/fonts/reddit/font.css">
+    <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+    <link rel="stylesheet" href="plyr1.css">
 </head>
-
 <body>
-
-   <!-- Header -->
-    <header>
-        <a href="javascript:history.back()">
-            <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back" width="24" height="24">
-        </a>
-        <span class="header-title">EduVerse Network</span>
-    </header>
-
-
-    <!-- Video Player -->
-    <div class="player-container">
-        <video id="player" controls class="plyr__video-embed"></video>
+    <div id="plyr-video">
+        <video id="player" controls class="w-screen max-h-screen plyr--video z-10"></video>
     </div>
-
-    <!-- Floating Mini Player -->
-    <div class="floating-player" id="floatingPlayer">
-        <video id="miniPlayer" controls muted></video>
-    </div>
-
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const video = document.getElementById('player');
-        const miniPlayer = document.getElementById('miniPlayer');
-        const urlParams = new URLSearchParams(window.location.search);
-        const lessonurl = urlParams.get('lessonurl');
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('player');
+            const urlParams = new URLSearchParams(window.location.search);
+            const lessonurl = urlParams.get('lessonurl');
+            if (!lessonurl) {
+                Swal.fire('Error', 'Live Is Not Started Yet.', 'error');
+                return;
+            }
+            console.log('Lesson URL:', lessonurl);
 
-        if (!lessonurl) {
-            Swal.fire('Error', 'Live is not started yet.', 'error');
-            return;
-        }
-
-        const player = new Plyr(video, {
-            controls: [
-                'play-large', 'rewind', 'play', 'fast-forward', 
-                'progress', 'duration', 'mute', 'settings', 
-                'captions', 'airplay', 'fullscreen'
-            ],
-            settings: ['captions', 'quality'],
-            speed: { selected: 1.0, options: [0.5, 1, 1.5, 2, 3] },
-            quality: { default: 720, options: [360, 480, 720, 1080] }
-        });
-
-        // YouTube Support
-        if (/^(http|https):\/\/(?:www\.)?youtube\.com\/watch\?v=|https:\/\/youtu\.be\//.test(lessonurl)) {
-            player.source = {
-                type: 'video',
-                sources: [{ src: lessonurl, provider: 'youtube' }]
-            };
-        }
-        // HLS Streaming Support
-        else if (/^(http|https):\/\/.+\.m3u8$/.test(lessonurl)) {
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(lessonurl);
-                hls.attachMedia(video);
+            // Check if lessonurl is a YouTube video or an HLS URL
+            if (/^(http|https):\/\/(?:www\.)?youtube\.com\/watch\?v=|https:\/\/youtu\.be\//.test(lessonurl)) {
+                playYouTubeVideo(lessonurl);
+            } else if (/^(http|https):\/\/.+\.m3u8$/.test(lessonurl)) {
+                playHlsVideo(lessonurl);
             } else {
-                video.src = lessonurl;
+                Swal.fire('Error', 'Invalid video URL.', 'error');
             }
-        } else {
-            Swal.fire('Error', 'Invalid video URL.', 'error');
-        }
 
-        // Floating Mini Player on Scroll
-        window.addEventListener('scroll', () => {
-            const floatingPlayer = document.getElementById('floatingPlayer');
-            if (window.scrollY > 200) {
-                floatingPlayer.style.display = 'block';
-                miniPlayer.src = video.src;
-                miniPlayer.play();
-            } else {
-                floatingPlayer.style.display = 'none';
-                miniPlayer.pause();
+            // Function to play YouTube videos using Plyr
+            function playYouTubeVideo(lessonurl) {
+                const youtubePlayer = new Plyr(video, {
+                    type: 'youtube',
+                    autoplay: true,
+                    controls: [
+                        'play-large', 'rewind', 'play', 'fast-forward', 'progress',
+                        'current-time', 'duration', 'mute', 'volume', 'captions',
+                        'settings', 'fullscreen'
+                    ],
+                    tooltips: { controls: true, seek: true },
+                });
+                youtubePlayer.source = {
+                    type: 'video',
+                    sources: [{ src: lessonurl, provider: 'youtube' }]
+                };
+                console.log('Playing YouTube video:', lessonurl);
+            }
+
+            // Function to play HLS videos
+            function playHlsVideo(m3u8Url) {
+                const defaultQuality = 720; // Default quality
+                const availableQualities = [0, 240, 360, 480, 720];
+                const player = new Plyr(video, {
+                    controls: [
+                        'play-large', 'rewind', 'play', 'fast-forward', 'progress',
+                        'current-time', 'duration', 'mute', 'captions',
+                        'settings', 'fullscreen'
+                    ],
+                    autoplay: true,
+                    captions: { active: true, update: true },
+                    speed: { options: [1, 1.25, 1.5, 1.75, 2, 2.5] },
+                    tooltips: { controls: true, seek: true },
+                    quality: { default: defaultQuality, options: availableQualities, forced: true, onChange: updateQuality },
+                    i18n: {
+                        qualityLabel: {
+                            0: 'Auto', 240: '240p', 360: '360p', 480: '480p', 720: '720p'
+                        }
+                    }
+                });
+
+                function loadVideoWithQuality(source) {
+                    if (Hls.isSupported()) {
+                        const hls = new Hls();
+                        hls.loadSource(source);
+                        hls.attachMedia(video);
+                    } else {
+                        video.src = source;
+                    }
+                }
+
+                // Load the initial quality
+                loadVideoWithQuality(m3u8Url);
+
+                function updateQuality(newQuality) {
+                    const qualitySource = m3u8Url.replace('main.m3u8', `${newQuality}/main.m3u8`);
+                    loadVideoWithQuality(qualitySource);
+                }
+                console.log('Playing HLS video:', m3u8Url);
             }
         });
-
-        // Keyboard Shortcuts
-        document.addEventListener('keydown', (event) => {
-            switch (event.code) {
-                case 'ArrowLeft': player.rewind(10); break;
-                case 'ArrowRight': player.forward(10); break;
-                case 'ArrowUp': player.volume = Math.min(player.volume + 0.1, 1); break;
-                case 'ArrowDown': player.volume = Math.max(player.volume - 0.1, 0); break;
-                case 'Space': player.togglePlay(); break;
-                case 'KeyF': player.fullscreen.enter(); break;
-                case 'KeyM': player.muted = !player.muted; break;
-            }
-        });
-
-    });
-            </script>
+    </script>
 </body>
 </html>
