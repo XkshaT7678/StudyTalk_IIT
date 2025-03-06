@@ -107,11 +107,12 @@
   <div id="particles-js"></div>
   <div class="container">
     <h2>Generate Your Access Key</h2>
-    <p>Click a button below to generate your key.<br>You can Use any Server!<br>Please Watch Tutorial Video first, so that you not face any Problem<br><br>Validity: 24 hours ⏰</p>
+    <p>Click a button below to generate your key.<br>You can Use any Server!<br><br>Validity: 24 hours ⏰</p>
     <button id="server02" class="button">𝚂𝙴𝚁𝚅𝙴𝚁 01 ✅</button>
     <button id="server03Url" class="button">𝚂𝙴𝚁𝚅𝙴𝚁 02 ✅</button><br>
     <button id="recommendServer" class="button">𝚂𝙴𝚁𝚅𝙴𝚁 03 ✅</button><br>
     <button id="watchVideo" class="button">TUTORIAL VIDEO [EASY METHOD]</button>
+    <p>Please Watch Tutorial Video first, so that you not face any Problem</p>
     <p class="loading" id="loadingMessage">Generating URL, please wait...</p>
   </div>
 
@@ -147,7 +148,7 @@
       if (!url) return alert('Invalid URL!');
       document.getElementById("loadingMessage").style.display = "block";
       setTimeout(() => {
-        document.cookie = `${cookieName}=true; path=/; max-age=${5 * 60 * 60}`;
+        document.cookie = `${cookieName}=true; path=/; max-age=${24 * 60 * 60}`;
         window.location.href = url;
       }, 2000);
     }
