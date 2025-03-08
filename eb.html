@@ -3,186 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Haven - Ultimate</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>CyberBook Hub</title>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background: #0e0e0e;
-            color: white;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        /* Particles.js */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at top, #181818, #000);
-        }
-        /* Container */
-        .container {
-            width: 80%;
-            text-align: center;
-            z-index: 1;
-        }
-        /* Title */
-        .title {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 15px cyan;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;400;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background: #0b0f19; color: white; display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden; }
+
+        /* Particles.js Background */
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; background: linear-gradient(135deg, #010a20, #0b0f19); }
+
+        /* Main Content */
+        .container { width: 80%; text-align: center; margin-top: 50px; }
+        .title { font-size: 3rem; text-shadow: 0 0 15px cyan; font-family: 'Orbitron', sans-serif; margin-bottom: 20px; }
+
         /* Search Bar */
-        .search-container {
-            display: flex;
-            justify-content: center;
-        }
+        .search-container { margin: 20px 0; }
         #searchBar {
-            width: 60%;
-            padding: 12px;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            border-radius: 50px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            color: cyan;
-            transition: 0.3s;
+            width: 60%; padding: 12px; font-size: 18px; border: none; outline: none; border-radius: 50px;
+            text-align: center; background: rgba(255, 255, 255, 0.1); color: cyan; transition: 0.3s;
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
-        #searchBar:focus {
-            width: 70%;
-            box-shadow: 0 0 20px cyan;
-        }
+        #searchBar:focus { width: 70%; box-shadow: 0 0 20px cyan; }
+
         /* Book List */
-        .book-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 30px;
-        }
+        .book-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; padding: 20px; }
+
         /* Book Card */
         .book-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            width: 250px;
-            margin: 10px;
-            border-radius: 15px;
-            text-align: center;
-            transition: 0.3s;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            position: relative;
-            overflow: hidden;
+            background: rgba(255, 255, 255, 0.1); padding: 20px; width: 280px; border-radius: 15px; text-align: center;
+            backdrop-filter: blur(10px); box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        .book-card::before {
-            content: "";
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 250%;
-            height: 250%;
-            background: rgba(0, 255, 255, 0.1);
-            transform: rotate(45deg);
-            transition: 0.3s;
-        }
-        .book-card:hover::before {
-            top: 0;
-            left: 0;
-        }
-        .book-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 20px cyan;
-        }
+        .book-card:hover { transform: scale(1.05); box-shadow: 0 0 20px cyan; }
+
         /* Download Button */
         .download-btn {
-            display: inline-block;
-            padding: 10px 15px;
-            background: cyan;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            transition: 0.3s;
-            font-weight: bold;
+            display: inline-block; padding: 10px 15px; background: cyan; color: black; text-decoration: none;
+            border-radius: 5px; margin-top: 10px; transition: 0.3s; font-weight: bold;
             box-shadow: 0 0 10px cyan;
         }
-        .download-btn:hover {
-            background: lime;
-            box-shadow: 0 0 20px lime;
-        }
+        .download-btn:hover { background: lime; box-shadow: 0 0 20px lime; }
     </style>
 </head>
 <body>
 
-    <!-- Particles.js Background -->
+    <!-- Particles Background -->
     <div id="particles-js"></div>
 
+    <!-- Main Container -->
     <div class="container">
-        <h1 class="title">Book Haven - Ultimate</h1>
+        <h1 class="title">CyberBook Hub</h1>
+
+        <!-- Search Bar -->
         <div class="search-container">
             <input type="text" id="searchBar" placeholder="Search for a book..." onkeyup="searchBooks()">
         </div>
-        <div class="book-list" id="bookList">
-            <!-- Books will load here dynamically -->
-        </div>
+
+        <!-- Books List -->
+        <div class="book-list" id="bookList"></div>
     </div>
 
     <script>
         // Particles.js Background
-        document.addEventListener("DOMContentLoaded", function () {
-            particlesJS("particles-js", {
-                particles: {
-                    number: { value: 120 },
-                    size: { value: 3 },
-                    move: { speed: 2 },
-                    line_linked: { enable: true, distance: 130 },
-                    color: { value: "#00ffff" }
-                }
-            });
-
-            // Books List (Modify this with your own book links)
-            const books = [
-                { title: "The Great Gatsby", link: "https://example.com/gatsby.pdf" },
-                { title: "1984", link: "https://example.com/1984.pdf" },
-                { title: "Moby Dick", link: "https://example.com/moby.pdf" },
-                { title: "The Alchemist", link: "https://example.com/alchemist.pdf" },
-                { title: "Rich Dad Poor Dad", link: "https://example.com/richdad.pdf" },
-                { title: "Atomic Habits", link: "https://example.com/atomic.pdf" },
-                { title: "Think & Grow Rich", link: "https://example.com/thinkrich.pdf" },
-                { title: "The Power of Now", link: "https://example.com/now.pdf" }
-            ];
-
-            const bookList = document.getElementById("bookList");
-
-            function displayBooks() {
-                bookList.innerHTML = "";
-                books.forEach(book => {
-                    let bookCard = `
-                        <div class="book-card">
-                            <h3>${book.title}</h3>
-                            <a href="${book.link}" class="download-btn" download>Download</a>
-                        </div>
-                    `;
-                    bookList.innerHTML += bookCard;
-                });
-            }
-
-            displayBooks();
+        particlesJS("particles-js", {
+            particles: { number: { value: 120 }, size: { value: 3 }, move: { speed: 2 }, line_linked: { enable: true, distance: 130 }, color: { value: "#00ffff" } }
         });
+
+        // Books List (Modify this with your own book links)
+        const books = [
+            { title: "The Great Gatsby", link: "https://example.com/gatsby.pdf" },
+            { title: "1984", link: "https://example.com/1984.pdf" },
+            { title: "Moby Dick", link: "https://example.com/moby.pdf" },
+            { title: "The Alchemist", link: "https://example.com/alchemist.pdf" },
+            { title: "Rich Dad Poor Dad", link: "https://example.com/richdad.pdf" },
+            { title: "Atomic Habits", link: "https://example.com/atomic.pdf" },
+            { title: "Think & Grow Rich", link: "https://example.com/thinkrich.pdf" },
+            { title: "The Power of Now", link: "https://example.com/now.pdf" }
+        ];
+
+        const bookList = document.getElementById("bookList");
+
+        function displayBooks() {
+            bookList.innerHTML = "";
+            books.forEach(book => {
+                let bookCard = `
+                    <div class="book-card">
+                        <h3>${book.title}</h3>
+                        <a href="${book.link}" class="download-btn" download>Download</a>
+                    </div>
+                `;
+                bookList.innerHTML += bookCard;
+            });
+        }
+
+        displayBooks();
 
         // Search Function
         function searchBooks() {
@@ -195,6 +112,5 @@
             });
         }
     </script>
-
 </body>
 </html>
