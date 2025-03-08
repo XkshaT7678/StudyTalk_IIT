@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Haven</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Book Haven - Ultimate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         * {
@@ -14,23 +14,26 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-            background-color: #1a1a2e;
+            background: #0e0e0e;
             color: white;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        /* Particles Background */
+        /* Particles.js */
         #particles-js {
             position: fixed;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(to right, #141e30, #243b55);
+            background: radial-gradient(circle at top, #181818, #000);
         }
-        /* Main Container */
+        /* Container */
         .container {
+            width: 80%;
             text-align: center;
-            padding: 50px;
-            position: relative;
             z-index: 1;
         }
         /* Title */
@@ -38,8 +41,14 @@
             font-size: 3rem;
             font-weight: 600;
             margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px cyan;
         }
         /* Search Bar */
+        .search-container {
+            display: flex;
+            justify-content: center;
+        }
         #searchBar {
             width: 60%;
             padding: 12px;
@@ -48,13 +57,14 @@
             outline: none;
             border-radius: 50px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: cyan;
             transition: 0.3s;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
         #searchBar:focus {
             width: 70%;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px cyan;
         }
         /* Book List */
         .book-list {
@@ -69,29 +79,50 @@
             padding: 20px;
             width: 250px;
             margin: 10px;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
             transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .book-card::before {
+            content: "";
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 250%;
+            height: 250%;
+            background: rgba(0, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: 0.3s;
+        }
+        .book-card:hover::before {
+            top: 0;
+            left: 0;
         }
         .book-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px cyan;
         }
         /* Download Button */
         .download-btn {
             display: inline-block;
             padding: 10px 15px;
-            background: #ff9800;
+            background: cyan;
             color: black;
             text-decoration: none;
             border-radius: 5px;
             margin-top: 10px;
             transition: 0.3s;
             font-weight: bold;
+            box-shadow: 0 0 10px cyan;
         }
         .download-btn:hover {
-            background: #ff5722;
+            background: lime;
+            box-shadow: 0 0 20px lime;
         }
     </style>
 </head>
@@ -101,33 +132,38 @@
     <div id="particles-js"></div>
 
     <div class="container">
-        <h1 class="title">Book Haven</h1>
-        <input type="text" id="searchBar" placeholder="Search for a book..." onkeyup="searchBooks()">
-        
+        <h1 class="title">Book Haven - Ultimate</h1>
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search for a book..." onkeyup="searchBooks()">
+        </div>
         <div class="book-list" id="bookList">
-            <!-- Book Cards will be added dynamically -->
+            <!-- Books will load here dynamically -->
         </div>
     </div>
 
     <script>
-        // Initialize Particles.js
+        // Particles.js Background
         document.addEventListener("DOMContentLoaded", function () {
             particlesJS("particles-js", {
                 particles: {
-                    number: { value: 100 },
+                    number: { value: 120 },
                     size: { value: 3 },
                     move: { speed: 2 },
-                    line_linked: { enable: true, distance: 150 }
+                    line_linked: { enable: true, distance: 130 },
+                    color: { value: "#00ffff" }
                 }
             });
 
-            // Books Array (Add Your Own Books Here)
+            // Books List (Modify this with your own book links)
             const books = [
                 { title: "The Great Gatsby", link: "https://example.com/gatsby.pdf" },
                 { title: "1984", link: "https://example.com/1984.pdf" },
                 { title: "Moby Dick", link: "https://example.com/moby.pdf" },
                 { title: "The Alchemist", link: "https://example.com/alchemist.pdf" },
-                { title: "Rich Dad Poor Dad", link: "https://example.com/richdad.pdf" }
+                { title: "Rich Dad Poor Dad", link: "https://example.com/richdad.pdf" },
+                { title: "Atomic Habits", link: "https://example.com/atomic.pdf" },
+                { title: "Think & Grow Rich", link: "https://example.com/thinkrich.pdf" },
+                { title: "The Power of Now", link: "https://example.com/now.pdf" }
             ];
 
             const bookList = document.getElementById("bookList");
