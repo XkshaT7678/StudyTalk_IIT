@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>—͟͞͞𝙀𝙙𝙪𝙑𝙚𝙧𝙨𝙚 𝙊𝙛𝙛𝙞𝙘𝙞𝙖𝙡</title>
 <script>
-    document.getElementById('verifyBtn').addEventListener('click', function() {
-        let button = this;
-        let verifyingText = document.getElementById('verifyingText');
+    (function() {
+        // Get the last verification time from localStorage
+        const lastVerified = localStorage.getItem("lastVerified");
+        const now = Date.now();
+        const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-        button.style.display = 'none';
-        verifyingText.style.display = 'block';
-
-        setTimeout(() => {
-            // Save verification timestamp correctly
-            localStorage.setItem("lastVerified", Date.now());
-            window.location.href = "/index"; // Redirect to main page
-        }, 3000);
-    });
+        if (!lastVerified || now - parseInt(lastVerified) > oneDay) {
+            // Redirect to verify page only if not verified in the last 24 hours
+            localStorage.removeItem("lastVerified"); // Clear old verification
+            window.location.href = "/verify"; 
+        }
+    })();
 </script>
     <link rel="icon" type="image/png" href="https://eduverse-official.netlify.app/images/20250216_113226.jpg">
     <!-- og things -->
