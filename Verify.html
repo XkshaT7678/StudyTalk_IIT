@@ -36,58 +36,101 @@
             z-index: -1;
         }
 
-        .error-container {
-            background: rgba(255, 255, 255, 0.1);
+        .verification-box {
+            background: rgba(255, 255, 255, 0.15);
             padding: 40px;
             border-radius: 16px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 172, 238, 0.3);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 172, 238, 0.3);
             max-width: 500px;
             width: 90%;
             position: relative;
             border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1.2s ease-in-out;
         }
 
-        .glitch {
-            font-size: 2rem;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .title {
+            font-size: 2.2rem;
             font-weight: bold;
             color: #00acee;
+            text-shadow: 0 0 10px rgba(0, 172, 238, 0.7);
         }
 
         p {
             font-size: 1.2rem;
             margin: 15px 0;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, #00acee, #0078b8);
             color: #fff;
-            padding: 12px 24px;
-            border-radius: 30px;
+            padding: 14px 30px;
+            border-radius: 50px;
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 172, 238, 0.3);
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 5px 15px rgba(0, 172, 238, 0.4);
             cursor: pointer;
             border: none;
             outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(0, 172, 238, 0.4), transparent);
+            transition: transform 0.5s ease-in-out;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        .btn:hover::before {
+            transform: translate(-50%, -50%) scale(1);
         }
 
         .btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 172, 238, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 172, 238, 0.5);
         }
 
-        .footer-note {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 15px;
+        .verifying-text {
+            display: none;
+            font-size: 1.2rem;
+            color: #00acee;
+            font-weight: bold;
+            animation: fadeText 1s infinite alternate;
+        }
+
+        @keyframes fadeText {
+            from {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         @media (max-width: 768px) {
-            .glitch {
+            .title {
                 font-size: 1.8rem;
             }
 
@@ -96,7 +139,7 @@
             }
 
             .btn {
-                padding: 10px 20px;
+                padding: 12px 25px;
                 font-size: 0.9rem;
             }
         }
@@ -105,11 +148,11 @@
 <body>
     <div id="particles-js"></div>
 
-    <div class="error-container">
-        <div class="glitch">Human Verification</div>
+    <div class="verification-box">
+        <div class="title">Human Verification</div>
         <p>To proceed, please verify that you are a human.</p>
         <button class="btn" id="verifyBtn">Verify Human</button>
-        <p id="verifyingText" style="display: none; color: #00acee;">Verifying...</p>
+        <p class="verifying-text" id="verifyingText">Verifying...</p>
     </div>
 
     <script>
@@ -127,7 +170,7 @@
 
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "number": { "value": 100, "density": { "enable": true, "value_area": 900 } },
                 "color": { "value": "#00acee" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.5 },
