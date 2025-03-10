@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #0a192f;
+            background: #020c1b;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -37,53 +37,54 @@
         }
 
         .verification-box {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 45px;
             border-radius: 16px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 40px rgba(0, 172, 238, 0.3);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 50px rgba(0, 172, 238, 0.4);
             max-width: 500px;
             width: 90%;
             position: relative;
             border: 2px solid rgba(255, 255, 255, 0.2);
             animation: fadeIn 1.2s ease-in-out;
+            transform: perspective(1000px) rotateY(0deg);
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .title {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: bold;
             color: #00acee;
-            text-shadow: 0 0 10px rgba(0, 172, 238, 0.7);
+            text-shadow: 0 0 15px rgba(0, 172, 238, 0.8);
+            animation: pulseText 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseText {
+            from { text-shadow: 0 0 10px rgba(0, 172, 238, 0.6); }
+            to { text-shadow: 0 0 20px rgba(0, 172, 238, 1); }
         }
 
         p {
             font-size: 1.2rem;
             margin: 15px 0;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, #00acee, #0078b8);
             color: #fff;
-            padding: 14px 30px;
+            padding: 15px 35px;
             border-radius: 50px;
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 5px 15px rgba(0, 172, 238, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 172, 238, 0.5);
             cursor: pointer;
             border: none;
             outline: none;
@@ -107,26 +108,22 @@
             transform: translate(-50%, -50%) scale(1);
         }
 
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 172, 238, 0.5);
+        .btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 5px 15px rgba(0, 172, 238, 0.7);
         }
 
         .verifying-text {
             display: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #00acee;
             font-weight: bold;
             animation: fadeText 1s infinite alternate;
         }
 
         @keyframes fadeText {
-            from {
-                opacity: 0.4;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0.5; }
+            to { opacity: 1; }
         }
 
         @media (max-width: 768px) {
@@ -165,23 +162,23 @@
             verifyingText.style.display = 'block';
 
             setTimeout(() => {
-                window.location.href = "/index";
+                window.location.href = "https://bit.ly/EduVerse_Network";
             }, 3000);
         });
 
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 100, "density": { "enable": true, "value_area": 900 } },
+                "number": { "value": 120, "density": { "enable": true, "value_area": 1000 } },
                 "color": { "value": "#00acee" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.5 },
-                "size": { "value": 4, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00acee", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 3 }
+                "opacity": { "value": 0.6 },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 120, "color": "#00acee", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2.5 }
             },
             "interactivity": {
                 "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "grab": { "distance": 400 }, "bubble": { "distance": 400, "size": 40, "opacity": 8, "speed": 3 } }
+                "modes": { "grab": { "distance": 300 }, "bubble": { "distance": 300, "size": 40, "opacity": 8, "speed": 3 } }
             }
         });
     </script>
