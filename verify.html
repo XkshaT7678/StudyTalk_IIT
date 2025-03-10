@@ -13,8 +13,8 @@
         verifyingText.style.display = 'block';
 
         setTimeout(() => {
-            // Save verification timestamp correctly
-            localStorage.setItem("lastVerified", Date.now());
+            // Store the current timestamp in localStorage after successful verification
+            localStorage.setItem("lastVerified", Date.now().toString());
             window.location.href = "/index"; // Redirect to main page
         }, 3000);
     });
