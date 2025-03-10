@@ -13,9 +13,9 @@
         verifyingText.style.display = 'block';
 
         setTimeout(() => {
-            // Store the current timestamp in localStorage after verification
-            localStorage.setItem("lastVerified", new Date().getTime());
-            window.location.href = "https://bit.ly/EduVerse_Network"; // Redirect to the main page
+            // Save verification timestamp correctly
+            localStorage.setItem("lastVerified", Date.now());
+            window.location.href = "/index"; // Redirect to main page
         }, 3000);
     });
     </script>
