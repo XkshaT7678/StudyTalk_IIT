@@ -50,6 +50,7 @@
             color: #00acee;
             margin-bottom: 20px;
             min-height: 24px;
+            display: none;
         }
 
         .glitch {
@@ -58,6 +59,27 @@
             color: #00acee;
             position: relative;
             display: inline-block;
+        }
+
+        /* Button */
+        .verify-btn {
+            background: linear-gradient(135deg, #00acee, #0078b8);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 172, 238, 0.3);
+        }
+
+        .verify-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 172, 238, 0.5);
         }
     </style>
 </head>
@@ -68,11 +90,11 @@
 
     <!-- Loading Container -->
     <div class="container">
-        <p class="loading-text" id="loading-text">Initializing System...</p>
-        <p class="glitch">Please Wait...</p>
+        <p class="loading-text" id="loading-text">Initializing...</p>
+        <button class="verify-btn" id="verify-btn" onclick="startLoading()">I'm Human ✅</button>
     </div>
 
-    <!-- JavaScript for Loading Animation & Redirection -->
+    <!-- JavaScript for Verification, Loading & Redirection -->
     <script>
         particlesJS('particles-js', {
             "particles": {
@@ -103,19 +125,24 @@
 
         let currentStep = 0;
         const loadingText = document.getElementById("loading-text");
+        const verifyBtn = document.getElementById("verify-btn");
 
-        function updateLoading() {
-            if (currentStep < loadingSteps.length) {
-                loadingText.textContent = loadingSteps[currentStep];
-                currentStep++;
-                setTimeout(updateLoading, 1000);
-            } else {
-                window.location.href = "index.html"; // Redirect to index.html after the steps
+        function startLoading() {
+            verifyBtn.style.display = "none"; // Hide button
+            loadingText.style.display = "block"; // Show loading text
+
+            function updateLoading() {
+                if (currentStep < loadingSteps.length) {
+                    loadingText.textContent = loadingSteps[currentStep];
+                    currentStep++;
+                    setTimeout(updateLoading, 1000);
+                } else {
+                    window.location.href = "index.html"; // Redirect to index.html
+                }
             }
-        }
 
-        // Start Loading Process
-        setTimeout(updateLoading, 1000);
+            updateLoading();
+        }
     </script>
 
 </body>
