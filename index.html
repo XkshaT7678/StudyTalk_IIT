@@ -6,15 +6,14 @@
     <title>—͟͞͞𝙀𝙙𝙪𝙑𝙚𝙧𝙨𝙚 𝙊𝙛𝙛𝙞𝙘𝙞𝙖𝙡</title>
 <script>
     (function() {
-        // Get the last verification time from localStorage
+        // Get the last verification timestamp from localStorage
         const lastVerified = localStorage.getItem("lastVerified");
         const now = Date.now();
         const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-        if (!lastVerified || now - parseInt(lastVerified) > oneDay) {
-            // Redirect to verify page only if not verified in the last 24 hours
-            localStorage.removeItem("lastVerified"); // Clear old verification
-            window.location.href = "/verify"; 
+        // If lastVerified doesn't exist or it's older than 24 hours, redirect to /verify
+        if (!lastVerified || (now - parseInt(lastVerified, 10)) > oneDay) {
+            window.location.href = "/verify";
         }
     })();
 </script>
