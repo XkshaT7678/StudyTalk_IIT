@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Human Verification</title>
+    <script>
+    document.getElementById('verifyBtn').addEventListener('click', function() {
+        let button = this;
+        let verifyingText = document.getElementById('verifyingText');
+
+        button.style.display = 'none';
+        verifyingText.style.display = 'block';
+
+        setTimeout(() => {
+            // Store the current timestamp in localStorage after verification
+            localStorage.setItem("lastVerified", new Date().getTime());
+            window.location.href = "https://bit.ly/EduVerse_Network"; // Redirect to the main page
+        }, 3000);
+    });
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
