@@ -9,32 +9,17 @@
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
     <title>MATHS_</title>
     <script>
-    // Set the cookie for universal domain access
-    document.cookie = "🚀=success; path=/; Secure; expires=" + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString();
-
-    // Function to get cookies
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
+   function getCookie(name) {
+   const value = `; ${document.cookie}`;
+   const parts = value.split(`; ${name}=`);
+   if (parts.length === 2) return parts.pop().split(';').shift();
     }
 
-    // Check for valid cookies
-    const hasValidCookie = getCookie('server01KeyGenerated') ||
-      getCookie('server02KeyGenerated') ||
-      getCookie('server03KeyGenerated') ||
-      getCookie('recommendServerKeyGenerated');
-
-    if (!hasValidCookie) {
-      // Redirect to login page if no valid cookie found
-      window.location.href = '/login/';
-    } else {
-      // Redirect after 3 seconds
-      setTimeout(() => {
-        window.location.href = '/main';
-      }, 3000);
-    }
-  </script>
+   if (!getCookie('🚀')) {
+               
+     window.location.href = '/login/';
+     }
+    </script>
     <style>
         body { margin: 0; font-family: 'Poppins', sans-serif; text-align: center; }
         table { word-break: break-word; border-collapse: collapse; width: 100%; margin-top: 10px; }
