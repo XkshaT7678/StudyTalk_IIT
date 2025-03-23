@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive Fullscreen Iframe</title>
+    <style>
+        /* Remove margin and padding for full-screen effect */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Make iframe fullscreen */
+        .fullscreen-iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            z-index: 9999;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Iframe (Direct Fullscreen) -->
+    <iframe class="fullscreen-iframe" 
+        src="https://drive.google.com/file/d/1lGfZSgghgF6VaJbjn2JAYf3wpYNXM2p7/view" 
+        allowfullscreen>
+    </iframe>
+
+</body>
+</html>
