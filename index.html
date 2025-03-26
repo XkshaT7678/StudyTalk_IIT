@@ -103,7 +103,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>EduVerse <strong>α</strong> Alpha</h1>
+        <h1>EduVerse</h1>
         <p class="tagline"><br>
             ✦ Expert-Curated Courses ✦ <br>
             ✦ Free Study Materials ✦ <br>
@@ -122,7 +122,7 @@
         </div><br>
         
         <div class="counter">
-            <span id="userCount">150k+</span> Connected Users
+            <span id="userCount">10k+</span> Connected Users
         </div>
     </section>
 
@@ -164,9 +164,9 @@
 
         // User Count Animation
         function animateUserCount() {
-            let count = 0, finalCount = 150000;
+            let count = 0, finalCount = 10000;
             let interval = setInterval(() => {
-                count += 5000;
+                count += 50;
                 document.getElementById("userCount").innerText = count.toLocaleString() + "+";
                 if (count >= finalCount) clearInterval(interval);
             }, 50);
