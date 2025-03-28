@@ -52,16 +52,6 @@
             background: linear-gradient(90deg, #00e676, #00b0ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid white;
-            width: 0;
-            animation: typing 2s steps(22, end) forwards;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
         }
         /* QR Code */
         #qr-code {
@@ -96,18 +86,6 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-        }
-        .btn::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateX(-100%);
-            transition: 0.4s ease-in-out;
-        }
-        .btn:hover::before {
-            transform: translateX(100%);
         }
         .btn.copy {
             background: #ff9800;
@@ -197,15 +175,22 @@
         // Pay Button Link
         document.getElementById("pay-now").href = upiLink;
 
-        // Particles.js Configuration (No Click Reaction)
+        // Particles.js Configuration (Fixed: No Click Reaction)
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 70, "density": { "enable": true, "value_area": 1000 } },
+                "number": { "value": 80, "density": { "enable": true, "value_area": 1000 } },
                 "color": { "value": "#00ffcc" },
                 "opacity": { "value": 0.5 },
                 "size": { "value": 3, "random": true },
                 "line_linked": { "enable": true, "color": "#00ffcc", "opacity": 0.4 },
                 "move": { "enable": true, "speed": 3 }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": false },
+                    "onclick": { "enable": false }
+                }
             }
         });
     </script>
