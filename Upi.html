@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support EduVerse Network</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1e1e, #000000);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 350px;
+        }
+        h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #00e676, #00b0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #qr-code {
+            margin: 10px auto;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .upi-id {
+            font-size: 16px;
+            margin: 15px 0;
+            color: #00e676;
+        }
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn.copy {
+            background: #ff9800;
+            color: white;
+            box-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
+        }
+        .btn.pay {
+            background: #00e676;
+            color: black;
+            box-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .footer {
+            font-size: 12px;
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Support EduVerse Network</h2>
+        <div id="qr-code"></div>
+        <p class="upi-id">UPI ID: <span id="upi-id">your-upi-id@upi</span></p>
+        <button class="btn copy" onclick="copyUPI()">Copy UPI ID</button>
+        <a class="btn pay" id="pay-now">Pay Now</a>
+        <p class="footer">Your support helps us grow! 🚀</p>
+    </div>
+
+    <script>
+        const upiID = "your-upi-id@upi";  // Replace with your actual UPI ID
+        const upiLink = `upi://pay?pa=${upiID}&pn=EduVerse%20Network&mc=&tid=&tr=&tn=Support%20EduVerse&am=&cu=INR`;
+
+        // Generate QR Code
+        new QRCode(document.getElementById("qr-code"), {
+            text: upiLink,
+            width: 160,
+            height: 160
+        });
+
+        function copyUPI() {
+            navigator.clipboard.writeText(upiID);
+            alert("✅ UPI ID Copied: " + upiID);
+        }
+
+        // Pay Button Link
+        document.getElementById("pay-now").href = upiLink;
+    </script>
+
+</body>
+</html>
