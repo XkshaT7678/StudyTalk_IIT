@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
-        /* General Styles */
+        /* Global Reset */
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +15,7 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-            background: #0d0d0d;
+            background: #0a0a0a;
             overflow: hidden;
             color: white;
         }
@@ -26,16 +26,16 @@
             height: 100%;
             z-index: -1;
         }
-        /* Centered Card */
+        /* Glassmorphic Card */
         .container {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 380px;
+            width: 400px;
             padding: 30px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -118,9 +118,14 @@
             background: #00e676;
             color: black;
             box-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
+            animation: pulse 1.5s infinite alternate;
         }
         .btn:hover {
             transform: scale(1.1);
+        }
+        @keyframes pulse {
+            from { box-shadow: 0 0 10px rgba(0, 230, 118, 0.6); }
+            to { box-shadow: 0 0 20px rgba(0, 230, 118, 1); }
         }
         /* Tooltip */
         .tooltip {
@@ -136,9 +141,12 @@
             transform: translateX(-50%);
             font-size: 12px;
             white-space: nowrap;
+            transition: opacity 0.3s;
+            opacity: 0;
         }
         .show-tooltip {
             visibility: visible;
+            opacity: 1;
             animation: fadeOut 1.5s ease-in-out forwards;
         }
         @keyframes fadeOut {
@@ -189,7 +197,7 @@
         // Pay Button Link
         document.getElementById("pay-now").href = upiLink;
 
-        // Particles.js Configuration
+        // Particles.js Configuration (No Click Reaction)
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 70, "density": { "enable": true, "value_area": 1000 } },
