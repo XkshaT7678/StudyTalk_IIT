@@ -32,21 +32,36 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 360px;
+            width: 380px;
             padding: 30px;
             text-align: center;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
         }
         h2 {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 15px;
             background: linear-gradient(90deg, #00e676, #00b0ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid white;
+            width: 0;
+            animation: typing 2s steps(22, end) forwards;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
         /* QR Code */
         #qr-code {
@@ -55,6 +70,7 @@
             background: white;
             border-radius: 10px;
             display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
         }
         .upi-id {
             font-size: 16px;
@@ -78,6 +94,20 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%);
+            transition: 0.4s ease-in-out;
+        }
+        .btn:hover::before {
+            transform: translateX(100%);
         }
         .btn.copy {
             background: #ff9800;
@@ -91,6 +121,29 @@
         }
         .btn:hover {
             transform: scale(1.1);
+        }
+        /* Tooltip */
+        .tooltip {
+            visibility: hidden;
+            background: rgba(0, 255, 255, 0.8);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+        .show-tooltip {
+            visibility: visible;
+            animation: fadeOut 1.5s ease-in-out forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
         /* Footer */
         .footer {
@@ -110,7 +163,7 @@
         <h2>Support EduVerse Network</h2>
         <div id="qr-code"></div>
         <p class="upi-id">UPI ID: <span id="upi-id">your-upi-id@upi</span></p>
-        <button class="btn copy" onclick="copyUPI()">Copy UPI ID</button>
+        <button class="btn copy" onclick="copyUPI()">Copy UPI ID <span class="tooltip">Copied!</span></button>
         <a class="btn pay" id="pay-now">Pay Now</a>
         <p class="footer">Your support helps us grow! 🚀</p>
     </div>
@@ -128,7 +181,9 @@
 
         function copyUPI() {
             navigator.clipboard.writeText(upiID);
-            alert("✅ UPI ID Copied: " + upiID);
+            let tooltip = document.querySelector(".tooltip");
+            tooltip.classList.add("show-tooltip");
+            setTimeout(() => tooltip.classList.remove("show-tooltip"), 1500);
         }
 
         // Pay Button Link
@@ -137,18 +192,12 @@
         // Particles.js Configuration
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 80, "density": { "enable": false, "value_area": 800 } },
+                "number": { "value": 70, "density": { "enable": true, "value_area": 1000 } },
                 "color": { "value": "#00ffcc" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
+                "opacity": { "value": 0.5 },
                 "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00ffcc", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 4, "direction": "none", "random": false, "out_mode": "out" }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": false, "mode": "push" } },
-                "modes": { "repulse": { "distance": 100 }, "push": { "particles_nb": 4 } }
+                "line_linked": { "enable": true, "color": "#00ffcc", "opacity": 0.4 },
+                "move": { "enable": true, "speed": 3 }
             }
         });
     </script>
