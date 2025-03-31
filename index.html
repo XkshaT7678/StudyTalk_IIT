@@ -174,12 +174,11 @@
     
     <input type="hidden" name="ad_type" value="2"/>
     <div class="input-group-prepend">
-        <button class="btn-captcha btn btn-primary" id="invisibleCaptchaShort" type="submit" onclick="return validateInput()">
+        <button class="btn-captcha btn btn-primary" id="invisibleCaptchaShort" type="button" onclick="redirectToMain()">
             <span>Go</span><i class="fas fa-arrow-right" aria-hidden="true"></i>
         </button>
     </div>
 </div>
-
 
 
 <div style="display:none;"><input type="hidden" name="_Token[fields]" autocomplete="off" value="172a64d6d443932f2e902c8fecf50c9a067df132%3Aad_type"/><input type="hidden" name="_Token[unlocked]" autocomplete="off" value="adcopy_challenge%7Cadcopy_response%7Cg-recaptcha-response%7Ch-captcha-response"/></div></form>
@@ -376,13 +375,12 @@
   /* ]]> */
 </script>
 
-	<script>
-    function validateInput() {
+<script>
+    function redirectToMain() {
         var urlInput = document.getElementById("url").value.trim();
-        if (urlInput === "") {
-            return false; // Prevents form submission
+        if (urlInput !== "") {
+            window.location.href = "/main";
         }
-        return true;
     }
 </script>
 
